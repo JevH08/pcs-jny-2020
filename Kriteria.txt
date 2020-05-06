@@ -1,0 +1,36 @@
+Penilaian : 
+80 poin nilai dasar
+
+1. Database (20 poin)
+- [5 poin] Harus ada function / procedure
+- [5 poin] Harus ada trigger 
+- [5 poin] isi data per tabel minimal 8 untuk master, dan data transaksi minimal 10 trans dengan minimal detail 2-5 data (boleh dirandom)
+- [5 poin] Database minimal 7 tabel
+
+2. Master (20 poin) : master harus dibuat untuk semua tabel yang butuh
+- [5 poin] View di data gridview
+- [5 poin] Insert
+- [5 poin] Update
+- [5 poin] Delete
+
+3. Transaksi (20 poin)
+- [5 poin] pakai oracle transaction (commit + rollback)
+- [10 poin] Pakai query builder
+- [5 poin] semua data bisa dipilih dari database, tidak sekedar memasukkan kode kedalam textbox
+
+4. Laporan (20 poin)
+- [10 poin] berfilter
+- [5 poin] pakai sub report
+- [5 poin] dilengkapi dengan formula field & running total field
+- minimal 3 misal invoice
+
+20 poin tambahan :
+- Kriteria ini tidak bisa dirincikan, hak dosen memberikan seberapa (jangan tanya rincian ke saya)
+- Tampilan UI UX cantik
+- Program kompleks
+- Menggunakan GIT
+- Upload foto barang kedalam program, dan bisa dilihat pada view
+- dan sebagainya, kreatiflah
+
+Majunya :
+MINGGU UAS, silahkan kontak saya untuk minta jadwal demo, demo lewat online
