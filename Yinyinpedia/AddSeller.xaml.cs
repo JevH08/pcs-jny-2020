@@ -102,7 +102,7 @@ namespace Yinyinpedia
                     int daftar = 0;
                     for (int i = 0; i < dbp.Tables[0].Rows.Count; i++)
                     {
-                        if (dbp.Tables[0].Rows[i]["username"].ToString().ToLower() == tusername.Text.ToLower() || dbp.Tables[0].Rows[i]["email"].ToString().ToLower() == email.Text.ToLower())
+                        if (dbp.Tables[0].Rows[i]["username"].ToString()== tusername.Text|| dbp.Tables[0].Rows[i]["email"].ToString().ToLower() == email.Text.ToLower())
                         {
                             daftar = 1;
                         }
@@ -132,7 +132,6 @@ namespace Yinyinpedia
                         }
                         cmd.Parameters.Add(":lahir", birthDate.Text);
                         cmd.Parameters.Add(":roleuser", "2");
-                        MessageBox.Show(name.Text + ", " + tusername.Text + ", " + password.Text + ", " + email.Text + ", " + address.Text + ", " + city.Text + ", " + phoneNumber.Text);
                         conn.Open();
                         cmd.ExecuteNonQuery();
                         conn.Close();
