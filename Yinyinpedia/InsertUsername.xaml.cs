@@ -59,6 +59,7 @@ namespace Yinyinpedia
                     }
                     else if (role == 3)
                     {
+                        this.Close();
                         NewPassword np = new NewPassword(tusername.Text);
                         np.ShowDialog();
                     }

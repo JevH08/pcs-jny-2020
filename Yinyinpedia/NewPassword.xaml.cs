@@ -45,6 +45,7 @@ namespace Yinyinpedia
                     cmd = new OracleCommand(query, conn);
                     cmd.ExecuteNonQuery();
                     conn.Close();
+                    this.Close();
                 }
                 else
                 {
