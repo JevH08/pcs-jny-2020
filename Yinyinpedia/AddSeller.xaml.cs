@@ -69,8 +69,9 @@ namespace Yinyinpedia
             }
             dgvSeller.ItemsSource = null;
             dgvSeller.ItemsSource = dbp.Tables[0].DefaultView;
+            
 
-            name.Text = ""; tusername.Text = ""; password.Text = ""; address.Text = ""; email.Text = ""; city.SelectedIndex = -1; birthDate.Text = ""; phoneNumber.Text = "";
+            name.Text = ""; tusername.Text = "";address.Text = ""; email.Text = ""; city.SelectedIndex = -1; birthDate.Text = ""; phoneNumber.Text = "";
             male.IsChecked = true;
             female.IsChecked = true;
         }
@@ -91,7 +92,7 @@ namespace Yinyinpedia
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
-            if (name.Text == "" || tusername.Text == "" || password.Text == "" || address.Text == "" || email.Text == "" || city.SelectedIndex == -1 || birthDate.Text == "" || phoneNumber.Text == "")
+            if (name.Text == "" || tusername.Text == "" ||  address.Text == "" || email.Text == "" || city.SelectedIndex == -1 || birthDate.Text == "" || phoneNumber.Text == "")
             {
                 MessageBox.Show("DATA TIDAK LENGKAP");
             }
@@ -117,7 +118,7 @@ namespace Yinyinpedia
 
                         cmd.Parameters.Add(":nama", name.Text.ToUpper());
                         cmd.Parameters.Add(":users", tusername.Text);
-                        cmd.Parameters.Add(":passs", password.Text);
+                        cmd.Parameters.Add(":passs", tusername.Text);
                         cmd.Parameters.Add(":email", email.Text.ToUpper());
                         cmd.Parameters.Add(":alamat", address.Text.ToUpper());
                         cmd.Parameters.Add(":kota", city.Text.ToUpper());

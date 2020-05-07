@@ -33,6 +33,11 @@ namespace Yinyinpedia
             conn = new OracleConnection(datasource);
         }
 
+        private void Tusername_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
         private void Login_Click(object sender, RoutedEventArgs e)
         {
             try

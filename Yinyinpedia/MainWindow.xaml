@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Login" Height="300" Width="350" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Border BorderBrush="Black" BorderThickness="1" Margin="20 45 20 45"/>
+        <Border BorderBrush="#FFDCD8D8" BorderThickness="1" Margin="20 45 20 45" Background="#FFFDD2D2"/>
         <StackPanel Margin="25 50 25 50">
             <Label Content="YINYINPEDIA" HorizontalAlignment="Center" FontSize="20" Margin="0 5 0 5"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
@@ -16,12 +16,21 @@
                     <Label Content="Password"/>
                 </StackPanel>
                 <StackPanel Margin="10 0 0 0" Width="150">
-                    <TextBox Name="tusername" Margin="0 6 0 0"/>
-                    <TextBox Name="tpassword" Margin="0 6 0 0"/>
+                    <TextBox Name="tusername" Margin="0 6 0 0" TextChanged="Tusername_TextChanged" BorderBrush="#FFD3D3D4" Background="#FFE7E2E2"/>
+                    <TextBox Name="tpassword" Margin="0 6 0 0" BorderBrush="#FFDEDEE0" Background="#FFE4E2E2"/>
                 </StackPanel>
             </StackPanel>
-            <Button Name="login" Content="Login" Click="Login_Click" Margin="50 20 50 5"/>
-            <Button Name="signin" Content="Don't have An Account ? Sign Up Here" Background="{x:Null}" BorderThickness="0" Margin="50 0 50 5" FontSize="10" Click="Signin_Click"/>
+            <Button Name="login" Content="Login" Click="Login_Click" Margin="50 20 50 5" Background="#FFF19393"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel>
+                <TextBlock Text="Don't have account ? " Background="{x:Null}" FontSize="10"/>
+                </StackPanel>
+                <StackPanel>
+                <Button Name="signin" Content="Sign Up Here" Background="{x:Null}" BorderThickness="0"  FontSize="10" Click="Signin_Click" Foreground="#FF3265DD"/>
+                </StackPanel>
+                
+            </StackPanel>
+            
         </StackPanel>
     </Grid>
 </Window>
