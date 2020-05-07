@@ -38,6 +38,12 @@ namespace Yinyinpedia
 
         }
 
+        private void Forgot_Click(object sender, RoutedEventArgs e)
+        {
+            InsertUsername iu = new InsertUsername();
+            iu.ShowDialog();
+        }
+
         private void Login_Click(object sender, RoutedEventArgs e)
         {
             try

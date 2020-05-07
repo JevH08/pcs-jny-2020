@@ -89,5 +89,10 @@ namespace Yinyinpedia
                 MessageBox.Show("New Password Field is Required");
             }
         }
+
+        private void CNPassword_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

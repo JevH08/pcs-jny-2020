@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="Login" Height="300" Width="350" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Border BorderBrush="#FFDCD8D8" BorderThickness="1" Margin="20 45 20 45" Background="#FFFDD2D2"/>
-        <StackPanel Margin="25 50 25 50">
+        <Border BorderBrush="#FFDCD8D8" BorderThickness="1" Margin="20 45 20 35" Background="#FFFDD2D2"/>
+        <StackPanel Margin="25,50,25,35.4">
             <Label Content="YINYINPEDIA" HorizontalAlignment="Center" FontSize="20" Margin="0 5 0 5"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <StackPanel>
@@ -23,13 +23,14 @@
             <Button Name="login" Content="Login" Click="Login_Click" Margin="50 20 50 5" Background="#FFF19393"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <StackPanel>
-                <TextBlock Text="Don't have account ? " Background="{x:Null}" FontSize="10"/>
+                    <TextBlock Text="Don't have account ? " Background="{x:Null}" FontSize="10"/>
                 </StackPanel>
                 <StackPanel>
-                <Button Name="signin" Content="Sign Up Here" Background="{x:Null}" BorderThickness="0"  FontSize="10" Click="Signin_Click" Foreground="#FF3265DD"/>
+                    <Button Name="signin" Content="Sign Up Here" Background="{x:Null}" BorderThickness="0"  FontSize="10" Click="Signin_Click" Foreground="#FF3265DD"/>
                 </StackPanel>
-                
             </StackPanel>
+            <Button Name="forgot" Content="Forgot Password" Background="{x:Null}" BorderThickness="0"  FontSize="10" Click="Forgot_Click" Foreground="#FF3265DD"/>
+            
             
         </StackPanel>
     </Grid>
