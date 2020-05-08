@@ -74,6 +74,36 @@ namespace Yinyinpedia
             name.Text = ""; tusername.Text = "";address.Text = ""; email.Text = ""; city.SelectedIndex = -1; birthDate.Text = ""; phoneNumber.Text = "";
             male.IsChecked = true;
             female.IsChecked = true;
+
+            OracleCommand cmd = new OracleCommand()
+            {
+                Connection = conn,
+                CommandText = "hitung",
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.Add(new OracleParameter()
+            {
+                Direction = ParameterDirection.ReturnValue,
+                ParameterName = "peran",
+                OracleDbType = OracleDbType.Int32
+            });
+            cmd.Parameters.Add(new OracleParameter()
+            {
+                Direction = ParameterDirection.Input,
+                ParameterName = "hitung",
+                OracleDbType = OracleDbType.Varchar2,
+                Value = "2"
+            });
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            jumpen.Text = "Penjual : " + cmd.Parameters["peran"].Value.ToString();
+            conn.Close();
+
+            cmd.Parameters[1].Value = "3";
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            jumpem.Text = "Pembeli : " + cmd.Parameters["peran"].Value.ToString();
+            conn.Close();
         }
 
         private void Prev_Click(object sender, RoutedEventArgs e)
