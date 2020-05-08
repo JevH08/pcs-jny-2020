@@ -29,3 +29,5 @@ C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\InsertU
 C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\NewPassword.g.cs
 C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\InsertUsername.baml
 C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\NewPassword.baml
+C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\RegisterUser.g.cs
+C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\RegisterUser.baml

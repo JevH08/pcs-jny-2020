@@ -104,7 +104,8 @@ namespace Yinyinpedia
 
         private void Signin_Click(object sender, RoutedEventArgs e)
         {
-
+            RegisterUser ru = new RegisterUser();
+            ru.ShowDialog();
         }
     }
 }
