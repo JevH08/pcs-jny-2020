@@ -86,6 +86,8 @@ namespace Yinyinpedia
                         conn.Open();
                         cmd.ExecuteNonQuery();
                         conn.Close();
+                        MainWindow m = new MainWindow();
+                        m.ShowDialog();
                         this.Close();
                     }
                 }

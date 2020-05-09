@@ -28,16 +28,35 @@ namespace Yinyinpedia
             header.Text = "WELCOME, ADMIN " + username.ToUpper();
         }
 
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow m = new MainWindow();
+            m.ShowDialog();
+            this.Close();
+        }
+
         private void AddSeller_Click(object sender, RoutedEventArgs e)
         {
             AddSeller addSeller = new AddSeller(username);
             addSeller.ShowDialog();
         }
 
+        private void AddCategory_Click(object sender, RoutedEventArgs e)
+        {
+            AddCategory addCategory = new AddCategory(username);
+            addCategory.ShowDialog();
+        }
+
         private void AddDeliveryService_Click(object sender, RoutedEventArgs e)
         {
             DeliveryServices delivery = new DeliveryServices(username);
             delivery.ShowDialog();
+        }
+
+        private void Verification_Click(object sender, RoutedEventArgs e)
+        {
+            ProductVerification p = new ProductVerification(username);
+            p.ShowDialog();
         }
 
         private void ViewReport_Click(object sender, RoutedEventArgs e)

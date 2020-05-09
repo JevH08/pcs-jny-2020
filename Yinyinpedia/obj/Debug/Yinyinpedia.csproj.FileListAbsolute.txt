@@ -31,60 +31,44 @@ C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\InsertU
 C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\NewPassword.baml
 C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\RegisterUser.g.cs
 C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\RegisterUser.baml
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\bin\Debug\Yinyinpedia.exe.config
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\bin\Debug\Yinyinpedia.exe
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\bin\Debug\Yinyinpedia.pdb
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\bin\Debug\CrystalDecisions.ReportSource.dll
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\bin\Debug\CrystalDecisions.Shared.dll
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\bin\Debug\stdole.dll
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\Yinyinpedia.csprojAssemblyReference.cache
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\AddSeller.g.cs
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\Admin.g.cs
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\Buyer.g.cs
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\ChangePassword.g.cs
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\DeliveryServices.g.cs
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\InsertUsername.g.cs
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\MainWindow.g.cs
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\NewPassword.g.cs
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\RegisterUser.g.cs
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\Seller.g.cs
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\Report.g.cs
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\App.g.cs
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\Yinyinpedia_MarkupCompile.cache
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\Yinyinpedia_MarkupCompile.lref
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\AddSeller.baml
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\Admin.baml
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\Buyer.baml
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\ChangePassword.baml
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\DeliveryServices.baml
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\InsertUsername.baml
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\MainWindow.baml
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\NewPassword.baml
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\RegisterUser.baml
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\Seller.baml
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\Report.baml
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\Yinyinpedia.g.resources
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\Yinyinpedia.Properties.Resources.resources
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\Yinyinpedia.csproj.GenerateResource.cache
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\Yinyinpedia.csproj.CopyComplete
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\Yinyinpedia.exe
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\Yinyinpedia.pdb
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\bin\Debug\sapbusinessobjects.wpf.viewer.dll
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\bin\Debug\SAPBusinessObjects.WPF.ViewerShared.dll
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\bin\Debug\FlashControlV71.dll
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\bin\Debug\ShockwaveFlashObjects.dll
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\ReportWindow.g.cs
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\ReportWindow.baml
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\bin\Debug\Yinyinpedia.exe.config
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\bin\Debug\Yinyinpedia.exe
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\bin\Debug\Yinyinpedia.pdb
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\Yinyinpedia.csprojAssemblyReference.cache
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\AddSeller.g.cs
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\Admin.g.cs
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\Buyer.g.cs
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\ChangePassword.g.cs
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\DeliveryServices.g.cs
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\InsertUsername.g.cs
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\MainWindow.g.cs
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\NewPassword.g.cs
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\RegisterUser.g.cs
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\Seller.g.cs
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\App.g.cs
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\Yinyinpedia_MarkupCompile.cache
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\Yinyinpedia_MarkupCompile.lref
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\AddSeller.baml
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\Admin.baml
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\Buyer.baml
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\ChangePassword.baml
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\DeliveryServices.baml
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\InsertUsername.baml
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\MainWindow.baml
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\NewPassword.baml
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\RegisterUser.baml
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\Seller.baml
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\Yinyinpedia.g.resources
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\Yinyinpedia.Properties.Resources.resources
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\Yinyinpedia.csproj.GenerateResource.cache
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\Yinyinpedia.csproj.CoreCompileInputs.cache
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\Yinyinpedia.exe
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\Yinyinpedia.pdb
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\ProductSeller.g.cs
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\ProfileSeller.g.cs
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\ProductSeller.baml
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\ProfileSeller.baml
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\AddCategory.g.cs
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\AddCategory.baml
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\ProductVerification.g.cs
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\ProductVerification.baml

@@ -23,9 +23,7 @@ namespace Yinyinpedia
         string user;
         OracleConnection conn;
         OracleCommand cmd;
-        string username, password;
-        int role, status;
-        public NewPassword( string username )
+        public NewPassword (string username)
         {
             InitializeComponent();
             user = username;
@@ -40,16 +38,17 @@ namespace Yinyinpedia
                 conn.Open();
                 if (tpassword.Text != "")
                 {
-                    
                     string query = "update mh_user set  password_user = '" + tpassword.Text + "' where username_user = '" + user + "'";
                     cmd = new OracleCommand(query, conn);
                     cmd.ExecuteNonQuery();
                     conn.Close();
+                    MainWindow m = new MainWindow();
+                    m.ShowDialog();
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("PASSWORD TIDAK BOLEH KOSONG");
+                    MessageBox.Show("Password Is Required");
                 }
             }
             catch (Exception ex)

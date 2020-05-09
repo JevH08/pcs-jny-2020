@@ -22,8 +22,8 @@ namespace Yinyinpedia
     {
         OracleConnection conn;
         OracleCommand cmd;
-        string username, password;
-        int role, status;
+        string username;
+        int role;
         public InsertUsername()
         {
             InitializeComponent();
@@ -41,7 +41,7 @@ namespace Yinyinpedia
                 int user1 = Convert.ToInt32(cmd.ExecuteScalar().ToString());
                 if (user1 == 0)
                 {
-                    MessageBox.Show("PASTIKAN USERNAME BENAR");
+                    MessageBox.Show("Make Sure The Username Is Correct");
                 }
                 else
                 {
@@ -50,11 +50,13 @@ namespace Yinyinpedia
                     role = Convert.ToInt32(cmd.ExecuteScalar().ToString());
                     if (role == 2)
                     {
-                        MessageBox.Show("Password anda sama dengan username anda");
+                        MessageBox.Show("Your Password Is The Same As Your Username");
                         string query = "update mh_user set status = 0,  password_user = '" + username + "' where username_user = '" + username + "'";
                         cmd = new OracleCommand(query, conn);
                         cmd.ExecuteNonQuery();
                         conn.Close();
+                        MainWindow m = new MainWindow();
+                        m.ShowDialog();
                         this.Close();
                     }
                     else if (role == 3)

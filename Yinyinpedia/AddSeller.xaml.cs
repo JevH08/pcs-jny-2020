@@ -23,23 +23,29 @@ namespace Yinyinpedia
     {
         OracleConnection conn;
         OracleCommand cmd;
-        string username;
         DataSet dbp;
+        string username;
 
         public AddSeller(string user)
         {
             InitializeComponent();
-            username = user;
             string datasource = "Data Source=orcl;User id=proyekpcs;Password=proyekpcs";
             conn = new OracleConnection(datasource);
+            username = user;
+            male.IsChecked = true;
             LoadData(1);
         }
 
         private void LoadData(int pages)
         {
-            OracleDataAdapter da = new OracleDataAdapter("select kode_user as kode,nama_user as nama,username_user as username ,email_user as email, alamat_user as alamat,telepon_user as telepon ,jenis_kelamin,decode(role,'1','ADMIN','2','PENJUAL','PEMBELI') as role  from mh_user  order by role,kode_user", conn);
+            conn.Open();
+            string query = "select kode_user as CODE,nama_user as NAME,username_user as USERNAME ,email_user as EMAIL, alamat_user as ADDRESS,telepon_user as TELEPHONE ,jenis_kelamin as GENDER,(case when role = 1 then 'Admin' when role = 2 then 'Seller' else 'Buyer' end) as ROLE  from mh_user order by ROLE, CODE";
+            cmd = new OracleCommand(query, conn);
+            cmd.ExecuteReader();
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
             dbp = new DataSet();
             da.Fill(dbp);
+            conn.Close();
             int max;
             if (((double)dbp.Tables[0].Rows.Count / (double)10) == (int)((double)dbp.Tables[0].Rows.Count / (double)10))
             {
@@ -75,7 +81,7 @@ namespace Yinyinpedia
             male.IsChecked = true;
             female.IsChecked = true;
 
-            OracleCommand cmd = new OracleCommand()
+            cmd = new OracleCommand()
             {
                 Connection = conn,
                 CommandText = "hitung",
@@ -96,14 +102,21 @@ namespace Yinyinpedia
             });
             conn.Open();
             cmd.ExecuteNonQuery();
-            jumpen.Text = "Penjual : " + cmd.Parameters["peran"].Value.ToString();
+            jumpen.Text = cmd.Parameters["peran"].Value.ToString();
             conn.Close();
 
             cmd.Parameters[1].Value = "3";
             conn.Open();
             cmd.ExecuteNonQuery();
-            jumpem.Text = "Pembeli : " + cmd.Parameters["peran"].Value.ToString();
+            jumpem.Text = cmd.Parameters["peran"].Value.ToString();
             conn.Close();
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            Admin a = new Admin(username);
+            a.ShowDialog();
+            this.Close();
         }
 
         private void Prev_Click(object sender, RoutedEventArgs e)
@@ -144,7 +157,7 @@ namespace Yinyinpedia
                     }
                     else
                     {
-                        OracleCommand cmd = new OracleCommand("INSERT INTO mh_user (nama_user,username_user,password_user,email_user,alamat_user,kota_user,telepon_user,jenis_kelamin,tgl_lahir,role) values(:nama,:users,:passs,:email,:alamat,:kota,:telp,:jenis,to_date(:lahir,'DD-MM-YYYY'),:roleuser)", conn);
+                        cmd = new OracleCommand("INSERT INTO mh_user (nama_user,username_user,password_user,email_user,alamat_user,kota_user,telepon_user,jenis_kelamin,tgl_lahir,role) values(:nama,:users,:passs,:email,:alamat,:kota,:telp,:jenis,to_date(:lahir,'DD-MM-YYYY'),:roleuser)", conn);
 
                         cmd.Parameters.Add(":nama", name.Text.ToUpper());
                         cmd.Parameters.Add(":users", tusername.Text);

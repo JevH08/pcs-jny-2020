@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Yinyinpedia"
         mc:Ignorable="d"
-        Title="RegisterUser" Height="450" Width="450">
+        Title="RegisterUser" Height="450" Width="450" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Grid>
         <Border BorderThickness="1" Margin="20 30 20 20" Background="#FFF1DDDD" BorderBrush="#FFC2C2C2"/>
         <StackPanel Margin="25 50 25 25">

@@ -23,12 +23,13 @@ namespace Yinyinpedia
     {
         OracleConnection conn;
         OracleCommand cmd;
-        string username;
+        string username, kode;
 
-        public ChangePassword(string user)
+        public ChangePassword(string user, string kod)
         {
             InitializeComponent();
             username = user;
+            kode = kod;
             string datasource = "Data Source=orcl;User id=proyekpcs;Password=proyekpcs";
             conn = new OracleConnection(datasource);
         }
@@ -47,7 +48,6 @@ namespace Yinyinpedia
                             string query = "update mh_user set password_user = '" + nPassword.Text + "' where username_user = '" + username + "'";
                             cmd = new OracleCommand(query, conn);
                             cmd.ExecuteNonQuery();
-                            MessageBox.Show("Sukses");
                             OracleCommand cmds = new OracleCommand()
                             {
                                 CommandType = CommandType.StoredProcedure,
@@ -63,7 +63,6 @@ namespace Yinyinpedia
                                 Value = username
                             });
                             cmds.ExecuteNonQuery();
-                            MessageBox.Show("Sukses Nambah");
                             conn.Close();
                         }
                         catch (Exception ex)
@@ -71,8 +70,9 @@ namespace Yinyinpedia
                             conn.Close();
                             Console.WriteLine(ex.StackTrace);
                         }
-                        Seller p = new Seller(username);
+                        Seller p = new Seller(username, kode);
                         p.ShowDialog();
+                        this.Close();
                     }
                     else
                     {
@@ -88,11 +88,6 @@ namespace Yinyinpedia
             {
                 MessageBox.Show("New Password Field is Required");
             }
-        }
-
-        private void CNPassword_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
     }
 }

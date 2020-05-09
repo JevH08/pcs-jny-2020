@@ -19,7 +19,7 @@ namespace Yinyinpedia
     /// </summary>
     public partial class Buyer : Window
     {
-        public Buyer(string user)
+        public Buyer(string user, string kod)
         {
             InitializeComponent();
         }

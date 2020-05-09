@@ -33,15 +33,11 @@ namespace Yinyinpedia
             conn = new OracleConnection(datasource);
         }
 
-        private void Tusername_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
         private void Forgot_Click(object sender, RoutedEventArgs e)
         {
             InsertUsername iu = new InsertUsername();
             iu.ShowDialog();
+            this.Close();
         }
 
         private void Login_Click(object sender, RoutedEventArgs e)
@@ -73,23 +69,34 @@ namespace Yinyinpedia
                         {
                             Admin a = new Admin(username);
                             a.ShowDialog();
+                            this.Close();
                         }
                         else if (role == 2)
                         {
                             cmd = new OracleCommand("select status from mh_user where username_user = '" + username + "' and password_user = '" + password + "' ", conn);
                             status = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+                            cmd = new OracleCommand("select kode_user from mh_user where username_user = '" + username + "' and password_user = '" + password + "' ", conn);
+                            string kode = cmd.ExecuteScalar().ToString();
                             if (status == 0)
                             {
-                                ChangePassword cp = new ChangePassword(username);
+                                ChangePassword cp = new ChangePassword(username, kode);
                                 cp.ShowDialog();
+                                this.Close();
                             }
-                            Seller p = new Seller(username);
-                            p.ShowDialog();
+                            else
+                            {
+                                Seller p = new Seller(username, kode);
+                                p.ShowDialog();
+                                this.Close();
+                            }
                         }
                         else if (role == 3)
                         {
-                            Buyer b = new Buyer(username);
+                            cmd = new OracleCommand("select kode_user from mh_user where username_user = '" + username + "' and password_user = '" + password + "' ", conn);
+                            string kode = cmd.ExecuteScalar().ToString();
+                            Buyer b = new Buyer(username, kode);
                             b.ShowDialog();
+                            this.Close();
                         }
                     }
                 }
@@ -106,6 +113,7 @@ namespace Yinyinpedia
         {
             RegisterUser ru = new RegisterUser();
             ru.ShowDialog();
+            this.Close();
         }
     }
 }

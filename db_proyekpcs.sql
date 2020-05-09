@@ -10,7 +10,8 @@ DROP TABLE mh_chat CASCADE CONSTRAINTS;
 
 CREATE TABLE MH_KATEGORI (
   Kode_Kategori varchar2(15) CONSTRAINTS PK_MH_KATEGORI  PRIMARY KEY,
-  Nama_Kategori varchar2(100)  
+  Nama_Kategori varchar2(100)  ,
+	status number(1)
 );
 
 CREATE TABLE mh_user(
@@ -49,9 +50,9 @@ CREATE TABLE MH_PRODUK (
    stok  number  ,
    harga  number  ,
    berat  number  ,
-   kondisi  number  ,
+   kondisi  number,
    tag  varchar2(200)  ,
-   status  number  ,
+   status  number,
   rating number  ,
   jumlah_pembeli number  
 );
@@ -108,4 +109,7 @@ insert into mh_user values ('US20200426_001','BRIGITTA','yinyin','yinyin','yinyi
 insert into mh_user values ('US20200426_002','JEVON','jevon','jevon','jevon@gmail.com','Jln. Pelajar Pejuang 45 No. 877', 'SEMARANG','(+62)93168477753','L',to_date('13-04-2000','DD-MM-YYYY'),0,1,1);
 insert into mh_user values ('US20200426_003','GEORGIA','nikita','nikita','nikita@gmail.com','Jln. Jaksa No. 461','JAKARTA','(+62)38362418235','P',to_date('21-08-2000','DD-MM-YYYY'),0,1,1);
 
+insert into mh_kategori values('KA_001', 'Animal', 0);
+insert into mh_kategori values('KA_002', 'Glass', 0);
+insert into mh_kategori values('KA_003', 'Electronic', 0);
 purge recyclebin;
