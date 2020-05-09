@@ -1,13 +1,15 @@
 ﻿
 
-FC:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\AddSeller.xaml;;
-FC:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\Admin.xaml;;
-FC:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\Buyer.xaml;;
-FC:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\ChangePassword.xaml;;
-FC:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\DeliveryServices.xaml;;
-FC:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\MainWindow.xaml;;
-FC:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\Seller.xaml;;
-FC:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\InsertUsername.xaml;;
-FC:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\NewPassword.xaml;;
-FC:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\RegisterUser.xaml;;
+FK:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\AddSeller.xaml;;
+FK:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\Admin.xaml;;
+FK:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\Buyer.xaml;;
+FK:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\ChangePassword.xaml;;
+FK:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\DeliveryServices.xaml;;
+FK:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\InsertUsername.xaml;;
+FK:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\MainWindow.xaml;;
+FK:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\NewPassword.xaml;;
+FK:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\RegisterUser.xaml;;
+FK:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\Report.xaml;;
+FK:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\ReportWindow.xaml;;
+FK:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\Seller.xaml;;
 

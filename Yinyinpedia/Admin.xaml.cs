@@ -42,7 +42,8 @@ namespace Yinyinpedia
 
         private void ViewReport_Click(object sender, RoutedEventArgs e)
         {
-
+            Report rep = new Report();
+            rep.ShowDialog();
         }
     }
 }
