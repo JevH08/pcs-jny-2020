@@ -72,3 +72,11 @@ C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\AddCat
 C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\AddCategory.baml
 C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\ProductVerification.g.cs
 C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\ProductVerification.baml
+C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\AddCategory.g.cs
+C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\ProductSeller.g.cs
+C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\ProductVerification.g.cs
+C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\ProfileSeller.g.cs
+C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\AddCategory.baml
+C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\ProductSeller.baml
+C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\ProductVerification.baml
+C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\ProfileSeller.baml

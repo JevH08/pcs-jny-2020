@@ -33,6 +33,11 @@ namespace Yinyinpedia
             string datasource = "Data Source=orcl;User id=proyekpcs;Password=proyekpcs";
             conn = new OracleConnection(datasource);
             loadData();
+            conn.Open();
+            string query = "select nama_user from mh_user where username_user = '" + username + "'";
+            cmd = new OracleCommand(query, conn);
+            header.Text = "WELCOME, SELLER " + cmd.ExecuteScalar().ToString();
+            conn.Close();
         }
 
         public void loadData()
