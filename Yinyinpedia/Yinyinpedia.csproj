@@ -35,22 +35,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Oracle.DataAccess, Version=2.112.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\app\YinYin\product\11.2.0\dbhome_1\ODP.NET\bin\2.x\Oracle.DataAccess.dll</HintPath>
     </Reference>
-    <Reference Include="ReachFramework" />
-    <Reference Include="sapbusinessobjects.wpf.viewer, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="SAPBusinessObjects.WPF.ViewerShared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Printing" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -69,6 +59,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddCategory.xaml.cs">
+      <DependentUpon>AddCategory.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddSeller.xaml.cs">
       <DependentUpon>AddSeller.xaml</DependentUpon>
     </Compile>
@@ -77,12 +70,6 @@
     </Compile>
     <Compile Include="ChangePassword.xaml.cs">
       <DependentUpon>ChangePassword.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="CrystalReport1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReport1.rpt</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="DeliveryServices.xaml.cs">
       <DependentUpon>DeliveryServices.xaml</DependentUpon>
@@ -93,24 +80,25 @@
     <Compile Include="NewPassword.xaml.cs">
       <DependentUpon>NewPassword.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ProductSeller.xaml.cs">
+      <DependentUpon>ProductSeller.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProductVerification.xaml.cs">
+      <DependentUpon>ProductVerification.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProfileSeller.xaml.cs">
+      <DependentUpon>ProfileSeller.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RegisterUser.xaml.cs">
       <DependentUpon>RegisterUser.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Report.xaml.cs">
-      <DependentUpon>Report.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ReportPengiriman.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ReportPengiriman.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ReportWindow.xaml.cs">
-      <DependentUpon>ReportWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Seller.xaml.cs">
       <DependentUpon>Seller.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddCategory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddSeller.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -154,15 +142,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ProductSeller.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProductVerification.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProfileSeller.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="RegisterUser.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Report.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ReportWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -185,17 +177,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="CrystalReport1.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ReportPengiriman.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ReportPengiriman.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -204,9 +188,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
