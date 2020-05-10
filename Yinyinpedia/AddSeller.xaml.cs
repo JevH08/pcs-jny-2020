@@ -39,7 +39,7 @@ namespace Yinyinpedia
         private void LoadData(int pages)
         {
             conn.Open();
-            string query = "select kode_user as CODE,nama_user as NAME,username_user as USERNAME ,email_user as EMAIL, alamat_user as ADDRESS,telepon_user as TELEPHONE ,jenis_kelamin as GENDER,(case when role = 1 then 'Admin' when role = 2 then 'Seller' else 'Buyer' end) as ROLE  from mh_user order by ROLE, CODE";
+            string query = "select kode_user as CODE,nama_user as NAME,username_user as USERNAME ,email_user as EMAIL, alamat_user as ADDRESS,telepon_user as TELEPHONE,norek as BANK ,jenis_kelamin as GENDER,(case when role = 1 then 'Admin' when role = 2 then 'Seller' else 'Buyer' end) as ROLE  from mh_user order by ROLE, CODE";
             cmd = new OracleCommand(query, conn);
             cmd.ExecuteReader();
             OracleDataAdapter da = new OracleDataAdapter(cmd);
@@ -131,7 +131,7 @@ namespace Yinyinpedia
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
-            if (name.Text == "" || tusername.Text == "" ||  address.Text == "" || email.Text == "" || city.SelectedIndex == -1 || birthDate.Text == "" || phoneNumber.Text == "")
+            if (name.Text == "" || tusername.Text == "" ||  address.Text == "" || email.Text == "" || city.SelectedIndex == -1 || birthDate.Text == "" || phoneNumber.Text == "" || norek.Text =="")
             {
                 MessageBox.Show("DATA TIDAK LENGKAP");
             }
@@ -153,15 +153,16 @@ namespace Yinyinpedia
                     }
                     else
                     {
-                        cmd = new OracleCommand("INSERT INTO mh_user (nama_user,username_user,password_user,email_user,alamat_user,kota_user,telepon_user,jenis_kelamin,tgl_lahir,role) values(:nama,:users,:passs,:email,:alamat,:kota,:telp,:jenis,to_date(:lahir,'DD-MM-YYYY'),:roleuser)", conn);
+                        cmd = new OracleCommand("INSERT INTO mh_user (nama_user,username_user,password_user,email_user,alamat_user,kota_user,telepon_user,norek,jenis_kelamin,tgl_lahir,role) values(:nama,:users,:passs,:email,:alamat,:kota,:telp,:bank,:jenis,to_date(:lahir,'DD-MM-YYYY'),:roleuser)", conn);
 
                         cmd.Parameters.Add(":nama", name.Text.ToUpper());
                         cmd.Parameters.Add(":users", tusername.Text);
                         cmd.Parameters.Add(":passs", tusername.Text);
-                        cmd.Parameters.Add(":email", email.Text.ToUpper());
-                        cmd.Parameters.Add(":alamat", address.Text.ToUpper());
+                        cmd.Parameters.Add(":email", email.Text);
+                        cmd.Parameters.Add(":alamat", address.Text);
                         cmd.Parameters.Add(":kota", city.Text.ToUpper());
                         cmd.Parameters.Add(":telp", phoneNumber.Text);
+                        cmd.Parameters.Add(":bank", norek.Text);
                         if ((bool)female.IsChecked == true)
                         {
                             cmd.Parameters.Add(":jenis", "P");

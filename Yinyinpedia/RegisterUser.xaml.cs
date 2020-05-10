@@ -42,7 +42,7 @@ namespace Yinyinpedia
 
             private void Submit_Click(object sender, RoutedEventArgs e)
         {
-            if (name.Text == "" || tusername.Text == "" || tpassword.Text == "" || address.Text == "" || email.Text == "" || city.SelectedIndex == -1 || birthDate.Text == "" || phoneNumber.Text == "")
+            if (name.Text == "" || tusername.Text == "" || tpassword.Text == "" || address.Text == "" || email.Text == "" || city.SelectedIndex == -1 || birthDate.Text == "" || phoneNumber.Text == "" ||norek.Text =="")
             {
                 MessageBox.Show("DATA TIDAK LENGKAP");
             }
@@ -64,15 +64,16 @@ namespace Yinyinpedia
                     }
                     else
                     {
-                        OracleCommand cmd = new OracleCommand("INSERT INTO mh_user (nama_user,username_user,password_user,email_user,alamat_user,kota_user,telepon_user,jenis_kelamin,tgl_lahir,role) values(:nama,:users,:passs,:email,:alamat,:kota,:telp,:jenis,to_date(:lahir,'DD-MM-YYYY'),:roleuser)", conn);
+                        OracleCommand cmd = new OracleCommand("INSERT INTO mh_user (nama_user,username_user,password_user,email_user,alamat_user,kota_user,telepon_user,norek,jenis_kelamin,tgl_lahir,role) values(:nama,:users,:passs,:email,:alamat,:kota,:telp,:bank,:jenis,to_date(:lahir,'DD-MM-YYYY'),:roleuser)", conn);
 
                         cmd.Parameters.Add(":nama", name.Text.ToUpper());
                         cmd.Parameters.Add(":users", tusername.Text);
                         cmd.Parameters.Add(":passs", tpassword.Text);
-                        cmd.Parameters.Add(":email", email.Text.ToUpper());
-                        cmd.Parameters.Add(":alamat", address.Text.ToUpper());
+                        cmd.Parameters.Add(":email", email.Text);
+                        cmd.Parameters.Add(":alamat", address.Text);
                         cmd.Parameters.Add(":kota", city.Text.ToUpper());
                         cmd.Parameters.Add(":telp", phoneNumber.Text);
+                        cmd.Parameters.Add(":bank", norek.Text);
                         if ((bool)female.IsChecked == true)
                         {
                             cmd.Parameters.Add(":jenis", "P");

@@ -50,14 +50,16 @@ namespace Yinyinpedia
                 password = tpassword.Text;
                 cmd = new OracleCommand("select count(kode_user) from mh_user where username_user = '" + username + "' ", conn);
                 int user1 = Convert.ToInt32(cmd.ExecuteScalar().ToString());
-                cmd = new OracleCommand("select count(kode_user) from mh_user where password_user = '" + password + "' ", conn);
-                int user = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+                
                 if (user1 == 0)
                 {
                     MessageBox.Show("BELUM TERDAFTAR");
                 }
                 else
                 {
+                    cmd = new OracleCommand("select count(kode_user) from mh_user where password_user = '" + password + "' and username_user = '" + username + "'", conn);
+                    int user = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+                    MessageBox.Show(user + "");
                     if (user == 0)
                     {
                         MessageBox.Show("PASSWORD SALAH");
@@ -106,6 +108,7 @@ namespace Yinyinpedia
             catch (Exception ex)
             {
                 conn.Close();
+                MessageBox.Show(ex.Message);
                 Console.WriteLine(ex.StackTrace);
             }
         }

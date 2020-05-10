@@ -82,3 +82,5 @@ C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\Product
 C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\ProfileSeller.baml
 C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\NewOrder.g.cs
 C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\NewOrder.baml
+C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\TopUp.g.cs
+C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\TopUp.baml

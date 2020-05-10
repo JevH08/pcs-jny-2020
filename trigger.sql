@@ -67,22 +67,7 @@ begin
 end;
 /
 
---chat
-create or replace trigger kode_chat
-before insert 
-on mh_chat
-for each row
-declare
-ctr number;
-kode varchar2(20);
-tgl varchar2(10);
-begin
-	select to_char(sysdate,'YYYYMMDD') into tgl from dual;
-	select count(*) + 1 into ctr from mh_chat where kode_chat like '%' || tgl || '%';
 
-	:new.kode_chat := 'CH_' || tgl || '_' || lpad(ctr,4,'0');
-end;
-/
 
 --history emoney
 create or replace trigger KODE_HISTORY

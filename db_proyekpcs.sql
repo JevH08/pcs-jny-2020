@@ -26,6 +26,7 @@ CREATE TABLE mh_user(
    jenis_kelamin  varchar2(1)  ,
    tgl_lahir date,
    saldo  number  ,
+   norek varchar2(20),
    role  varchar2(1),
    status number(1)  
 );
@@ -64,6 +65,7 @@ CREATE TABLE MH_PRODUK (
 CREATE TABLE htrans(
 	 kode_htrans  varchar2(20) CONSTRAINTS PK_htrans PRIMARY KEY,
    tgl_transaksi   date  ,
+   berat number,
    subtotal  number  ,
    shipping  number  ,
    promo  number  ,
@@ -97,17 +99,25 @@ CREATE TABLE dtrans(
 );
 
 
-CREATE TABLE mh_chat(
-	 kode_chat varchar2(20) CONSTRAINTS PK_mh_chat PRIMARY KEY,
+CREATE TABLE th_chat(
+   kode_hchat varchar2(20) CONSTRAINTS PK_th_chat PRIMARY KEY,
    fk_pembeli  varchar2(20)  references mh_user(kode_user) ,
    fk_penjual  varchar2(20)  references mh_user(kode_user) ,
-   isi_chat  varchar2(256)  ,
-	tgl_chat  date 
+   status number 
 );
 
-insert into mh_user values ('US20200426_001','BRIGITTA','yinyin','yinyin','yinyin@gmail.com','Jl.Kenanga No 24','SURABAYA','081234567890','P',to_date('10-01-2000','DD-MM-YYYY'),0,1,1);
-insert into mh_user values ('US20200426_002','JEVON','jevon','jevon','jevon@gmail.com','Jln. Pelajar Pejuang 45 No. 877', 'SEMARANG','(+62)93168477753','L',to_date('13-04-2000','DD-MM-YYYY'),0,1,1);
-insert into mh_user values ('US20200426_003','GEORGIA','nikita','nikita','nikita@gmail.com','Jln. Jaksa No. 461','JAKARTA','(+62)38362418235','P',to_date('21-08-2000','DD-MM-YYYY'),0,1,1);
+
+CREATE TABLE td_chat(
+   kode_dchat varchar2(20) CONSTRAINTS PK_td_chat PRIMARY KEY,
+   fk_hchat varchar2(2) references th_chat(kode_hchat),
+   pengirim number,
+   isi_chat varchar(256),
+   tgl_chat date
+);
+
+insert into mh_user values ('US20200426_001','BRIGITTA','yinyin','yinyin','yinyin@gmail.com','Jl.Kenanga No 24','SURABAYA','081234567890','P',to_date('10-01-2000','DD-MM-YYYY'),0,'0',1,1);
+insert into mh_user values ('US20200426_002','JEVON','jevon','jevon','jevon@gmail.com','Jln. Pelajar Pejuang 45 No. 877', 'SEMARANG','(+62)93168477753','L',to_date('13-04-2000','DD-MM-YYYY'),0,'0',1,1);
+insert into mh_user values ('US20200426_003','GEORGIA','nikita','nikita','nikita@gmail.com','Jln. Jaksa No. 461','JAKARTA','(+62)38362418235','P',to_date('21-08-2000','DD-MM-YYYY'),0,'0',1,1);
 
 insert into mh_kategori values('KA_001', 'Animal', 0);
 insert into mh_kategori values('KA_002', 'Glass', 0);

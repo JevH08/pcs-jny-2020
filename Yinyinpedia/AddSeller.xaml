@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Yinyinpedia"
         mc:Ignorable="d"
-        Title="AddSeller" Height="450" Width="800" Background="White" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Title="AddSeller" Height="480" Width="800" Background="White" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Grid>
         <Border BorderThickness="1" Margin="20 30 20 5" Background="#FFF1DDDD" BorderBrush="#FFC2C2C2"/>
         <StackPanel Margin="25 50 25 5">
@@ -27,6 +27,7 @@
                     <Label Content="Username" Margin="0 20 0 0"/>
                     <Label Content="Email"/>
                     <Label Content="Phone Number"/>
+                    <Label Content="No. Rekening"/>
                     <Label Content="Address"/>
                     <Label Content="City"/>
                 </StackPanel>
@@ -41,6 +42,7 @@
                     <TextBox Name="tusername" Width="200" Margin="0 7 0 0" Background="#FFE4E4E4" BorderBrush="#FFD9D9DA"/>
                     <TextBox Name="email" Width="200" Margin="0 7 0 0" Background="#FFE5E5E5" BorderBrush="#FFE1E2E5"/>
                     <TextBox Name="phoneNumber" Width="200" Margin="0 7 0 0" Background="#FFE7E5E5" BorderBrush="Gainsboro"/>
+                    <TextBox Name="norek" Width="200" Margin="0 7 0 0" Background="#FFE7E5E5" BorderBrush="Gainsboro"/>
                     <TextBox Name="address" Width="200" Margin="0 7 0 0" Background="#FFE4E4E4" BorderBrush="#FFE1E1E2"/>
                     <ComboBox Name="city" Margin="0 7 0 0" BorderBrush="#FFBCB7B7">
                         <ComboBox.Background>
