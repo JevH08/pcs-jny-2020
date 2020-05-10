@@ -1,0 +1,30 @@
+﻿<Window x:Class="Yinyinpedia.NewOrder"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Yinyinpedia"
+        mc:Ignorable="d"
+        Title="NewOrder" Height="500" Width="800">
+    <Grid>
+        <DataGrid Name="dgNew" HorizontalAlignment="Left" Height="346" Margin="10,10,0,0" VerticalAlignment="Top" Width="396" MouseDoubleClick="DgNew_MouseDoubleClick"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="709,21,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <TextBox Name="notrans" HorizontalAlignment="Left" Height="23" Margin="595,54,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+        <TextBox Name="nmbrg" HorizontalAlignment="Left" Height="23" Margin="595,83,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" IsEnabled="False"/>
+        <TextBox Name="jumorder" HorizontalAlignment="Left" Height="23" Margin="595,155,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+        <TextBlock HorizontalAlignment="Left" Margin="431,90,0,0" TextWrapping="Wrap" Text="Nama Barang" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="431,123,0,0" TextWrapping="Wrap" Text="Kategori Barang" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="431,198,0,0" TextWrapping="Wrap" Text="Stok Barang" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="431,234,0,0" TextWrapping="Wrap" Text="Harga Barang" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="431,61,0,0" TextWrapping="Wrap" Text="No. Transaksi" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="431,162,0,0" TextWrapping="Wrap" Text="Jumlah yang dipesan" VerticalAlignment="Top"/>
+        <ComboBox Name="category" HorizontalAlignment="Left" Margin="595,117,0,0" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+        <TextBox Name="stok" HorizontalAlignment="Left" Height="23" Margin="595,191,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="Stok_TextChanged" IsEnabled="False"/>
+        <TextBox Name="harga" HorizontalAlignment="Left" Height="23" Margin="595,227,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+        <TextBox Name="subtotal" HorizontalAlignment="Left" Height="23" Margin="595,255,0,0" TextWrapping="Wrap" Text="Textbox" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+        <TextBlock HorizontalAlignment="Left" Margin="431,265,0,0" TextWrapping="Wrap" Text="Subtotal" VerticalAlignment="Top"/>
+        <Button Name="accept" Content="ACC" HorizontalAlignment="Left" Margin="467,412,0,0" VerticalAlignment="Top" Width="75" Click="Accept_Click" IsEnabled="False"/>
+        <Button Name="decline" Content="DEC" HorizontalAlignment="Left" Margin="595,412,0,0" VerticalAlignment="Top" Width="75" Click="Decline_Click" IsEnabled="False"/>
+
+    </Grid>
+</Window>

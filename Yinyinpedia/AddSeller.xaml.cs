@@ -77,10 +77,6 @@ namespace Yinyinpedia
             dgvSeller.ItemsSource = dbp.Tables[0].DefaultView;
             
 
-            name.Text = ""; tusername.Text = "";address.Text = ""; email.Text = ""; city.SelectedIndex = -1; birthDate.Text = ""; phoneNumber.Text = "";
-            male.IsChecked = true;
-            female.IsChecked = true;
-
             cmd = new OracleCommand()
             {
                 Connection = conn,
@@ -115,7 +111,7 @@ namespace Yinyinpedia
         private void Back_Click(object sender, RoutedEventArgs e)
         {
             Admin a = new Admin(username);
-            a.ShowDialog();
+            a.Show();
             this.Close();
         }
 
@@ -180,6 +176,9 @@ namespace Yinyinpedia
                         cmd.ExecuteNonQuery();
                         conn.Close();
                         LoadData(Convert.ToInt32(page.Text));
+                        name.Text = ""; tusername.Text = ""; address.Text = ""; email.Text = ""; city.SelectedIndex = -1; birthDate.Text = ""; phoneNumber.Text = "";
+                        male.IsChecked = true;
+                        female.IsChecked = false;
                     }
                 }
                 else

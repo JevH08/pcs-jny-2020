@@ -43,7 +43,7 @@ namespace Yinyinpedia
                     cmd.ExecuteNonQuery();
                     conn.Close();
                     MainWindow m = new MainWindow();
-                    m.ShowDialog();
+                    m.Show();
                     this.Close();
                 }
                 else

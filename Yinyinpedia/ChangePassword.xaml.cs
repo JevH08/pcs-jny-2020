@@ -71,7 +71,7 @@ namespace Yinyinpedia
                             Console.WriteLine(ex.StackTrace);
                         }
                         Seller p = new Seller(username, kode);
-                        p.ShowDialog();
+                        p.Show();
                         this.Close();
                     }
                     else

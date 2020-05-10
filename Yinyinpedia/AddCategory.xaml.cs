@@ -72,7 +72,7 @@ namespace Yinyinpedia
         private void Back_Click(object sender, RoutedEventArgs e)
         {
             Admin a = new Admin(username);
-            a.ShowDialog();
+            a.Show();
             this.Close();
         }
 

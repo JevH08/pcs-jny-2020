@@ -11,7 +11,7 @@ begin
 	select to_char(sysdate,'YYYYMMDD') into tgl from dual;
 	select count(*) + 1 into ctr from mh_user where kode_user like '%' || tgl || '%';
 
-	:new.kode_user := 'US_' || tgl || '_' || lpad(ctr,3,'0');
+	:new.kode_user := 'US' || tgl || '_' || lpad(ctr,3,'0');
 	:new.saldo := 0;
 	:new.status := 0;
 end;
@@ -80,7 +80,7 @@ begin
 	select to_char(sysdate,'YYYYMMDD') into tgl from dual;
 	select count(*) + 1 into ctr from mh_chat where kode_chat like '%' || tgl || '%';
 
-	:new.kode_chat := 'PR_' || tgl || '_' || lpad(ctr,4,'0');
+	:new.kode_chat := 'CH_' || tgl || '_' || lpad(ctr,4,'0');
 end;
 /
 

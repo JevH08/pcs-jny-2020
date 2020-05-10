@@ -36,8 +36,9 @@ namespace Yinyinpedia
         private void Forgot_Click(object sender, RoutedEventArgs e)
         {
             InsertUsername iu = new InsertUsername();
-            iu.ShowDialog();
+            iu.Show();
             this.Close();
+            
         }
 
         private void Login_Click(object sender, RoutedEventArgs e)
@@ -68,7 +69,7 @@ namespace Yinyinpedia
                         if (role == 1)
                         {
                             Admin a = new Admin(username);
-                            a.ShowDialog();
+                            a.Show();
                             this.Close();
                         }
                         else if (role == 2)
@@ -80,13 +81,13 @@ namespace Yinyinpedia
                             if (status == 0)
                             {
                                 ChangePassword cp = new ChangePassword(username, kode);
-                                cp.ShowDialog();
+                                cp.Show();
                                 this.Close();
                             }
                             else
                             {
                                 Seller p = new Seller(username, kode);
-                                p.ShowDialog();
+                                p.Show();
                                 this.Close();
                             }
                         }
@@ -95,7 +96,7 @@ namespace Yinyinpedia
                             cmd = new OracleCommand("select kode_user from mh_user where username_user = '" + username + "' and password_user = '" + password + "' ", conn);
                             string kode = cmd.ExecuteScalar().ToString();
                             Buyer b = new Buyer(username, kode);
-                            b.ShowDialog();
+                            b.Show();
                             this.Close();
                         }
                     }
@@ -112,7 +113,7 @@ namespace Yinyinpedia
         private void Signin_Click(object sender, RoutedEventArgs e)
         {
             RegisterUser ru = new RegisterUser();
-            ru.ShowDialog();
+            ru.Show();
             this.Close();
         }
     }

@@ -29,7 +29,6 @@ namespace Yinyinpedia
             InitializeComponent();
             username = user;
             kode = kod;
-            header.Text = "WELCOME, SELLER " + username.ToUpper();
             string datasource = "Data Source=orcl;User id=proyekpcs;Password=proyekpcs";
             conn = new OracleConnection(datasource);
             loadData();
@@ -92,19 +91,23 @@ namespace Yinyinpedia
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
             MainWindow m = new MainWindow();
-            m.ShowDialog();
+            m.Show();
             this.Close();
         }
 
         private void Product_Click(object sender, RoutedEventArgs e)
         {
             ProductSeller prod = new ProductSeller(username, kode);
-            prod.ShowDialog();
+            prod.Show();
+            this.Close();
+
         }
 
         private void Order_Click(object sender, RoutedEventArgs e)
         {
-
+            NewOrder no = new NewOrder(username, kode);
+            no.Show();
+            this.Close();
         }
 
         private void Shipping_Click(object sender, RoutedEventArgs e)

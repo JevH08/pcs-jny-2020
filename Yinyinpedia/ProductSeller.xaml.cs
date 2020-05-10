@@ -128,7 +128,7 @@ namespace Yinyinpedia
         private void Back_Click(object sender, RoutedEventArgs e)
         {
             Seller s = new Seller(username, kode);
-            s.ShowDialog();
+            s.Show();
             this.Close();
         }
 

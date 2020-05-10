@@ -56,13 +56,13 @@ namespace Yinyinpedia
                         cmd.ExecuteNonQuery();
                         conn.Close();
                         MainWindow m = new MainWindow();
-                        m.ShowDialog();
+                        m.Show();
                         this.Close();
                     }
                     else if (role == 3)
                     {
                         NewPassword np = new NewPassword(tusername.Text);
-                        np.ShowDialog();
+                        np.Show();
                         this.Close();
                     }
                     
