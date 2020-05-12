@@ -29,15 +29,21 @@ namespace Yinyinpedia
             string selectedReport = cb_SelectReport.Text;
             if(selectedReport == "Jasa Pengiriman")
             {
-
+                ReportPengiriman rptKirim = new ReportPengiriman();
+                rptKirim.Show();
+                this.Close();
             }
             else if (selectedReport == "Produk")
             {
-
+                ReportProduk rptProduk = new ReportProduk();
+                rptProduk.Show();
+                this.Close();
             }
             else if (selectedReport == "Transaksi Penjual")
             {
-
+                ReportTransaksiPenjual rptTransPen = new ReportTransaksiPenjual();
+                rptTransPen.Show();
+                this.Close();
             }
         }
     }

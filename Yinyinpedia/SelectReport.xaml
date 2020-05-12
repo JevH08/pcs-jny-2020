@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="SelectReport" Height="72.942" Width="293.527">
     <Grid>
+        <Border BorderBrush="#FFDDDBDB" BorderThickness="1" Margin="5 2 5 2" Background="#FFFCD1D1"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,13,0,0" TextWrapping="Wrap" Text="Pilih Report" VerticalAlignment="Top"/>
         <ComboBox x:Name="cb_SelectReport" HorizontalAlignment="Left" Margin="76,10,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="Jasa Pengiriman"/>

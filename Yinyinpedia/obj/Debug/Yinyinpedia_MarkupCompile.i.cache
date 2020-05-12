@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\App.xaml
-17418938372
+20-1406385259
 
-22378235073
-141925268848
-AddCategory.xaml;AddSeller.xaml;Admin.xaml;Buyer.xaml;ChangePassword.xaml;DeliveryServices.xaml;InsertUsername.xaml;MainWindow.xaml;NewOrder.xaml;NewPassword.xaml;ProductSeller.xaml;ProductVerification.xaml;ProfileSeller.xaml;RegisterUser.xaml;SelectReport.xaml;Seller.xaml;TopUp.xaml;
+26-1041145126
+241786644206
+AddCategory.xaml;AddSeller.xaml;Admin.xaml;Buyer.xaml;ChangePassword.xaml;DeliveryServices.xaml;InsertUsername.xaml;MainWindow.xaml;NewOrder.xaml;NewPassword.xaml;ProductSeller.xaml;ProductVerification.xaml;ProfileSeller.xaml;RegisterUser.xaml;ReportPengiriman.xaml;ReportProduk.xaml;ReportTransaksiPenjual.xaml;SelectReport.xaml;Seller.xaml;TopUp.xaml;
 
-False
+True
 
