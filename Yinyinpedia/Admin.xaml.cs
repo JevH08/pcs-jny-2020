@@ -65,7 +65,9 @@ namespace Yinyinpedia
 
         private void ViewReport_Click(object sender, RoutedEventArgs e)
         {
-
+            SelectReport selectR = new SelectReport();
+            selectR.Show();
+            this.Close();
         }
     }
 }
