@@ -1,12 +1,18 @@
-﻿<Window x:Class="Yinyinpedia.ReportTransaksiPenjual"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Yinyinpedia"
+        xmlns:Viewer="clr-namespace:SAPBusinessObjects.WPF.Viewer;assembly=SAPBusinessObjects.WPF.Viewer" x:Class="Yinyinpedia.ReportTransaksiPenjual"
         mc:Ignorable="d"
-        Title="ReportTransaksiPenjual" Height="450" Width="800">
+        Title="ReportTransaksiPenjual" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
-        
+
+        <TextBlock HorizontalAlignment="Left" Margin="10,13,0,0" TextWrapping="Wrap" Text="Bulan" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_Bulan" HorizontalAlignment="Left" Margin="60,10,0,0" VerticalAlignment="Top" Width="175"/>
+        <Button x:Name="btnGenerate_RptTransPenjual" Content="Generate" HorizontalAlignment="Left" Margin="240,11,0,0" VerticalAlignment="Top" Width="76" Click="btnGenerate_RptProduk_Click"/>
+        <Viewer:CrystalReportsViewer x:Name="viewerLaporanTransaksi" HorizontalAlignment="Left" Height="372" Margin="10,37,0,0" VerticalAlignment="Top" Width="772"/>
+
     </Grid>
 </Window>

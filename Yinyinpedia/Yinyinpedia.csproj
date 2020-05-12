@@ -87,6 +87,12 @@
       <DependentUpon>CrystalProduk.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CrystalTransaksiPenjual.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalTransaksiPenjual.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DeliveryServices.xaml.cs">
       <DependentUpon>DeliveryServices.xaml</DependentUpon>
     </Compile>
@@ -238,6 +244,10 @@
     <EmbeddedResource Include="CrystalProduk.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalProduk.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalTransaksiPenjual.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalTransaksiPenjual.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
