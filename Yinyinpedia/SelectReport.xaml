@@ -5,15 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Yinyinpedia"
         mc:Ignorable="d"
-        Title="SelectReport" Height="72.942" Width="293.527">
+        Title="SelectReport" Height="100" Width="293.527" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Grid>
-        <Border BorderBrush="#FFDDDBDB" BorderThickness="1" Margin="5 2 5 2" Background="#FFFCD1D1"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,13,0,0" TextWrapping="Wrap" Text="Pilih Report" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cb_SelectReport" HorizontalAlignment="Left" Margin="76,10,0,0" VerticalAlignment="Top" Width="120">
+        <Border BorderBrush="#FFDDDBDB" BorderThickness="1" Margin="5,5,5.2,1.6" Background="#FFFCD1D1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="11,60,0,0" TextWrapping="Wrap" Text="Pilih Report" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cb_SelectReport" HorizontalAlignment="Left" Margin="77,57,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="Jasa Pengiriman"/>
             <ComboBoxItem Content="Produk"/>
             <ComboBoxItem Content="Transaksi Penjual"/>
         </ComboBox>
-        <Button x:Name="btn_PilihReport" Content="Pilih" HorizontalAlignment="Left" Margin="201,11,0,0" VerticalAlignment="Top" Width="75" Click="btn_PilihReport_Click"/>
+        <Button x:Name="btn_PilihReport" Content="Pilih" HorizontalAlignment="Left" Margin="202,58,0,0" VerticalAlignment="Top" Width="75" Click="btn_PilihReport_Click" BorderBrush="#FFEBEAEA" Background="#FFFD8B8B"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="11,10,0,0" VerticalAlignment="Top" Width="75" Background="#FFF99292" BorderBrush="#FFE4DBDB" Click="Button_Click"/>
     </Grid>
 </Window>

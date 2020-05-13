@@ -51,9 +51,15 @@ namespace Yinyinpedia
                 }
                 else
                 {
-                    int t = Convert.ToInt32(nominal.Text);
-                    string query = "update mh_user set saldo = "+t+" where kode_user = " + kod;
+                    conn.Open();
+                    string query = "select saldo from mh_user where kode_user ='" + kod + "'";
                     OracleCommand cmd = new OracleCommand(query, conn);
+                    
+                    int db = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+                    conn.Close();
+                    int t = db + Convert.ToInt32(nominal.Text);
+                     query = "update mh_user set saldo = "+t+" where kode_user = '" + kod +"'";
+                     cmd = new OracleCommand(query, conn);
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();

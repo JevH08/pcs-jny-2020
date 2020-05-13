@@ -19,9 +19,11 @@ namespace Yinyinpedia
     /// </summary>
     public partial class SelectReport : Window
     {
-        public SelectReport()
+        string user;
+        public SelectReport(string username)
         {
             InitializeComponent();
+            user = username;
         }
 
         private void btn_PilihReport_Click(object sender, RoutedEventArgs e)
@@ -45,6 +47,13 @@ namespace Yinyinpedia
                 rptTransPen.Show();
                 this.Close();
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Admin a = new Admin(user);
+            a.Show();
+            this.Close();
         }
     }
 }

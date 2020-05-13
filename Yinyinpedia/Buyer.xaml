@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="Buyer" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Grid>
-        
+        <TextBlock Name="saldo" HorizontalAlignment="Left" Margin="43,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="146"><Run Text="TextBlock"/></TextBlock>
+        <Button Name="topup" Click="Button_Click" Content="TOP UP" HorizontalAlignment="Left" Margin="43,51,0,0" VerticalAlignment="Top" Width="75"/>
+
     </Grid>
 </Window>

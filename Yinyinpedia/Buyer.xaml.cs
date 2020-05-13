@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Oracle.DataAccess.Client;
+using System.Data;
 
 namespace Yinyinpedia
 {
@@ -19,9 +21,30 @@ namespace Yinyinpedia
     /// </summary>
     public partial class Buyer : Window
     {
+        string username, kode;
+        OracleConnection conn;
         public Buyer(string user, string kod)
         {
             InitializeComponent();
+            username = user;
+            kode = kod;
+            OracleCommand cmd;
+            conn = new OracleConnection()
+            {
+                ConnectionString = "Data Source = ORCL; User Id = proyekpcs; password = proyekpcs;"
+            };
+            conn.Open();
+            string query = " select saldo from mh_user where kode_user = '" + kode +"'";
+            cmd = new OracleCommand(query, conn);
+            saldo.Text = "SALDO ANDA : " + cmd.ExecuteScalar().ToString();
+            conn.Close();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            TopUp tu = new TopUp(username, kode);
+            tu.Show();
+            this.Close();
         }
     }
 }
