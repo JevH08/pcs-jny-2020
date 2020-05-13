@@ -83,7 +83,7 @@ namespace Yinyinpedia
                             string kode = cmd.ExecuteScalar().ToString();
                             if (status == 0)
                             {
-                                ChangePassword cp = new ChangePassword(username, kode);
+                                ChangePassword cp = new ChangePassword(username, kode,1);
                                 cp.Show();
                                 this.Close();
                             }

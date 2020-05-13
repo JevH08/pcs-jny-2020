@@ -24,12 +24,13 @@ namespace Yinyinpedia
         OracleConnection conn;
         OracleCommand cmd;
         string username, kode;
-
-        public ChangePassword(string user, string kod)
+        int status;
+        public ChangePassword(string user, string kod, int stat)
         {
             InitializeComponent();
             username = user;
             kode = kod;
+            status = stat;
             string datasource = "Data Source=orcl;User id=proyekpcs;Password=proyekpcs";
             conn = new OracleConnection(datasource);
         }
@@ -45,7 +46,7 @@ namespace Yinyinpedia
                         try
                         {
                             conn.Open();
-                            string query = "update mh_user set password_user = '" + nPassword.Text + "' where username_user = '" + username + "'";
+                            string query = "update mh_user set password_user = '" + nPassword.Text + "' where kode_user = '" + kode + "'";
                             cmd = new OracleCommand(query, conn);
                             cmd.ExecuteNonQuery();
                             OracleCommand cmds = new OracleCommand()
@@ -70,9 +71,19 @@ namespace Yinyinpedia
                             conn.Close();
                             Console.WriteLine(ex.StackTrace);
                         }
-                        Seller p = new Seller(username, kode);
-                        p.Show();
-                        this.Close();
+                        if (status == 1)
+                        {
+                            Seller p = new Seller(username, kode);
+                            p.Show();
+                            this.Close();
+                        }
+                        else if (status == 2)
+                        {
+                            MainWindow mw = new MainWindow();
+                            mw.Show();
+                            this.Close();
+                        }
+                        
                     }
                     else
                     {

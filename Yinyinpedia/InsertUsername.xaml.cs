@@ -37,35 +37,33 @@ namespace Yinyinpedia
             {
                 conn.Open();
                 username = tusername.Text;
-                cmd = new OracleCommand("select count(kode_user) from mh_user where username_user = '" + username + "' ", conn);
+                cmd = new OracleCommand("select count(kode_user) from mh_user where username_user = '" + username + "'  and email_user = '" + temail.Text + "'", conn);
                 int user1 = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+                conn.Close();
                 if (user1 == 0)
                 {
-                    MessageBox.Show("Make Sure The Username Is Correct");
+                    MessageBox.Show("Make Sure The Username and Email are Correct");
                 }
                 else
                 {
-                    
-                    cmd = new OracleCommand("select role from mh_user where username_user = '" + username + "' ", conn);
-                    role = Convert.ToInt32(cmd.ExecuteScalar().ToString());
-                    if (role == 2)
+                    conn.Open();
+                    cmd = new OracleCommand("select role from mh_user where username_user = '" + username + "'  and email_user = '" + temail.Text + "'", conn);
+                    int role = Convert.ToInt32( cmd.ExecuteScalar().ToString() );
+                    conn.Close();
+                    if (role != 1)
                     {
-                        MessageBox.Show("Your Password Is The Same As Your Username");
-                        string query = "update mh_user set status = 0,  password_user = '" + username + "' where username_user = '" + username + "'";
-                        cmd = new OracleCommand(query, conn);
-                        cmd.ExecuteNonQuery();
+                        conn.Open();
+                        cmd = new OracleCommand("select kode_user from mh_user where username_user = '" + username + "'  and email_user = '" + temail.Text + "'", conn);
+                        string kod = cmd.ExecuteScalar().ToString();
                         conn.Close();
-                        MainWindow m = new MainWindow();
-                        m.Show();
+                        ChangePassword cp = new ChangePassword(username, kod, 2);
+                        cp.Show();
                         this.Close();
                     }
-                    else if (role == 3)
+                    else
                     {
-                        NewPassword np = new NewPassword(tusername.Text);
-                        np.Show();
-                        this.Close();
+                        MessageBox.Show("Make Sure The Username and Email are Correct");
                     }
-                    
                 }
                 conn.Close();
             }
