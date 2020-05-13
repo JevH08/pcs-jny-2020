@@ -14,6 +14,7 @@ begin
 	:new.kode_user := 'US' || tgl || '_' || lpad(ctr,3,'0');
 	:new.saldo := 0;
 	:new.status := 0;
+	:new.report := 0;
 end;
 /
 

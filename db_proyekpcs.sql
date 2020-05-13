@@ -28,7 +28,8 @@ CREATE TABLE mh_user(
    saldo  number  ,
    norek varchar2(20),
    role  varchar2(1),
-   status number(1)  
+   status number(1),
+   report number  
 );
 
 
@@ -115,9 +116,9 @@ CREATE TABLE td_chat(
    tgl_chat date
 );
 
-insert into mh_user values ('US20200426_001','BRIGITTA','yinyin','yinyin','yinyin@gmail.com','Jl.Kenanga No 24','SURABAYA','081234567890','P',to_date('10-01-2000','DD-MM-YYYY'),0,'0',1,1);
-insert into mh_user values ('US20200426_002','JEVON','jevon','jevon','jevon@gmail.com','Jln. Pelajar Pejuang 45 No. 877', 'SEMARANG','(+62)93168477753','L',to_date('13-04-2000','DD-MM-YYYY'),0,'0',1,1);
-insert into mh_user values ('US20200426_003','GEORGIA','nikita','nikita','nikita@gmail.com','Jln. Jaksa No. 461','JAKARTA','(+62)38362418235','P',to_date('21-08-2000','DD-MM-YYYY'),0,'0',1,1);
+insert into mh_user values ('US20200426_001','BRIGITTA','yinyin','yinyin','yinyin@gmail.com','Jl.Kenanga No 24','SURABAYA','081234567890','P',to_date('10-01-2000','DD-MM-YYYY'),0,'0',1,1,0);
+insert into mh_user values ('US20200426_002','JEVON','jevon','jevon','jevon@gmail.com','Jln. Pelajar Pejuang 45 No. 877', 'SEMARANG','(+62)93168477753','L',to_date('13-04-2000','DD-MM-YYYY'),0,'0',1,1,0);
+insert into mh_user values ('US20200426_003','GEORGIA','nikita','nikita','nikita@gmail.com','Jln. Jaksa No. 461','JAKARTA','(+62)38362418235','P',to_date('21-08-2000','DD-MM-YYYY'),0,'0',1,1,0);
 
 insert into mh_kategori values('KA_001', 'Animal', 0);
 insert into mh_kategori values('KA_002', 'Glass', 0);
