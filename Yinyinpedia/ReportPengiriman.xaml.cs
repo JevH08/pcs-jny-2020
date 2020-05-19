@@ -11,8 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Data;
-using Oracle.DataAccess.Client;
+using CrystalDecisions.CrystalReports.Engine;
 
 namespace Yinyinpedia
 {
@@ -21,32 +20,94 @@ namespace Yinyinpedia
     /// </summary>
     public partial class ReportPengiriman : Window
     {
-        string selectedCategory = "";
-        string sqlConn = @"Data Source=orcl;User id=proyekpcs;Password=proyekpcs";
-        public ReportPengiriman()
+        string username;
+
+        private class Kategori
+        {
+            public string Kode { get; set; }
+            public string Nama { get; set; }
+        }
+
+        public ReportPengiriman(string user)
         {
             InitializeComponent();
+            username = user;
+            loadData();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        public void loadData()
         {
-            string queryGetCategory = "SELECT Nama_Kategori FROM MH_Kategori";
-            OracleConnection conn = new OracleConnection(sqlConn);
-
-            OracleCommand getCategory = new OracleCommand(queryGetCategory, conn);
-            OracleDataReader readerCategory = getCategory.ExecuteReader();
-            List<string> listCategory = new List<string>();
-            while (readerCategory.Read())
+            month.ItemsSource = null;
+            List<Kategori> kategori = new List<Kategori>();
+            for (int i = 1; i < 13; i++)
             {
-                listCategory.Add(readerCategory.GetString(0));
+                Kategori temp = new Kategori();
+                temp.Kode = i.ToString();
+                if (i == 1)
+                {
+                    temp.Nama = "January";
+                }
+                else if (i == 2)
+                {
+                    temp.Nama = "February";
+                }
+                else if (i == 3)
+                {
+                    temp.Nama = "March";
+                }
+                else if (i == 4)
+                {
+                    temp.Nama = "April";
+                }
+                else if (i == 5)
+                {
+                    temp.Nama = "May";
+                }
+                else if (i == 6)
+                {
+                    temp.Nama = "June";
+                }
+                else if (i == 7)
+                {
+                    temp.Nama = "July";
+                }
+                else if (i == 8)
+                {
+                    temp.Nama = "August";
+                }
+                else if (i == 9)
+                {
+                    temp.Nama = "September";
+                }
+                else if (i == 10)
+                {
+                    temp.Nama = "October";
+                }
+                else if (i == 11)
+                {
+                    temp.Nama = "November";
+                }
+                else if (i == 12)
+                {
+                    temp.Nama = "December";
+                }
+                kategori.Add(temp);
             }
-            cb_Kategori.ItemsSource = listCategory;
+            month.SelectedValuePath = "Kode";
+            month.DisplayMemberPath = "Nama";
+            month.ItemsSource = kategori;
         }
 
-        private void btnGenerate_RptProduk_Click(object sender, RoutedEventArgs e)
+        private void Back_Click(object sender, RoutedEventArgs e)
         {
-            selectedCategory = cb_Kategori.Text;
+            SelectReport sr = new SelectReport(username);
+            sr.Show();
+            this.Close();
         }
 
+        private void Generate_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

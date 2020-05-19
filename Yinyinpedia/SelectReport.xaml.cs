@@ -20,40 +20,40 @@ namespace Yinyinpedia
     public partial class SelectReport : Window
     {
         string user;
+
         public SelectReport(string username)
         {
             InitializeComponent();
             user = username;
         }
 
-        private void btn_PilihReport_Click(object sender, RoutedEventArgs e)
-        {
-            string selectedReport = cb_SelectReport.Text;
-            if(selectedReport == "Jasa Pengiriman")
-            {
-                ReportPengiriman rptKirim = new ReportPengiriman();
-                rptKirim.Show();
-                this.Close();
-            }
-            else if (selectedReport == "Produk")
-            {
-                ReportProduk rptProduk = new ReportProduk();
-                rptProduk.Show();
-                this.Close();
-            }
-            else if (selectedReport == "Transaksi Penjual")
-            {
-                ReportTransaksiPenjual rptTransPen = new ReportTransaksiPenjual();
-                rptTransPen.Show();
-                this.Close();
-            }
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Back_Click(object sender, RoutedEventArgs e)
         {
             Admin a = new Admin(user);
             a.Show();
             this.Close();
+        }
+
+        private void Submit_Click(object sender, RoutedEventArgs e)
+        {
+            if (cbReport.SelectedIndex == 0)
+            {
+                ReportPengiriman rptKirim = new ReportPengiriman(user);
+                rptKirim.Show();
+                this.Close();
+            }
+            else if (cbReport.SelectedIndex == 1)
+            {
+                ReportProduk rptProduk = new ReportProduk(user);
+                rptProduk.Show();
+                this.Close();
+            }
+            else if (cbReport.SelectedIndex == 2)
+            {
+                ReportTransaksiPenjual rptTransPen = new ReportTransaksiPenjual(user);
+                rptTransPen.Show();
+                this.Close();
+            }
         }
     }
 }

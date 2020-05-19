@@ -25,14 +25,17 @@ namespace Yinyinpedia
         {
             InitializeComponent();
             username = user;
-            header.Text = "WELCOME, ADMIN " + username.ToUpper();
+            header.Text = "Welcome, Admin " + username.ToUpper();
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow m = new MainWindow();
-            m.Show();
-            this.Close();
+            if (MessageBox.Show("Are You Sure Want to Log Out ?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                MainWindow m = new MainWindow();
+                m.Show();
+                this.Close();
+            }
         }
 
         private void AddSeller_Click(object sender, RoutedEventArgs e)
@@ -56,10 +59,10 @@ namespace Yinyinpedia
             this.Close();
         }
 
-        private void Verification_Click(object sender, RoutedEventArgs e)
+        private void Embargo_Click(object sender, RoutedEventArgs e)
         {
-            ProductVerification p = new ProductVerification(username);
-            p.Show();
+            addEmbargo ae = new addEmbargo(username);
+            ae.Show();
             this.Close();
         }
 

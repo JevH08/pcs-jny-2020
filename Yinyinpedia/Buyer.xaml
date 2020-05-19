@@ -5,10 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Yinyinpedia"
         mc:Ignorable="d"
-        Title="Buyer" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Title="Buyer"  Height="530" Width="900" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Grid>
-        <TextBlock Name="saldo" HorizontalAlignment="Left" Margin="43,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="146"><Run Text="TextBlock"/></TextBlock>
-        <Button Name="topup" Click="Button_Click" Content="TOP UP" HorizontalAlignment="Left" Margin="43,51,0,0" VerticalAlignment="Top" Width="75"/>
-
+        <Border Background="#FFFDD5D5" BorderBrush="#FFC2C2C2" BorderThickness="1" Margin="20 45 20 45">
+            <Border BorderBrush="Black" BorderThickness="1"/>
+        </Border>
+        <StackPanel Margin="25 50 25 5">
+            <TextBlock Name="header" HorizontalAlignment="Center" FontSize="20" Margin="0 10 0 0"/>
+            <Border BorderBrush="Black" BorderThickness="1" Margin="0 20 0 0" Background="#FFC50909"/>
+            <StackPanel Margin="10 10 10 0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal" Background="#FFF66D6D" OpacityMask="White">
+                            <TextBlock Text="Balance" FontSize="20" Padding="10"/>
+                            <TextBlock Name="saldo" Text="Rp 0" FontSize="20" Padding="10"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Name="topUp" Content="Top Up" HorizontalAlignment="Left" Margin="0 10 0 0" Click="TopUp_Click" FontSize="20" Width="180" Padding="10" Background="#FFFAA6A6" BorderBrush="{x:Null}"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right">
+                        <Button Name="profile" Content="Profile" Click="Profile_Click" FontSize="20" Width="100" Padding="10" Background="#FFFDA3A3" BorderBrush="{x:Null}"/>
+                        <Button Name="logout" Content="Log Out" Click="Logout_Click" Margin="0 10 0 0" FontSize="20" Width="100" Padding="10" Background="#FFFF9D9D" BorderBrush="{x:Null}"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+            <Border BorderBrush="Black" BorderThickness="1" Margin="0 20 0 0" Background="#FFC80B0B"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 30 5 30">
+                <Button Name="product" Content="Product" Click="Product_Click" Margin="0 0 10 0" Width="150" Height="70" FontSize="18" Padding="10" Background="#FFFDA2A2" BorderBrush="{x:Null}"/>
+                <Button Name="cart" Content="Cart" Click="Cart_Click" Margin="50 0 10 0" Width="150" Height="70" FontSize="18" Padding="10" Background="#FFFAA3A3" BorderBrush="{x:Null}"/>
+                <Button Name="shipping" Content="Shipping" Click="Shipping_Click" Margin="50 0 0 0" Width="150" Height="70" FontSize="18" Padding="10" Background="#FFFCA1A1" BorderBrush="{x:Null}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Name="chat" Content="Chat" Click="Chat_Click" Margin="0 0 0 0" Width="150" Height="70" FontSize="18" Padding="10" Background="#FFFCA4A4" BorderBrush="{x:Null}"/>
+                <Button Name="viewReport" Content="Report" Click="ViewReport_Click" Margin="50 0 0 0" Width="150" Height="70" FontSize="18" Padding="10" Background="#FFFAA0A0" BorderBrush="{x:Null}"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>

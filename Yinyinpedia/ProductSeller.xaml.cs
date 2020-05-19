@@ -109,6 +109,7 @@ namespace Yinyinpedia
                 conn.Close();
                 Console.WriteLine(ex.StackTrace);
             }
+            processData();
         }
 
         public void reset()
@@ -125,6 +126,53 @@ namespace Yinyinpedia
             submit.Content = "Create";
         }
 
+        private void processData()
+        {
+            try
+            {
+                conn.Open();
+                string query = "select kode_produk from mh_produk where status = 2";
+                cmd = new OracleCommand(query, conn);
+                string produkKode = cmd.ExecuteScalar().ToString();
+                query = "select nama_produk from mh_produk where kode_produk = '" + produkKode + "'";
+                cmd = new OracleCommand(query, conn);
+                string namaProduk = cmd.ExecuteScalar().ToString();
+                string[] temp = namaProduk.Split(' ');
+                foreach (string word in temp)
+                {
+                    OracleCommand cmds = new OracleCommand()
+                    {
+                        CommandType = CommandType.StoredProcedure,
+                        Connection = conn,
+                        CommandText = "larangan"
+                    };
+                    cmds.Parameters.Add(new OracleParameter()
+                    {
+                        Direction = ParameterDirection.Input,
+                        ParameterName = "kode",
+                        OracleDbType = OracleDbType.Varchar2,
+                        Size = 100,
+                        Value = produkKode
+                    });
+                    cmds.Parameters.Add(new OracleParameter()
+                    {
+                        Direction = ParameterDirection.Input,
+                        ParameterName = "nama",
+                        OracleDbType = OracleDbType.Varchar2,
+                        Size = 100,
+                        Value = word
+                    });
+                    cmds.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                Console.WriteLine(ex.StackTrace);
+            }
+        }
+
         private void Back_Click(object sender, RoutedEventArgs e)
         {
             Seller s = new Seller(username, kode);
@@ -137,36 +185,45 @@ namespace Yinyinpedia
             if (dgvProduct.SelectedIndex != -1)
             {
                 DataRow dr = db.Tables[0].Rows[dgvProduct.SelectedIndex];
-                name.Text = dr["name"].ToString();
-                description.Text = dr["description"].ToString();
-                stock.Text = dr["stock"].ToString();
-                price.Text = dr["price"].ToString();
-                weight.Text = dr["weight"].ToString();
-                tag.Text = dr["tag"].ToString();
-                if (dr["condition"].ToString() == "New")
+                if (dr["status"].ToString() == "Verified")
                 {
-                    rnew.IsChecked = true;
+                    name.Text = dr["name"].ToString();
+                    description.Text = dr["description"].ToString();
+                    stock.Text = dr["stock"].ToString();
+                    price.Text = dr["price"].ToString();
+                    weight.Text = dr["weight"].ToString();
+                    tag.Text = dr["tag"].ToString();
+                    if (dr["condition"].ToString() == "New")
+                    {
+                        rnew.IsChecked = true;
+                    }
+                    else if (dr["condition"].ToString() == "Used")
+                    {
+                        rused.IsChecked = true;
+                    }
+                    try
+                    {
+                        conn.Open();
+                        string query = "select Kode_kategori from mh_kategori where Nama_kategori = '" + dr["category"].ToString() + "'";
+                        cmd = new OracleCommand(query, conn);
+                        category.SelectedValue = cmd.ExecuteScalar().ToString();
+                        conn.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        conn.Close();
+                        Console.WriteLine(ex.StackTrace);
+                    }
+                    submit.Content = "Update";
+                    mode = 1;
                 }
-                else if (dr["condition"].ToString() == "Used")
-                {
-                    rused.IsChecked = true;
-                }
-                try
-                {
-                    conn.Open();
-                    string query = "select Kode_kategori from mh_kategori where Nama_kategori = '" + dr["category"].ToString() + "'";
-                    cmd = new OracleCommand(query, conn);
-                    category.SelectedValue = cmd.ExecuteScalar().ToString();
-                    conn.Close();
-                }
-                catch (Exception ex)
-                {
-                    conn.Close();
-                    Console.WriteLine(ex.StackTrace);
-                }
-                submit.Content = "Update";
-                mode = 1;
             }
+        }
+
+        private void Refresh_Click(object sender, RoutedEventArgs e)
+        {
+            loadData();
+            reset();
         }
 
         private void Prev_Click(object sender, RoutedEventArgs e)
@@ -201,45 +258,52 @@ namespace Yinyinpedia
                 try
                 {
                     int a = Convert.ToInt32(stock.Text);
-                    a = Convert.ToInt32(price.Text);
-                    a = Convert.ToInt32(weight.Text);
-                    try
+                    int b = Convert.ToInt32(price.Text);
+                    int c = Convert.ToInt32(weight.Text);
+                    if (a > 0)
                     {
-                        conn.Open();
-                        string query = "";
-                        if (mode == 0)
+                        try
                         {
-                            if ((bool)rnew.IsChecked)
+                            conn.Open();
+                            string query = "";
+                            if (mode == 0)
                             {
-                                query = $"insert into mh_produk(nama_produk, desc_barang, fk_kategori, fk_penjual, stok, harga, berat, kondisi, tag, status, rating) values('{name.Text}', '{description.Text}', '{category.SelectedValue}', '{kode}', '{stock.Text}', '{price.Text}', '{weight.Text}', 0, '{tag.Text}', 2, 0)";
+                                if ((bool)rnew.IsChecked)
+                                {
+                                    query = $"insert into mh_produk(nama_produk, desc_barang, fk_kategori, fk_penjual, stok, harga, berat, kondisi, tag, status, rating) values('{name.Text}', '{description.Text}', '{category.SelectedValue}', '{kode}', '{stock.Text}', '{price.Text}', '{weight.Text}', 0, '{tag.Text}', 2, 0)";
+                                }
+                                else if ((bool)rused.IsChecked)
+                                {
+                                    query = $"insert into mh_produk(nama_produk, desc_barang, fk_kategori, fk_penjual, stok, harga, berat, kondisi, tag, status, rating) values('{name.Text}', '{description.Text}', '{category.SelectedValue}', '{kode}', '{stock.Text}', '{price.Text}', '{weight.Text}', 1, '{tag.Text}', 2, 0)";
+                                }
                             }
-                            else if ((bool)rused.IsChecked)
+                            else if (mode == 1)
                             {
-                                query = $"insert into mh_produk(nama_produk, desc_barang, fk_kategori, fk_penjual, stok, harga, berat, kondisi, tag, status, rating) values('{name.Text}', '{description.Text}', '{category.SelectedValue}', '{kode}', '{stock.Text}', '{price.Text}', '{weight.Text}', 1, '{tag.Text}', 2, 0)";
+                                if ((bool)rnew.IsChecked)
+                                {
+                                    query = $"update mh_produk set nama_produk = '{name.Text}', desc_barang = '{description.Text}', fk_kategori = '{category.SelectedValue}', stok = '{stock.Text}', harga = '{price.Text}', berat = '{weight.Text}', kondisi = 0, tag = '{tag.Text}', status = 2 where kode_produk = '" + kodeProduk[dgvProduct.SelectedIndex] + "'";
+                                }
+                                else if ((bool)rused.IsChecked)
+                                {
+                                    query = $"update mh_produk set nama_produk = '{name.Text}', desc_barang = '{description.Text}', fk_kategori = '{category.SelectedValue}', stok = '{stock.Text}', harga = '{price.Text}', berat = '{weight.Text}', kondisi = 1, tag = '{tag.Text}', status = 2 where kode_produk = '" + kodeProduk[dgvProduct.SelectedIndex] + "'";
+                                }
                             }
+                            cmd = new OracleCommand(query, conn);
+                            cmd.ExecuteNonQuery();
+                            conn.Close();
                         }
-                        else if (mode == 1)
+                        catch (Exception ex)
                         {
-                            if ((bool)rnew.IsChecked)
-                            {
-                                query = $"update mh_produk set nama_produk = '{name.Text}', desc_barang = '{description.Text}', fk_kategori = '{category.SelectedValue}', stok = '{stock.Text}', harga = '{price.Text}', berat = '{weight.Text}', kondisi = 0, tag = '{tag.Text}', status = 2 where kode_produk = '" + kodeProduk[dgvProduct.SelectedIndex] + "'";
-                            }
-                            else if ((bool)rused.IsChecked)
-                            {
-                                query = $"update mh_produk set nama_produk = '{name.Text}', desc_barang = '{description.Text}', fk_kategori = '{category.SelectedValue}', stok = '{stock.Text}', harga = '{price.Text}', berat = '{weight.Text}', kondisi = 1, tag = '{tag.Text}', status = 2 where kode_produk = '" + kodeProduk[dgvProduct.SelectedIndex] + "'";
-                            }
+                            conn.Close();
+                            Console.WriteLine(ex.StackTrace);
                         }
-                        cmd = new OracleCommand(query, conn);
-                        cmd.ExecuteNonQuery();
-                        conn.Close();
+                        loadData();
+                        reset();
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        conn.Close();
-                        Console.WriteLine(ex.StackTrace);
+                        MessageBox.Show("Input Stock Must More Than 0");
                     }
-                    loadData();
-                    reset();
                 }
                 catch (Exception)
                 {

@@ -53,16 +53,15 @@ namespace Yinyinpedia
                 
                 if (user1 == 0)
                 {
-                    MessageBox.Show("BELUM TERDAFTAR");
+                    MessageBox.Show("Not Registered");
                 }
                 else
                 {
                     cmd = new OracleCommand("select count(kode_user) from mh_user where password_user = '" + password + "' and username_user = '" + username + "'", conn);
                     int user = Convert.ToInt32(cmd.ExecuteScalar().ToString());
-                    MessageBox.Show(user + "");
                     if (user == 0)
                     {
-                        MessageBox.Show("PASSWORD SALAH");
+                        MessageBox.Show("Wrong Password");
                     }
                     else
                     {

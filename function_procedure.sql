@@ -23,3 +23,29 @@ begin
 	update mh_user set status = jumlah where lower(username_user) = lower(kode);
 end;
 /
+
+create or replace procedure larangan
+(
+	kode in varchar2
+)
+is
+nama varchar2(100);
+cek number;
+begin
+	cek := 0;
+	select nama_produk into nama from mh_produk where kode_produk = kode;
+	dbms_output.put_line(nama);
+	dbms_output.put_line(kode);
+	for i in (
+		select instr(nama, nama_embargo) from mh_embargo
+	) loop
+		cek := 1;
+	end loop;
+	dbms_output.put_line(cek);
+	if (cek = 0) then
+		update mh_produk set status = '0' where kode_produk = kode;
+	else
+		update mh_produk set status = '1' where kode_produk = kode;
+	end if;
+end;
+/

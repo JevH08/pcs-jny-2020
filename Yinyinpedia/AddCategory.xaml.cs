@@ -81,9 +81,12 @@ namespace Yinyinpedia
             if (dgvCategory.SelectedIndex != -1)
             {
                 DataRow dr = db.Tables[0].Rows[dgvCategory.SelectedIndex];
-                name.Text = dr["name"].ToString();
-                mode = 1;
-                submit.Content = "Update";
+                if (dr["status"].ToString() != "Deleted")
+                {
+                    name.Text = dr["name"].ToString();
+                    mode = 1;
+                    submit.Content = "Update";
+                }
             }
         }
 
@@ -95,7 +98,22 @@ namespace Yinyinpedia
                 string query = "";
                 if (mode == 0)
                 {
-                    query = $"insert into mh_kategori (Nama_kategori, status) values('{name.Text}', 0)";
+                    int masuk = 0;
+                    for (int i = 0; i < db.Tables[0].Rows.Count; i++)
+                    {
+                        if (name.Text.ToLower() == db.Tables[0].Rows[i]["name"].ToString().ToLower())
+                        {
+                            masuk = 1;
+                        }
+                    }
+                    if (masuk == 0)
+                    {
+                        query = $"insert into mh_kategori (Nama_kategori, status) values('{name.Text}', 0)";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Already Registered");
+                    }
                 }
                 else
                 {

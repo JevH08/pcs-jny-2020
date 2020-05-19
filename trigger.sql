@@ -29,8 +29,24 @@ kode varchar2(20);
 tgl varchar2(10);
 begin
 	select count(*) + 1 into ctr from mh_kategori;
-
 	:new.kode_kategori := 'KA_' || lpad(ctr,3,'0');
+	:new.status := 0;
+end;
+/
+
+--embargo
+create or replace trigger kode_embargo
+before insert 
+on mh_embargo
+for each row
+declare
+ctr number;
+kode varchar2(20);
+tgl varchar2(10);
+begin
+	select count(*) + 1 into ctr from mh_embargo;
+	:new.kode_embargo := 'KE_' || lpad(ctr,3,'0');
+	:new.status := 0;
 end;
 /
 
@@ -65,10 +81,10 @@ begin
 	select count(*) + 1 into ctr from mh_produk where kode_produk like '%' || tgl || '%';
 
 	:new.kode_produk := 'PR_' || tgl || '_' || lpad(ctr,3,'0');
+	:new.status := 2;
+	:new.rating := 0;
 end;
 /
-
-
 
 --history emoney
 create or replace trigger KODE_HISTORY

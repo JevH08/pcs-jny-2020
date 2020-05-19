@@ -22,6 +22,7 @@ namespace Yinyinpedia
     {
         string user, kod;
         OracleConnection conn;
+
         public TopUp(string username, string kode)
         {
             InitializeComponent();
@@ -41,29 +42,29 @@ namespace Yinyinpedia
         {
             if (nominal.Text == "")
             {
-                MessageBox.Show("Harap isi nominal");
+                MessageBox.Show("Please Fill in Nominal");
             }
             else
             {
                 if (Convert.ToInt32(nominal.Text) < 10000)
                 {
-                    MessageBox.Show("Minimal Rp10000");
+                    MessageBox.Show("Minimum Top Up is Rp10000");
                 }
                 else
                 {
                     conn.Open();
                     string query = "select saldo from mh_user where kode_user ='" + kod + "'";
                     OracleCommand cmd = new OracleCommand(query, conn);
-                    
+
                     int db = Convert.ToInt32(cmd.ExecuteScalar().ToString());
                     conn.Close();
                     int t = db + Convert.ToInt32(nominal.Text);
-                     query = "update mh_user set saldo = "+t+" where kode_user = '" + kod +"'";
-                     cmd = new OracleCommand(query, conn);
+                    query = "update mh_user set saldo = " + t + " where kode_user = '" + kod + "'";
+                    cmd = new OracleCommand(query, conn);
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
-                    MessageBox.Show("Berhasil TOP UP! +Rp" + nominal.Text);
+                    MessageBox.Show("Top Up Success! +Rp" + nominal.Text);
                     Buyer b = new Buyer(user, kod);
                     b.Show();
                     this.Close();

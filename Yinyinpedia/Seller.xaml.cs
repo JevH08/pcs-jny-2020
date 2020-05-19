@@ -35,7 +35,7 @@ namespace Yinyinpedia
             conn.Open();
             string query = "select nama_user from mh_user where username_user = '" + username + "'";
             cmd = new OracleCommand(query, conn);
-            header.Text = "WELCOME, SELLER " + cmd.ExecuteScalar().ToString();
+            header.Text = "Welcome, Seller " + cmd.ExecuteScalar().ToString();
             conn.Close();
         }
 
@@ -85,14 +85,18 @@ namespace Yinyinpedia
         private void Profile_Click(object sender, RoutedEventArgs e)
         {
             ProfileSeller prof = new ProfileSeller(username, kode);
-            prof.ShowDialog();
+            prof.Show();
+            this.Close();
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow m = new MainWindow();
-            m.Show();
-            this.Close();
+            if (MessageBox.Show("Are You Sure Want to Log Out ?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                MainWindow m = new MainWindow();
+                m.Show();
+                this.Close();
+            }
         }
 
         private void Product_Click(object sender, RoutedEventArgs e)
@@ -100,7 +104,6 @@ namespace Yinyinpedia
             ProductSeller prod = new ProductSeller(username, kode);
             prod.Show();
             this.Close();
-
         }
 
         private void Order_Click(object sender, RoutedEventArgs e)

@@ -37,7 +37,7 @@ namespace Yinyinpedia
 
         private void LoadData()
         {
-            OracleDataAdapter da = new OracleDataAdapter("select kode_distributor as CODE,nama_distributor as NAME,harga_per_kilo as PRICE,batas_harga as MINIMUM,diskon as DISCOUNT from mh_distributor where status = 0  order by kode_distributor", conn);
+            OracleDataAdapter da = new OracleDataAdapter("select kode_distributor as CODE,nama_distributor as NAME,harga_per_kilo as PRICE,batas_harga as MINIMUM,diskon as DISCOUNT, (case when status = 0 then 'Active' else 'Deleted' end) as STATUS from mh_distributor  order by kode_distributor", conn);
             dbp = new DataSet();
             da.Fill(dbp);
             dgvDelivery.ItemsSource = null;
@@ -62,12 +62,15 @@ namespace Yinyinpedia
             if (dgvDelivery.SelectedIndex != -1)
             {
                 DataRow r = dbp.Tables[0].Rows[dgvDelivery.SelectedIndex];
-                kodepilih = r["code"].ToString();
-                name.Text = r["name"].ToString();
-                price.Text = r["price"].ToString();
-                minimum.Text = r["minimum"].ToString();
-                discount.Text = r["discount"].ToString();
-                submit.Content = "Update";
+                if (r["status"].ToString() != "Deleted")
+                {
+                    kodepilih = r["code"].ToString();
+                    name.Text = r["name"].ToString();
+                    price.Text = r["price"].ToString();
+                    minimum.Text = r["minimum"].ToString();
+                    discount.Text = r["discount"].ToString();
+                    submit.Content = "Update";
+                }
             }
         }
 
@@ -80,7 +83,7 @@ namespace Yinyinpedia
                     int masuk = 0;
                     for (int i = 0; i < dbp.Tables[0].Rows.Count; i++)
                     {
-                        if (name.Text.ToLower() == dbp.Tables[0].Rows[i]["nama"].ToString().ToLower())
+                        if (name.Text.ToLower() == dbp.Tables[0].Rows[i]["name"].ToString().ToLower())
                         {
                             masuk = 1;
                         }
@@ -101,12 +104,12 @@ namespace Yinyinpedia
                     }
                     else
                     {
-                        MessageBox.Show("SUDAH PERNAH TERDAFTAR");
+                        MessageBox.Show("Already Registered");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("DATA TIDAK VALID");
+                    MessageBox.Show("Invalid Data");
                 }
             }
             else

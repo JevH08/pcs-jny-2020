@@ -21,26 +21,85 @@ namespace Yinyinpedia
     /// </summary>
     public partial class Buyer : Window
     {
-        string username, kode;
         OracleConnection conn;
+        OracleCommand cmd;
+        string username, kode;
+
         public Buyer(string user, string kod)
         {
             InitializeComponent();
             username = user;
             kode = kod;
-            OracleCommand cmd;
-            conn = new OracleConnection()
-            {
-                ConnectionString = "Data Source = ORCL; User Id = proyekpcs; password = proyekpcs;"
-            };
+            string datasource = "Data Source=orcl;User id=proyekpcs;Password=proyekpcs";
+            conn = new OracleConnection(datasource);
+            loadData();
             conn.Open();
-            string query = " select saldo from mh_user where kode_user = '" + kode +"'";
+            string query = "select nama_user from mh_user where username_user = '" + username + "'";
             cmd = new OracleCommand(query, conn);
-            saldo.Text = "SALDO ANDA : " + cmd.ExecuteScalar().ToString();
+            header.Text = "Welcome, Buyer " + cmd.ExecuteScalar().ToString();
             conn.Close();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void loadData()
+        {
+            try
+            {
+                conn.Open();
+                string query = "select saldo from mh_user where username_user = '" + username + "'";
+                cmd = new OracleCommand(query, conn);
+                saldo.Text = "Rp " + cmd.ExecuteScalar().ToString();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                Console.WriteLine(ex.StackTrace);
+            }
+        }
+
+        private void Profile_Click(object sender, RoutedEventArgs e)
+        {
+            ProfileSeller prof = new ProfileSeller(username, kode);
+            prof.Show();
+            this.Close();
+        }
+
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Are You Sure Want to Log Out ?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                MainWindow m = new MainWindow();
+                m.Show();
+                this.Close();
+            }
+        }
+
+        private void Product_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Cart_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Shipping_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Chat_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ViewReport_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TopUp_Click(object sender, RoutedEventArgs e)
         {
             TopUp tu = new TopUp(username, kode);
             tu.Show();

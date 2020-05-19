@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using CrystalDecisions.CrystalReports.Engine;
 
 namespace Yinyinpedia
 {
@@ -19,127 +20,99 @@ namespace Yinyinpedia
     /// </summary>
     public partial class ReportTransaksiPenjual : Window
     {
+        string username;
         DateTime startDate;
-        public ReportTransaksiPenjual()
+
+        private class Kategori
+        {
+            public string Kode { get; set; }
+            public string Nama { get; set; }
+        }
+
+        public ReportTransaksiPenjual(string user)
         {
             InitializeComponent();
+            username = user;
+            loadData();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        public void loadData()
         {
-            cb_Bulan.Items.Add("Januari");
-            cb_Bulan.Items.Add("Februari");
-            cb_Bulan.Items.Add("Maret");
-            cb_Bulan.Items.Add("April");
-            cb_Bulan.Items.Add("Mei");
-            cb_Bulan.Items.Add("Juni");
-            cb_Bulan.Items.Add("Juli");
-            cb_Bulan.Items.Add("Agustus");
-            cb_Bulan.Items.Add("September");
-            cb_Bulan.Items.Add("Oktober");
-            cb_Bulan.Items.Add("November");
-            cb_Bulan.Items.Add("Desember");
+            month.ItemsSource = null;
+            List<Kategori> kategori = new List<Kategori>();
+            for (int i = 1; i < 13; i++)
+            {
+                Kategori temp = new Kategori();
+                temp.Kode = i.ToString();
+                if (i == 1)
+                {
+                    temp.Nama = "January";
+                }
+                else if (i == 2)
+                {
+                    temp.Nama = "February";
+                }
+                else if (i == 3)
+                {
+                    temp.Nama = "March";
+                }
+                else if (i == 4)
+                {
+                    temp.Nama = "April";
+                }
+                else if (i == 5)
+                {
+                    temp.Nama = "May";
+                }
+                else if (i == 6)
+                {
+                    temp.Nama = "June";
+                }
+                else if (i == 7)
+                {
+                    temp.Nama = "July";
+                }
+                else if (i == 8)
+                {
+                    temp.Nama = "August";
+                }
+                else if (i == 9)
+                {
+                    temp.Nama = "September";
+                }
+                else if (i == 10)
+                {
+                    temp.Nama = "October";
+                }
+                else if (i == 11)
+                {
+                    temp.Nama = "November";
+                }
+                else if (i == 12)
+                {
+                    temp.Nama = "December";
+                }
+                kategori.Add(temp);
+            }
+            month.SelectedValuePath = "Kode";
+            month.DisplayMemberPath = "Nama";
+            month.ItemsSource = kategori;
         }
 
-        private void btnGenerate_RptProduk_Click(object sender, RoutedEventArgs e)
+        private void Back_Click(object sender, RoutedEventArgs e)
         {
-            if(cb_Bulan.Text == "Januari")
-            {
-                startDate = new DateTime(2000, 1, 1);
-                CrystalTransaksiPenjual rptTransPenjual = new CrystalTransaksiPenjual();
-                rptTransPenjual.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
-                rptTransPenjual.SetParameterValue("getTanggalStart", startDate);
-                viewerLaporanTransaksi.ViewerCore.ReportSource = rptTransPenjual;
-            }
-            else if (cb_Bulan.Text == "Februari")
-            {
-                startDate = new DateTime(2000, 2, 1);
-                CrystalTransaksiPenjual rptTransPenjual = new CrystalTransaksiPenjual();
-                rptTransPenjual.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
-                rptTransPenjual.SetParameterValue("getTanggalStart", startDate);
-                viewerLaporanTransaksi.ViewerCore.ReportSource = rptTransPenjual;
-            }
-            else if (cb_Bulan.Text == "Maret")
-            {
-                startDate = new DateTime(2000, 3, 1);
-                CrystalTransaksiPenjual rptTransPenjual = new CrystalTransaksiPenjual();
-                rptTransPenjual.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
-                rptTransPenjual.SetParameterValue("getTanggalStart", startDate);
-                viewerLaporanTransaksi.ViewerCore.ReportSource = rptTransPenjual;
-            }
-            else if (cb_Bulan.Text == "April")
-            {
-                startDate = new DateTime(2000, 4, 1);
-                CrystalTransaksiPenjual rptTransPenjual = new CrystalTransaksiPenjual();
-                rptTransPenjual.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
-                rptTransPenjual.SetParameterValue("getTanggalStart", startDate);
-                viewerLaporanTransaksi.ViewerCore.ReportSource = rptTransPenjual;
-            }
-            else if (cb_Bulan.Text == "Mei")
-            {
-                startDate = new DateTime(2000, 5, 1);
-                CrystalTransaksiPenjual rptTransPenjual = new CrystalTransaksiPenjual();
-                rptTransPenjual.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
-                rptTransPenjual.SetParameterValue("getTanggalStart", startDate);
-                viewerLaporanTransaksi.ViewerCore.ReportSource = rptTransPenjual;
-            }
-            else if (cb_Bulan.Text == "Juni")
-            {
-                startDate = new DateTime(2000, 6, 1);
-                CrystalTransaksiPenjual rptTransPenjual = new CrystalTransaksiPenjual();
-                rptTransPenjual.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
-                rptTransPenjual.SetParameterValue("getTanggalStart", startDate);
-                viewerLaporanTransaksi.ViewerCore.ReportSource = rptTransPenjual;
-            }
-            else if (cb_Bulan.Text == "Juli")
-            {
-                startDate = new DateTime(2000, 7, 1);
-                CrystalTransaksiPenjual rptTransPenjual = new CrystalTransaksiPenjual();
-                rptTransPenjual.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
-                rptTransPenjual.SetParameterValue("getTanggalStart", startDate);
-                viewerLaporanTransaksi.ViewerCore.ReportSource = rptTransPenjual;
-            }
-            else if (cb_Bulan.Text == "Agustus")
-            {
-                startDate = new DateTime(2000, 8, 1);
-                CrystalTransaksiPenjual rptTransPenjual = new CrystalTransaksiPenjual();
-                rptTransPenjual.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
-                rptTransPenjual.SetParameterValue("getTanggalStart", startDate);
-                viewerLaporanTransaksi.ViewerCore.ReportSource = rptTransPenjual;
-            }
-            else if (cb_Bulan.Text == "September")
-            {
-                startDate = new DateTime(2000, 9, 1);
-                CrystalTransaksiPenjual rptTransPenjual = new CrystalTransaksiPenjual();
-                rptTransPenjual.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
-                rptTransPenjual.SetParameterValue("getTanggalStart", startDate);
-                viewerLaporanTransaksi.ViewerCore.ReportSource = rptTransPenjual;
-            }
-            else if (cb_Bulan.Text == "Oktober")
-            {
-                startDate = new DateTime(2000, 10, 1);
-                CrystalTransaksiPenjual rptTransPenjual = new CrystalTransaksiPenjual();
-                rptTransPenjual.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
-                rptTransPenjual.SetParameterValue("getTanggalStart", startDate);
-                viewerLaporanTransaksi.ViewerCore.ReportSource = rptTransPenjual;
-            }
-            else if (cb_Bulan.Text == "November")
-            {
-                startDate = new DateTime(2000, 11, 1);
-                CrystalTransaksiPenjual rptTransPenjual = new CrystalTransaksiPenjual();
-                rptTransPenjual.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
-                rptTransPenjual.SetParameterValue("getTanggalStart", startDate);
-                viewerLaporanTransaksi.ViewerCore.ReportSource = rptTransPenjual;
-            }
-            else if (cb_Bulan.Text == "Desember")
-            {
-                startDate = new DateTime(2000, 12, 1);
-                CrystalTransaksiPenjual rptTransPenjual = new CrystalTransaksiPenjual();
-                rptTransPenjual.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
-                rptTransPenjual.SetParameterValue("getTanggalStart", startDate);
-                viewerLaporanTransaksi.ViewerCore.ReportSource = rptTransPenjual;
-            }
-            
+            SelectReport sr = new SelectReport(username);
+            sr.Show();
+            this.Close();
+        }
+
+        private void Generate_Click(object sender, RoutedEventArgs e)
+        {
+            startDate = new DateTime(2000, Convert.ToInt32(month.SelectedValue.ToString()), 1);
+            CrystalTransaksiPenjual rptTransPenjual = new CrystalTransaksiPenjual();
+            rptTransPenjual.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
+            rptTransPenjual.SetParameterValue("getTanggalStart", startDate);
+            viewerCR.ViewerCore.ReportSource = rptTransPenjual;
         }
     }
 }

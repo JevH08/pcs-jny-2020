@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Seller" Height="530" Width="900" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Grid>
-        <Border BorderBrush="Black" BorderThickness="1" Margin="20 45 20 45" Background="#FFFACBCB">
+        <Border Background="#FFFDD5D5" BorderBrush="#FFC2C2C2" BorderThickness="1" Margin="20 45 20 45">
             <Border BorderBrush="Black" BorderThickness="1"/>
         </Border>
         <StackPanel Margin="25 50 25 5">

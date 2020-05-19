@@ -1,11 +1,13 @@
 DROP TABLE MH_KATEGORI CASCADE CONSTRAINTS;
-DROP TABLE mh_produk CASCADE CONSTRAINTS;
-DROP TABLE dtrans CASCADE CONSTRAINTS;
-DROP TABLE history_emoney CASCADE CONSTRAINTS;
-DROP TABLE htrans CASCADE CONSTRAINTS;
-DROP TABLE MH_DISTRIBUTOR CASCADE CONSTRAINTS;
+DROP TABLE MH_EMBARGO CASCADE CONSTRAINTS;
 DROP TABLE mh_user CASCADE CONSTRAINTS;
-DROP TABLE mh_chat CASCADE CONSTRAINTS;
+DROP TABLE MH_DISTRIBUTOR CASCADE CONSTRAINTS;
+DROP TABLE mh_produk CASCADE CONSTRAINTS;
+DROP TABLE htrans CASCADE CONSTRAINTS;
+DROP TABLE history_emoney CASCADE CONSTRAINTS;
+DROP TABLE dtrans CASCADE CONSTRAINTS;
+DROP TABLE th_chat CASCADE CONSTRAINTS;
+DROP TABLE td_chat CASCADE CONSTRAINTS;
 
 
 CREATE TABLE MH_KATEGORI (
@@ -13,6 +15,14 @@ CREATE TABLE MH_KATEGORI (
   Nama_Kategori varchar2(100)  ,
 	status number(1)
 );
+
+
+CREATE TABLE MH_EMBARGO (
+  Kode_EMBARGO varchar2(15) CONSTRAINTS PK_MH_EMBARGO  PRIMARY KEY,
+  Nama_EMBARGO varchar2(100)  ,
+	status number(1)
+);
+
 
 CREATE TABLE mh_user(
 	kode_user  varchar2(20) CONSTRAINTS PK_mh_user PRIMARY KEY,
@@ -58,9 +68,6 @@ CREATE TABLE MH_PRODUK (
   rating number  ,
   jumlah_pembeli number  
 );
-
-
-
 
 
 CREATE TABLE htrans(
@@ -123,4 +130,8 @@ insert into mh_user values ('US20200426_003','GEORGIA','nikita','nikita','nikita
 insert into mh_kategori values('KA_001', 'Animal', 0);
 insert into mh_kategori values('KA_002', 'Glass', 0);
 insert into mh_kategori values('KA_003', 'Electronic', 0);
+
+insert into mh_embargo values('KE_001', 'Narkotika', 0);
+insert into mh_embargo values('KE_002', 'Nikotin', 0);
+insert into mh_embargo values('KE_003', 'Sabu', 0);
 purge recyclebin;

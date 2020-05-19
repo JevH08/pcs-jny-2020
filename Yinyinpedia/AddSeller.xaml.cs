@@ -115,6 +115,32 @@ namespace Yinyinpedia
             this.Close();
         }
 
+        private void DgvSeller_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            DataRow dr = dbp.Tables[0].Rows[dgvSeller.SelectedIndex];
+            if (dr["role"].ToString() != "Admin")
+            {
+                if (MessageBox.Show("Are You Sure Want to Delete " + dr["username"].ToString() + " ?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        conn.Open();
+                        string kode = dr["code"].ToString();
+                        string query = "delete from mh_user where kode_user = '" + kode + "'";
+                        cmd = new OracleCommand(query, conn);
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        conn.Close();
+                        Console.WriteLine(ex.StackTrace);
+                    }
+                    LoadData(Convert.ToInt32(page.Text));
+                }
+            }
+        }
+
         private void Prev_Click(object sender, RoutedEventArgs e)
         {
             int p1 = Convert.ToInt32(page.Text) - 1;
