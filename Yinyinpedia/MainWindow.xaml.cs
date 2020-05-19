@@ -31,6 +31,7 @@ namespace Yinyinpedia
             InitializeComponent();
             string datasource = "Data Source=orcl;User id=proyekpcs;Password=proyekpcs";
             conn = new OracleConnection(datasource);
+            MessageBox.Show("Welcome");
         }
 
         private void Forgot_Click(object sender, RoutedEventArgs e)
@@ -38,7 +39,6 @@ namespace Yinyinpedia
             InsertUsername iu = new InsertUsername();
             iu.Show();
             this.Close();
-            
         }
 
         private void Login_Click(object sender, RoutedEventArgs e)
