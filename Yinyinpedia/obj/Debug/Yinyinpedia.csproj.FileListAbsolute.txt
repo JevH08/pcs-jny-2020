@@ -267,3 +267,6 @@ C:\Users\Yin Yin\Downloads\Proyek PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\product
 C:\Users\Yin Yin\Downloads\Proyek PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\profileBuyer.g.cs
 C:\Users\Yin Yin\Downloads\Proyek PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\productBuyer.baml
 C:\Users\Yin Yin\Downloads\Proyek PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\profileBuyer.baml
+K:\Semester 4\Client Server Programming\Project\test foplder\pcs-jny-2020\Yinyinpedia\obj\Debug\Yinyinpedia.csprojAssemblyReference.cache
+K:\Semester 4\Client Server Programming\Project\test foplder\pcs-jny-2020\Yinyinpedia\obj\Debug\Yinyinpedia.exe
+K:\Semester 4\Client Server Programming\Project\test foplder\pcs-jny-2020\Yinyinpedia\obj\Debug\Yinyinpedia.pdb
