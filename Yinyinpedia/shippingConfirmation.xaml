@@ -1,0 +1,25 @@
+﻿<Window x:Class="Yinyinpedia.shippingConfirmation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Yinyinpedia"
+        mc:Ignorable="d"
+        Title="shippingConfirmation" Height="250" Width="350" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid>
+        <Border BorderBrush="#FFDDDBDB" Background="#FFFCD1D1" BorderThickness="1" Margin="20 45 20 45"/>
+        <StackPanel Margin="25 50 25 50" Background="#FFFDD0D0">
+            <Label Content="Product Arrived" HorizontalAlignment="Center" FontSize="20" Margin="0 5 0 5"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel>
+                    <Label Content="Give Rating"/>
+                </StackPanel>
+                <StackPanel Margin="10 0 0 0" Width="150">
+                    <TextBox Name="rating" Margin="0 6 0 0" BorderBrush="LightGray" Background="WhiteSmoke"/>
+                    <Label Content="Rating : 1 - 5" HorizontalAlignment="Right" FontSize="10" Foreground="SlateGray"/>
+                </StackPanel>
+            </StackPanel>
+            <Button Name="submit" Content="Submit" Click="Submit_Click" Margin="50 10 50 5" Background="#FFFF7777" BorderBrush="#FFF1CECE"/>
+        </StackPanel>
+    </Grid>
+</Window>

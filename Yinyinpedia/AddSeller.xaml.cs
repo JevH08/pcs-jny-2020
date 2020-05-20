@@ -159,7 +159,7 @@ namespace Yinyinpedia
         {
             if (name.Text == "" || tusername.Text == "" ||  address.Text == "" || email.Text == "" || city.SelectedIndex == -1 || birthDate.Text == "" || phoneNumber.Text == "" || norek.Text =="")
             {
-                MessageBox.Show("DATA TIDAK LENGKAP");
+                MessageBox.Show("Data Input Is Required");
             }
             else
             {
@@ -175,7 +175,7 @@ namespace Yinyinpedia
                     }
                     if (daftar == 1)
                     {
-                        MessageBox.Show("USERNAME / EMAIL SUDAH PERNAH TERDAFTAR");
+                        MessageBox.Show("Username / Email Already Used");
                     }
                     else
                     {
@@ -186,7 +186,7 @@ namespace Yinyinpedia
                         cmd.Parameters.Add(":passs", tusername.Text);
                         cmd.Parameters.Add(":email", email.Text);
                         cmd.Parameters.Add(":alamat", address.Text);
-                        cmd.Parameters.Add(":kota", city.Text.ToUpper());
+                        cmd.Parameters.Add(":kota", city.Text);
                         cmd.Parameters.Add(":telp", phoneNumber.Text);
                         cmd.Parameters.Add(":bank", norek.Text);
                         if ((bool)female.IsChecked == true)
@@ -210,7 +210,7 @@ namespace Yinyinpedia
                 }
                 else
                 {
-                    MessageBox.Show("EMAIL TIDAK VALID");
+                    MessageBox.Show("Email is not Valid");
                 }
             }
         }

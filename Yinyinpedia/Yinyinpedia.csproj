@@ -81,8 +81,17 @@
     <Compile Include="Buyer.xaml.cs">
       <DependentUpon>Buyer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="cartBuyer.xaml.cs">
+      <DependentUpon>cartBuyer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ChangePassword.xaml.cs">
       <DependentUpon>ChangePassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="chatBuyer.xaml.cs">
+      <DependentUpon>chatBuyer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="chatSeller.xaml.cs">
+      <DependentUpon>chatSeller.xaml</DependentUpon>
     </Compile>
     <Compile Include="CrystalProduk.cs">
       <AutoGen>True</AutoGen>
@@ -98,6 +107,12 @@
     </Compile>
     <Compile Include="DeliveryServices.xaml.cs">
       <DependentUpon>DeliveryServices.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="historyBalanceBuyer.xaml.cs">
+      <DependentUpon>historyBalanceBuyer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="historyBalanceSeller.xaml.cs">
+      <DependentUpon>historyBalanceSeller.xaml</DependentUpon>
     </Compile>
     <Compile Include="InsertUsername.xaml.cs">
       <DependentUpon>InsertUsername.xaml</DependentUpon>
@@ -126,11 +141,17 @@
     <Compile Include="RegisterUser.xaml.cs">
       <DependentUpon>RegisterUser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="reportBuyer.xaml.cs">
+      <DependentUpon>reportBuyer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ReportPengiriman.xaml.cs">
       <DependentUpon>ReportPengiriman.xaml</DependentUpon>
     </Compile>
     <Compile Include="ReportProduk.xaml.cs">
       <DependentUpon>ReportProduk.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="reportSeller.xaml.cs">
+      <DependentUpon>reportSeller.xaml</DependentUpon>
     </Compile>
     <Compile Include="ReportTransaksiPenjual.xaml.cs">
       <DependentUpon>ReportTransaksiPenjual.xaml</DependentUpon>
@@ -140,6 +161,15 @@
     </Compile>
     <Compile Include="Seller.xaml.cs">
       <DependentUpon>Seller.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="shippingBuyer.xaml.cs">
+      <DependentUpon>shippingBuyer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="shippingConfirmation.xaml.cs">
+      <DependentUpon>shippingConfirmation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="shippingSeller.xaml.cs">
+      <DependentUpon>shippingSeller.xaml</DependentUpon>
     </Compile>
     <Compile Include="TopUp.xaml.cs">
       <DependentUpon>TopUp.xaml</DependentUpon>
@@ -164,11 +194,31 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="cartBuyer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ChangePassword.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="chatBuyer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="chatSeller.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DeliveryServices.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="historyBalanceBuyer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="historyBalanceSeller.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -223,11 +273,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="reportBuyer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ReportPengiriman.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ReportProduk.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="reportSeller.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -240,6 +298,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Seller.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="shippingBuyer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="shippingConfirmation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="shippingSeller.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

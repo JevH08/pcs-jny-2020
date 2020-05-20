@@ -71,7 +71,7 @@ namespace Yinyinpedia
                         cmd.Parameters.Add(":passs", tpassword.Text);
                         cmd.Parameters.Add(":email", email.Text);
                         cmd.Parameters.Add(":alamat", address.Text);
-                        cmd.Parameters.Add(":kota", city.Text.ToUpper());
+                        cmd.Parameters.Add(":kota", city.Text);
                         cmd.Parameters.Add(":telp", phoneNumber.Text);
                         cmd.Parameters.Add(":bank", norek.Text);
                         if ((bool)female.IsChecked == true)

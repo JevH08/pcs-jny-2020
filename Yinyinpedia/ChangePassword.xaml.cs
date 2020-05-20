@@ -83,7 +83,13 @@ namespace Yinyinpedia
                             mw.Show();
                             this.Close();
                         }
-                        
+                        else if (status == 3)
+                        {
+                            Buyer b = new Buyer(username, kode);
+                            b.Show();
+                            this.Close();
+                        }
+
                     }
                     else
                     {

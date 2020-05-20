@@ -33,7 +33,7 @@ namespace Yinyinpedia
             conn = new OracleConnection(datasource);
             loadData();
             conn.Open();
-            string query = "select nama_user from mh_user where username_user = '" + username + "'";
+            string query = "select initcap(nama_user) from mh_user where username_user = '" + username + "'";
             cmd = new OracleCommand(query, conn);
             header.Text = "Welcome, Seller " + cmd.ExecuteScalar().ToString();
             conn.Close();
@@ -82,6 +82,13 @@ namespace Yinyinpedia
             }
         }
 
+        private void History_Click(object sender, RoutedEventArgs e)
+        {
+            historyBalanceSeller hb = new historyBalanceSeller(username, kode);
+            hb.Show();
+            this.Close();
+        }
+
         private void Profile_Click(object sender, RoutedEventArgs e)
         {
             ProfileSeller prof = new ProfileSeller(username, kode);
@@ -115,17 +122,23 @@ namespace Yinyinpedia
 
         private void Shipping_Click(object sender, RoutedEventArgs e)
         {
-
+            shippingSeller ss = new shippingSeller(username, kode);
+            ss.Show();
+            this.Close();
         }
 
         private void Chat_Click(object sender, RoutedEventArgs e)
         {
-
+            chatSeller cs = new chatSeller(username, kode);
+            cs.Show();
+            this.Close();
         }
 
         private void ViewReport_Click(object sender, RoutedEventArgs e)
         {
-
+            reportSeller sr = new reportSeller(username, kode);
+            sr.Show();
+            this.Close();
         }
     }
 }

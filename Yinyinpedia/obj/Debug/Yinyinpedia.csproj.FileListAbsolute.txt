@@ -270,3 +270,23 @@ C:\Users\Yin Yin\Downloads\Proyek PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\profile
 K:\Semester 4\Client Server Programming\Project\test foplder\pcs-jny-2020\Yinyinpedia\obj\Debug\Yinyinpedia.csprojAssemblyReference.cache
 K:\Semester 4\Client Server Programming\Project\test foplder\pcs-jny-2020\Yinyinpedia\obj\Debug\Yinyinpedia.exe
 K:\Semester 4\Client Server Programming\Project\test foplder\pcs-jny-2020\Yinyinpedia\obj\Debug\Yinyinpedia.pdb
+C:\Users\Yin Yin\Downloads\Proyek PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\historyBalanceSeller.g.cs
+C:\Users\Yin Yin\Downloads\Proyek PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\historyBalanceSeller.baml
+C:\Users\Yin Yin\Downloads\Proyek PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\historyBalanceBuyer.g.cs
+C:\Users\Yin Yin\Downloads\Proyek PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\historyBalanceBuyer.baml
+C:\Users\Yin Yin\Downloads\Proyek PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\cartBuyer.g.cs
+C:\Users\Yin Yin\Downloads\Proyek PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\cartBuyer.baml
+C:\Users\Yin Yin\Downloads\Proyek PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\reportSeller.g.cs
+C:\Users\Yin Yin\Downloads\Proyek PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\reportSeller.baml
+C:\Users\Yin Yin\Downloads\Proyek PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\reportBuyer.g.cs
+C:\Users\Yin Yin\Downloads\Proyek PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\reportBuyer.baml
+C:\Users\Yin Yin\Downloads\Proyek PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\shippingSeller.g.cs
+C:\Users\Yin Yin\Downloads\Proyek PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\shippingSeller.baml
+C:\Users\Yin Yin\Downloads\Proyek PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\shippingBuyer.g.cs
+C:\Users\Yin Yin\Downloads\Proyek PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\shippingBuyer.baml
+C:\Users\Yin Yin\Downloads\Proyek PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\shippingConfirmation.g.cs
+C:\Users\Yin Yin\Downloads\Proyek PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\shippingConfirmation.baml
+C:\Users\Yin Yin\Downloads\Proyek PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\chatSeller.g.cs
+C:\Users\Yin Yin\Downloads\Proyek PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\chatSeller.baml
+C:\Users\Yin Yin\Downloads\Proyek PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\chatBuyer.g.cs
+C:\Users\Yin Yin\Downloads\Proyek PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\chatBuyer.baml

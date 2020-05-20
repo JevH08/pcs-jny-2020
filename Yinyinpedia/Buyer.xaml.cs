@@ -34,7 +34,7 @@ namespace Yinyinpedia
             conn = new OracleConnection(datasource);
             loadData();
             conn.Open();
-            string query = "select nama_user from mh_user where username_user = '" + username + "'";
+            string query = "select initcap(nama_user) from mh_user where username_user = '" + username + "'";
             cmd = new OracleCommand(query, conn);
             header.Text = "Welcome, Buyer " + cmd.ExecuteScalar().ToString();
             conn.Close();
@@ -57,6 +57,20 @@ namespace Yinyinpedia
             }
         }
 
+        private void TopUp_Click(object sender, RoutedEventArgs e)
+        {
+            TopUp tu = new TopUp(username, kode);
+            tu.Show();
+            this.Close();
+        }
+
+        private void History_Click(object sender, RoutedEventArgs e)
+        {
+            historyBalanceBuyer hb = new historyBalanceBuyer(username, kode);
+            hb.Show();
+            this.Close();
+        }
+
         private void Profile_Click(object sender, RoutedEventArgs e)
         {
             ProfileSeller prof = new ProfileSeller(username, kode);
@@ -76,33 +90,29 @@ namespace Yinyinpedia
 
         private void Product_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void Cart_Click(object sender, RoutedEventArgs e)
-        {
-
+            productBuyer prod = new productBuyer(username, kode);
+            prod.Show();
+            this.Close();
         }
 
         private void Shipping_Click(object sender, RoutedEventArgs e)
         {
-
+            shippingBuyer sb = new shippingBuyer(username, kode);
+            sb.Show();
+            this.Close();
         }
 
         private void Chat_Click(object sender, RoutedEventArgs e)
         {
-
+            chatBuyer cb = new chatBuyer(username, kode);
+            cb.Show();
+            this.Close();
         }
 
         private void ViewReport_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void TopUp_Click(object sender, RoutedEventArgs e)
-        {
-            TopUp tu = new TopUp(username, kode);
-            tu.Show();
+            reportBuyer rb = new reportBuyer(username, kode);
+            rb.Show();
             this.Close();
         }
     }

@@ -5,20 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Yinyinpedia"
         mc:Ignorable="d"
-        Title="TopUp" Height="320" Width="350" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Title="TopUp" Height="350" Width="350" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Grid>
-        <Border BorderBrush="#FFDCD8D8" BorderThickness="1" Margin="20 35 20 35" Background="#FFFDD2D2"/>
+        <Border BorderBrush="#FFDDDBDB" Background="#FFFCD1D1" BorderThickness="1" Margin="20 35 20 35"/>
         <StackPanel Margin="25 50 25 50">
             <Label Content="TOP UP" HorizontalAlignment="Center" FontSize="20" Margin="0 5 0 5"/>
-            <Border BorderBrush="Black" BorderThickness="1"/>
-            <Button Name="back" Content="Back" Click="Back_Click" HorizontalAlignment="Right" Height="30" Width="80" Margin="0 10 20 10" Background="#FFFF9A9A" BorderBrush="{x:Null}"/>
-            <Border BorderBrush="Black" BorderThickness="1"/>
+            <Border BorderBrush="DimGray" BorderThickness="1"/>
+            <Button Name="back" Content="Back" Click="Back_Click" HorizontalAlignment="Right" Height="30" Width="80" Margin="0 10 20 10" Background="#FFFF7777" BorderBrush="#FFF1CECE"/>
+            <Border BorderBrush="DimGray" BorderThickness="1"/>
             <StackPanel Margin="0 10 0 0">
                 <Label Content="Nominal" HorizontalAlignment="Center"/>
-                <TextBox Name="nominal" HorizontalAlignment="Center" Width="150" BorderBrush="#FFD3D3D4" Background="#FFE7E2E2"/>
-                <Label Content="Minimum Top Up : 10000" FontSize="10" Foreground="#FF7D7D7D" HorizontalAlignment="Center"/>
+                <TextBox Name="nominal" HorizontalAlignment="Center" Width="150" BorderBrush="LightGray" Background="WhiteSmoke"/>
+                <Label Content="Minimum Top Up : 10000" FontSize="10" Foreground="SlateGray" HorizontalAlignment="Center"/>
             </StackPanel>
-            <Button Name="submit" Content="Submit" Click="Submit_Click" HorizontalAlignment="Right" Height="30" Width="80" Margin="0 10 20 10" Background="#FFFF9A9A" BorderBrush="{x:Null}"/>
+            <Button Name="submit" Content="Submit" Click="Submit_Click" HorizontalAlignment="Right" Height="30" Width="80" Margin="0 10 20 10" Background="#FFFF7777" BorderBrush="#FFF1CECE"/>
         </StackPanel>
     </Grid>
 </Window>

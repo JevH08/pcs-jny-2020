@@ -82,7 +82,9 @@ CREATE TABLE htrans(
    fk_distributor  varchar2(20) references mh_distributor(kode_distributor) ,
    nama_tujuan  varchar2(256)  ,
    kota_tujuan  varchar2(256)  ,
-   alamat_tujuan  varchar2(256)  
+	telepon_tujuan  varchar2(20)  ,
+   alamat_tujuan  varchar2(256)  ,
+	status varchar2(1)
 );
 
 
