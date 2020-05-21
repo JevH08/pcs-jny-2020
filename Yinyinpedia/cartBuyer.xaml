@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Yinyinpedia"
         mc:Ignorable="d"
-        Title="cartBuyer" Height="370" Width="420" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Title="cartBuyer" Height="400" Width="420" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Grid>
         <Border BorderThickness="1" Margin="20 30 20 30" BorderBrush="#FFDDDBDB" Background="#FFFCD1D1"/>
         <StackPanel Margin="30 50 30 25">
@@ -19,6 +19,7 @@
                     <Label Content="City"/>
                     <Label Content="Delivery Service" Margin="0 5 0 0"/>
                     <Label Content="Discount"/>
+                    <Label Content="Grandtotal"/>
                 </StackPanel>
                 <StackPanel Margin="10 17 0 0">
                     <TextBox Name="name" Width="200" BorderBrush="LightGray" Background="WhiteSmoke"/>
@@ -41,8 +42,13 @@
                         </ComboBox.Background>
                     </ComboBox>
                     <TextBlock Name="promoDelivery" Text="-" HorizontalAlignment="Right" Margin="0 7 0 0"/>
-                    <Button Name="submit" Content="Done" Margin="0 15 0 0"  HorizontalAlignment="Right" Width="80" Height="30" Click="Submit_Click" Background="#FFFF7777" BorderBrush="#FFF1CECE"/>
+                    <TextBlock Name="grandtotal" Text="-" HorizontalAlignment="Right" Margin="0 7 0 0"/>
                 </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Name="topup" Content="TOP UP" Margin="35 15 0 0"  HorizontalAlignment="Right" Width="80" Height="30" Click="Topup_Click" Background="#FFFF7777" BorderBrush="#FFF1CECE"/>
+                <Button Name="done" Content="DONE" Margin="29 15 0 0"  HorizontalAlignment="Right" Width="80" Height="30" Click="Done_Click" Background="#FFFF7777" BorderBrush="#FFF1CECE"/>
+                <Button Name="cancel" Content="CANCEL" Margin="30 15 0 0"  HorizontalAlignment="Right" Width="80" Height="30" Click="Cancel_Click" Background="#FFFF7777" BorderBrush="#FFF1CECE"/>
             </StackPanel>
         </StackPanel>
     </Grid>

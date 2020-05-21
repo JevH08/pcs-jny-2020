@@ -19,7 +19,7 @@
                 </StackPanel>
                 <StackPanel Margin="10 0 0 0">
                     <Label Content="Name"/>
-                    <Label Content="Price / KG"/>
+                    <Label Content="Price / Gr"/>
                     <Label Content="Minimum"/>
                     <Label Content="Discount"/>
                 </StackPanel>

@@ -49,3 +49,17 @@ begin
 	end if;
 end;
 /
+
+create or replace function autogenht
+return varchar2
+is
+kode varchar2(13);
+hitung number;
+tgl varchar2(10);
+begin
+	select to_char(sysdate,'YYYYMMDD') into tgl from dual;
+	select count(*) + 1 into hitung from htrans where KODE_htrans like '%' || tgl || '%';
+	kode := 'HJ' || tgl || lpad(hitung,3,'0');
+	return kode;
+end;
+/

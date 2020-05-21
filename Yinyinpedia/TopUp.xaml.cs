@@ -22,20 +22,40 @@ namespace Yinyinpedia
     {
         string user, kod;
         OracleConnection conn;
-
-        public TopUp(string username, string kode)
+        int from;
+        string kodeHTRANS;
+        public TopUp(string username, string kode,int asal)
         {
             InitializeComponent();
             user = username;
             kod = kode;
             conn = new OracleConnection() { ConnectionString = "Data Source = ORCL; User id = proyekpcs; password = proyekpcs" };
+            from = asal;
+        }
+        public TopUp(string username, string kode, int asal, string kodeH)
+        {
+            InitializeComponent();
+            user = username;
+            kod = kode;
+            conn = new OracleConnection() { ConnectionString = "Data Source = ORCL; User id = proyekpcs; password = proyekpcs" };
+            from = asal;
+            kodeHTRANS = kodeH;
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            Buyer b = new Buyer(user, kod);
-            b.Show();
-            this.Close();
+            if (from == 1)
+            {
+                Buyer b = new Buyer(user, kod);
+                b.Show();
+                this.Close();
+            }
+            else if(from == 2)
+            {
+                cartBuyer cb = new cartBuyer(user, kod, kodeHTRANS);
+                cb.Show();
+                this.Close();
+            }
         }
 
         private void Submit_Click(object sender, RoutedEventArgs e)
@@ -65,9 +85,19 @@ namespace Yinyinpedia
                     cmd.ExecuteNonQuery();
                     conn.Close();
                     MessageBox.Show("Top Up Success! +Rp" + nominal.Text);
-                    Buyer b = new Buyer(user, kod);
-                    b.Show();
-                    this.Close();
+
+                    if (from == 1)
+                    {
+                        Buyer b = new Buyer(user, kod);
+                        b.Show();
+                        this.Close();
+                    }
+                    else if (from == 2)
+                    {
+                        cartBuyer cb = new cartBuyer(user, kod, kodeHTRANS);
+                        cb.Show();
+                        this.Close();
+                    }
                 }
             }
         }

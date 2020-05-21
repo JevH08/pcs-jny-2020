@@ -83,6 +83,7 @@ namespace Yinyinpedia
                 CommandText = "hitung",
                 CommandType = CommandType.StoredProcedure
             };
+            //peran sm hitung terbalik namanya 
             cmd.Parameters.Add(new OracleParameter()
             {
                 Direction = ParameterDirection.ReturnValue,
@@ -94,7 +95,7 @@ namespace Yinyinpedia
                 Direction = ParameterDirection.Input,
                 ParameterName = "hitung",
                 OracleDbType = OracleDbType.Varchar2,
-                Value = "2"
+                Value = "3"
             });
             conn.Open();
             cmd.ExecuteNonQuery();
@@ -186,7 +187,7 @@ namespace Yinyinpedia
                         cmd.Parameters.Add(":passs", tusername.Text);
                         cmd.Parameters.Add(":email", email.Text);
                         cmd.Parameters.Add(":alamat", address.Text);
-                        cmd.Parameters.Add(":kota", city.Text);
+                        cmd.Parameters.Add(":kota", city.Text.ToUpper());
                         cmd.Parameters.Add(":telp", phoneNumber.Text);
                         cmd.Parameters.Add(":bank", norek.Text);
                         if ((bool)female.IsChecked == true)

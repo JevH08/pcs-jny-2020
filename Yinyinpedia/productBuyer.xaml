@@ -31,7 +31,7 @@
                             <ComboBoxItem Content="Ascending"/>
                             <ComboBoxItem Content="Decending"/>
                         </ComboBox>
-                        <Label Content="City" Margin="10 0 10 0"/>
+                        <Label Content="Condition" Margin="10 0 10 0"/>
                         <ComboBox Name="city" Width="125" BorderBrush="LightGray" SelectionChanged="City_SelectionChanged">
                             <ComboBox.Background>
                                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
@@ -39,16 +39,8 @@
                                     <GradientStop Color="#FFB6AFAF" Offset="1"/>
                                 </LinearGradientBrush>
                             </ComboBox.Background>
-                            <ComboBoxItem Content="Surabaya"/>
-                            <ComboBoxItem Content="Aceh"/>
-                            <ComboBoxItem Content="Mojokerto"/>
-                            <ComboBoxItem Content="Bali"/>
-                            <ComboBoxItem Content="Jakarta"/>
-                            <ComboBoxItem Content="Semarang"/>
-                            <ComboBoxItem Content="Yogyakarta"/>
-                            <ComboBoxItem Content="Solo"/>
-                            <ComboBoxItem Content="Bandung"/>
-                            <ComboBoxItem Content="Kediri"/>
+                            <ComboBoxItem Content="New"/>
+                            <ComboBoxItem Content="Used"/>
                         </ComboBox>
                     </StackPanel>
                 </StackPanel>
@@ -79,15 +71,15 @@
                     <DataGrid Name="dgvCart" Width="408" Height="320" MouseDoubleClick="DgvCart_MouseDoubleClick" Background="White" BorderBrush="AntiqueWhite" IsReadOnly="True"/>
                     <StackPanel Orientation="Horizontal" Margin="0 5 0 0" HorizontalAlignment="Center">
                         <StackPanel>
-                            <TextBlock Text="Total Product :"/>
-                            <TextBlock Text="Total Price      :"/>
+                            <TextBlock Name="bnyk" Text="Total Product :"/>
+                            <TextBlock Name="bayar" Text="Total Price      :"/>
                         </StackPanel>
                         <StackPanel Margin="5 0 0 0">
                             <TextBlock Name="products" Text="0"/>
                             <TextBlock Name="price" Text="0"/>
                         </StackPanel>
                     </StackPanel>
-                    <Button Name="submit" Content="Buy It !" Click="Submit_Click" HorizontalAlignment="Center" Margin="0 10 0 0" Height="30" Width="80" Background="#FFFF7777" BorderBrush="#FFF1CECE"/>
+                    <Button Name="submit" IsEnabled="False" Content="Buy It !" Click="Submit_Click" HorizontalAlignment="Center" Margin="0 10 0 0" Height="30" Width="80" Background="#FFFF7777" BorderBrush="#FFF1CECE"/>
                 </StackPanel>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="30 15 0 0">

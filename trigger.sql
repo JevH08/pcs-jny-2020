@@ -102,3 +102,16 @@ begin
 	:new.KODE_HISTORY := 'HI_' || tgl || '_' || lpad(ctr,4,'0');
 end;
 /
+
+--td_transaksi
+create or replace trigger KODE_DTRANS
+before insert
+on dtrans
+for each row
+declare
+ctr number;
+begin
+	select count(*) + 1 into ctr from dtrans where kode_dtrans like '%' || :new.fk_htrans ||'%';
+	:new.kode_dtrans := :new.fk_htrans || '_' ||lpad(ctr,3,'0');
+end;
+/

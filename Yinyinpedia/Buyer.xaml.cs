@@ -59,7 +59,7 @@ namespace Yinyinpedia
 
         private void TopUp_Click(object sender, RoutedEventArgs e)
         {
-            TopUp tu = new TopUp(username, kode);
+            TopUp tu = new TopUp(username, kode,1);
             tu.Show();
             this.Close();
         }
