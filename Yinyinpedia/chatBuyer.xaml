@@ -18,10 +18,9 @@
                     <DataGrid Name="dgvChat" Width="204" Height="300" MouseDoubleClick="DgvChat_MouseDoubleClick" Background="White" BorderBrush="AntiqueWhite" IsReadOnly="True"/>
                 </StackPanel>
                 <StackPanel Margin="10 10 10 0">
-                    <StackPanel Orientation="Horizontal">
-                        <ListView Background="White" BorderBrush="AntiqueWhite" Width="350" Height="260"/>
+                    <StackPanel Background="White" Width="340" Height="260">
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="10 10 10 10">
+                    <StackPanel Orientation="Horizontal" Margin="0 10 0 10">
                         <Label Content="Reply" Height="30"/>
                         <TextBox Name="reply" Width="180" Height="20" Margin="10 0 0 0" BorderBrush="LightGray" Background="WhiteSmoke"/>
                         <Button Name="submit" Content="Send" Width="80" Margin="10 0 0 0" Height="30" Click="Submit_Click" Background="#FFFF7777" BorderBrush="#FFF1CECE"/>

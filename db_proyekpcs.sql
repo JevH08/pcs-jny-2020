@@ -113,13 +113,14 @@ CREATE TABLE th_chat(
    kode_hchat varchar2(20) CONSTRAINTS PK_th_chat PRIMARY KEY,
    fk_pembeli  varchar2(20)  references mh_user(kode_user) ,
    fk_penjual  varchar2(20)  references mh_user(kode_user) ,
-   status number 
+   statusB number,
+	statusS number
 );
 
 
 CREATE TABLE td_chat(
    kode_dchat varchar2(20) CONSTRAINTS PK_td_chat PRIMARY KEY,
-   fk_hchat varchar2(2) references th_chat(kode_hchat),
+   fk_hchat varchar2(20) references th_chat(kode_hchat),
    pengirim number,
    isi_chat varchar(256),
    tgl_chat date

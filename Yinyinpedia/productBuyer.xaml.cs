@@ -20,19 +20,20 @@ namespace Yinyinpedia
     /// </summary>
     public partial class productBuyer : Window
     {
-        OracleConnection conn;
-        OracleCommand cmd;
         DataSet db = new DataSet();
         DataSet dbp;
-        DataTable cart,submitbuy;
+        DataTable cart, submitbuy;
+        OracleConnection conn;
+        OracleCommand cmd;
         OracleCommandBuilder builder;
         OracleTransaction trans;
-        string username, kode;
+        OracleDataAdapter dabuilder;
         List<Barang> brg;
         List<string> listbeli;
         List<int> listberat;
+        string username, kode;
         int totalberat = 0, totalbeli = 0, productbeli = 0;
-        OracleDataAdapter dabuilder;
+
         private class Barang
         {
             public string KodeB { get; set; }
@@ -57,13 +58,6 @@ namespace Yinyinpedia
             cart.Columns.Add("PRICE");
             cart.Columns.Add("AMMOUNT");
             cart.Columns.Add("SUBTOTAL");
-            //DataRow dra = cart.NewRow();
-            //dra[0] = "aa";
-            //dra[1] = "aa";
-            //dra[2] = "aa";
-            //dra[3] = "aa";
-            //dra[4] = "aa";
-            //cart.Rows.Add(dra);
             dgvCart.ItemsSource = cart.DefaultView;
             listbeli = new List<string>();
             listberat = new List<int>();
@@ -316,7 +310,7 @@ namespace Yinyinpedia
             {
                 if (amount.Text == "" || Convert.ToInt32(amount.Text) < 1)
                 {
-                    MessageBox.Show("Jumlah tidak valid");
+                    MessageBox.Show("Invalid Ammount");
                 }
                 else
                 {
@@ -324,7 +318,7 @@ namespace Yinyinpedia
                     int jum = Convert.ToInt32(amount.Text);
                     if (stock < jum)
                     {
-                        MessageBox.Show("Sorry, stok tidak mencukupi");
+                        MessageBox.Show("Sorry, Insufficient Stock");
                     }
                     else
                     {
@@ -356,7 +350,102 @@ namespace Yinyinpedia
 
         private void Chat_Click(object sender, RoutedEventArgs e)
         {
-
+            if (tanya.Text != "")
+            {
+                try
+                {
+                    string kodeHC = "", query;
+                    conn.Open();
+                    trans = conn.BeginTransaction();
+                    //Header
+                    cmd = new OracleCommand()
+                    {
+                        Connection = conn,
+                        CommandText = "cekHC",
+                        CommandType = CommandType.StoredProcedure
+                    };
+                    cmd.Parameters.Add(new OracleParameter()
+                    {
+                        Direction = ParameterDirection.ReturnValue,
+                        ParameterName = "hasil",
+                        OracleDbType = OracleDbType.Varchar2,
+                        Size = 20
+                    });
+                    cmd.Parameters.Add(new OracleParameter()
+                    {
+                        Direction = ParameterDirection.Input,
+                        ParameterName = "kodeB",
+                        OracleDbType = OracleDbType.Varchar2,
+                        Size = 20,
+                        Value = kode
+                    });
+                    cmd.Parameters.Add(new OracleParameter()
+                    {
+                        Direction = ParameterDirection.Input,
+                        ParameterName = "kodeS",
+                        OracleDbType = OracleDbType.Varchar2,
+                        Size = 20,
+                        Value = brg[dgvProduct.SelectedIndex].KodeP.ToString()
+                    });
+                    cmd.ExecuteNonQuery();
+                    kodeHC = cmd.Parameters["hasil"].Value.ToString();
+                    if (kodeHC == "Tidak Ada")
+                    {
+                        cmd = new OracleCommand()
+                        {
+                            Connection = conn,
+                            CommandText = "autogenht_c",
+                            CommandType = CommandType.StoredProcedure
+                        };
+                        cmd.Parameters.Add(new OracleParameter()
+                        {
+                            Direction = ParameterDirection.ReturnValue,
+                            ParameterName = "kodeht",
+                            OracleDbType = OracleDbType.Varchar2,
+                            Size = 20
+                        });
+                        cmd.ExecuteNonQuery();
+                        kodeHC = cmd.Parameters["kodeht"].Value.ToString();
+                        query = $"insert into th_chat values ('{kodeHC}', '{kode}', '{brg[dgvProduct.SelectedIndex].KodeP}', '0', '0')";
+                        cmd = new OracleCommand(query, conn);
+                        cmd.ExecuteNonQuery();
+                    }
+                    //Detail
+                    cmd = new OracleCommand()
+                    {
+                        Connection = conn,
+                        CommandText = "autogendt_c",
+                        CommandType = CommandType.StoredProcedure
+                    };
+                    cmd.Parameters.Add(new OracleParameter()
+                    {
+                        Direction = ParameterDirection.ReturnValue,
+                        ParameterName = "kodedt",
+                        OracleDbType = OracleDbType.Varchar2,
+                        Size = 20
+                    });
+                    cmd.ExecuteNonQuery();
+                    string kodeDC = cmd.Parameters["kodedt"].Value.ToString();
+                    DateTime tanggal_penuh = DateTime.Now;
+                    string tanggal = tanggal_penuh.Day.ToString().PadLeft(2, '0') + "-" + tanggal_penuh.Month.ToString().PadLeft(2, '0') + "-" + tanggal_penuh.Year.ToString();
+                    query = $"insert into td_chat values ('{kodeDC}', '{kodeHC}', '2', '{tanya.Text}', to_date('{tanggal}','DD-MM-YYYY'))";
+                    cmd = new OracleCommand(query, conn);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Message Sent");
+                    trans.Commit();
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.StackTrace);
+                    trans.Rollback();
+                    conn.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Blank Chat");
+            }
         }
 
         private void DgvCart_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -386,7 +475,6 @@ namespace Yinyinpedia
             string kodeH = "";
             try
             {
-                
                 cmd = new OracleCommand()
                 {
                     Connection = conn,

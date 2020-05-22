@@ -131,38 +131,67 @@ namespace Yinyinpedia
             try
             {
                 conn.Open();
-                string query = "select kode_produk from mh_produk where status = 2";
+                string query = "select kode_produk from mh_produk where status = 2 and fk_penjual = '" + kode + "'";
                 cmd = new OracleCommand(query, conn);
                 string produkKode = cmd.ExecuteScalar().ToString();
                 query = "select nama_produk from mh_produk where kode_produk = '" + produkKode + "'";
                 cmd = new OracleCommand(query, conn);
                 string namaProduk = cmd.ExecuteScalar().ToString();
                 string[] temp = namaProduk.Split(' ');
-                foreach (string word in temp)
+                if (temp.Count() == 0)
                 {
-                    OracleCommand cmds = new OracleCommand()
+                    cmd = new OracleCommand()
                     {
-                        CommandType = CommandType.StoredProcedure,
                         Connection = conn,
-                        CommandText = "larangan"
+                        CommandText = "larangan",
+                        CommandType = CommandType.StoredProcedure
                     };
-                    cmds.Parameters.Add(new OracleParameter()
+                    cmd.Parameters.Add(new OracleParameter()
                     {
                         Direction = ParameterDirection.Input,
                         ParameterName = "kode",
                         OracleDbType = OracleDbType.Varchar2,
-                        Size = 100,
+                        Size = 20,
                         Value = produkKode
                     });
-                    cmds.Parameters.Add(new OracleParameter()
+                    cmd.Parameters.Add(new OracleParameter()
                     {
                         Direction = ParameterDirection.Input,
                         ParameterName = "nama",
                         OracleDbType = OracleDbType.Varchar2,
-                        Size = 100,
-                        Value = word
+                        Size = 200,
+                        Value = namaProduk
                     });
-                    cmds.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
+                }
+                else
+                {
+                    foreach (string word in temp)
+                    {
+                        cmd = new OracleCommand()
+                        {
+                            Connection = conn,
+                            CommandText = "larangan",
+                            CommandType = CommandType.StoredProcedure
+                        };
+                        cmd.Parameters.Add(new OracleParameter()
+                        {
+                            Direction = ParameterDirection.Input,
+                            ParameterName = "kode",
+                            OracleDbType = OracleDbType.Varchar2,
+                            Size = 20,
+                            Value = produkKode
+                        });
+                        cmd.Parameters.Add(new OracleParameter()
+                        {
+                            Direction = ParameterDirection.Input,
+                            ParameterName = "nama",
+                            OracleDbType = OracleDbType.Varchar2,
+                            Size = 200,
+                            Value = word
+                        });
+                        cmd.ExecuteNonQuery();
+                    }
                 }
                 conn.Close();
             }
@@ -216,6 +245,10 @@ namespace Yinyinpedia
                     }
                     submit.Content = "Update";
                     mode = 1;
+                }
+                else
+                {
+                    MessageBox.Show("Status Product Must Verified");
                 }
             }
         }
