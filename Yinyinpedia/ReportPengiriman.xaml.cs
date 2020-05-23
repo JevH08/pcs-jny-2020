@@ -21,6 +21,7 @@ namespace Yinyinpedia
     public partial class ReportPengiriman : Window
     {
         string username;
+        DateTime startDate;
 
         private class Kategori
         {
@@ -107,7 +108,11 @@ namespace Yinyinpedia
 
         private void Generate_Click(object sender, RoutedEventArgs e)
         {
-
+            startDate = new DateTime(2000, Convert.ToInt32(month.SelectedValue.ToString()), 1);
+            CrystalPengiriman rptPengiriman = new CrystalPengiriman();
+            rptPengiriman.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
+            rptPengiriman.SetParameterValue("getTanggalStart", startDate);
+            viewerCR.ViewerCore.ReportSource = rptPengiriman;
         }
     }
 }

@@ -316,3 +316,29 @@ C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\reportS
 C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\shippingBuyer.baml
 C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\shippingConfirmation.baml
 C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\shippingSeller.baml
+K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\addEmbargo.g.cs
+K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\cartBuyer.g.cs
+K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\chatBuyer.g.cs
+K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\chatSeller.g.cs
+K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\historyBalanceBuyer.g.cs
+K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\historyBalanceSeller.g.cs
+K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\productBuyer.g.cs
+K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\profileBuyer.g.cs
+K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\reportBuyer.g.cs
+K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\reportSeller.g.cs
+K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\shippingBuyer.g.cs
+K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\shippingConfirmation.g.cs
+K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\shippingSeller.g.cs
+K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\addEmbargo.baml
+K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\cartBuyer.baml
+K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\chatBuyer.baml
+K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\chatSeller.baml
+K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\historyBalanceBuyer.baml
+K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\historyBalanceSeller.baml
+K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\productBuyer.baml
+K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\profileBuyer.baml
+K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\reportBuyer.baml
+K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\reportSeller.baml
+K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\shippingBuyer.baml
+K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\shippingConfirmation.baml
+K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\shippingSeller.baml

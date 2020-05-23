@@ -93,6 +93,12 @@
     <Compile Include="chatSeller.xaml.cs">
       <DependentUpon>chatSeller.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CrystalPengiriman.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalPengiriman.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CrystalProduk.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -332,6 +338,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="CrystalPengiriman.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalPengiriman.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalProduk.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalProduk.cs</LastGenOutput>
