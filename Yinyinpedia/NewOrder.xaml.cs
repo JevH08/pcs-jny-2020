@@ -144,6 +144,9 @@ namespace Yinyinpedia
             conn.Open();
             cmd.ExecuteNonQuery();
             conn.Close();
+
+            
+
             loadData();
             reset();
         }

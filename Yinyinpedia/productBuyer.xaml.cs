@@ -492,7 +492,7 @@ namespace Yinyinpedia
                 kodeH = cmd.Parameters["kodeht"].Value.ToString();
                 DateTime tanggal_penuh = DateTime.Now;
                 string tanggal = tanggal_penuh.Day.ToString().PadLeft(2, '0') + "-" + tanggal_penuh.Month.ToString().PadLeft(2, '0') + "-" + tanggal_penuh.Year.ToString();
-                cmd = new OracleCommand("INSERT INTO htrans(kode_htrans,tgl_transaksi,berat,subtotal,fk_pelanggan) values(:kode,to_date(:tgl,'DD-MM-YYYY'),:brt,:sub,:beli)", conn);
+                cmd = new OracleCommand("INSERT INTO htrans(kode_htrans,tgl_transaksi,berat,subtotal,fk_pelanggan,status) values(:kode,to_date(:tgl,'DD-MM-YYYY'),:brt,:sub,:beli,0)", conn);
                 cmd.Parameters.Add(":kode", kodeH);
                 cmd.Parameters.Add(":tgl", tanggal);
                 cmd.Parameters.Add(":brt", totalberat);

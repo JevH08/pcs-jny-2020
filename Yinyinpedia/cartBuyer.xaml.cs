@@ -175,6 +175,23 @@ namespace Yinyinpedia
                     cmd.ExecuteNonQuery();
                     conn.Close();
 
+                    cmd = new OracleCommand("UPDATE mh_user set saldo = :uang WHERE kode_user = :code", conn);
+                    cmd.Parameters.Add(":uang",saldo);
+                    cmd.Parameters.Add(":code", kode);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+
+                    cmd = new OracleCommand("insert into history_emoney values ('', :fk, :emoney, :stat, '',:ket)", conn);
+                    cmd.Parameters.Add(":fk", kode);
+                    cmd.Parameters.Add(":emoney", Convert.ToInt32(grandtotal.Text));
+                    cmd.Parameters.Add(":stat", 3);
+                    cmd.Parameters.Add(":ket", "PEMBAYARAN " + kodeHTrans );
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    MessageBox.Show("TRANSAKSI BERHASIL");
+
                     Buyer b = new Buyer(username, kode);
                     b.Show();
                     this.Close();

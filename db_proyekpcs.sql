@@ -93,7 +93,8 @@ CREATE TABLE history_emoney(
    fk_user  varchar2(20) references mh_user(kode_user)  ,
    emoney  number  ,
    status  number  ,
-   tgl_emoney   date  
+   tgl_emoney   date,
+   ket varchar2 (255)  
 );
 
 
@@ -129,6 +130,9 @@ CREATE TABLE td_chat(
 insert into mh_user values ('US20200426_001','BRIGITTA','yinyin','yinyin','yinyin@gmail.com','Jl.Kenanga No 24','SURABAYA','081234567890','P',to_date('10-01-2000','DD-MM-YYYY'),0,'0',1,1,0);
 insert into mh_user values ('US20200426_002','JEVON','jevon','jevon','jevon@gmail.com','Jln. Pelajar Pejuang 45 No. 877', 'SEMARANG','(+62)93168477753','L',to_date('13-04-2000','DD-MM-YYYY'),0,'0',1,1,0);
 insert into mh_user values ('US20200426_003','GEORGIA','nikita','nikita','nikita@gmail.com','Jln. Jaksa No. 461','JAKARTA','(+62)38362418235','P',to_date('21-08-2000','DD-MM-YYYY'),0,'0',1,1,0);
+insert into mh_user values ('US20200426_004','PENJUAL','penjual','penjual','penjual@gmail.com','Jln. Kembang Kuning 45 No. 7', 'JAKARTA','(+62)93165137753','L',to_date('13-12-1995','DD-MM-YYYY'),0,'122516135',2,1,0);
+insert into mh_user values ('US20200426_005','PEMBELI','pembeli','pembeli','pembeli@gmail.com','Jln. Tugu Pahlawan No. ','BALI','(+62)38362421545','P',to_date('12-01-1990','DD-MM-YYYY'),0,'124345454',3,1,0);
+
 
 insert into mh_kategori values('KA_001', 'Animal', 0);
 insert into mh_kategori values('KA_002', 'Glass', 0);
