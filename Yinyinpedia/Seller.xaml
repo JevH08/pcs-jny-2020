@@ -20,7 +20,8 @@
                     <StackPanel>
                         <StackPanel Orientation="Horizontal" Background="#FFFF7777" OpacityMask="White">
                             <TextBlock Text="Balance" FontSize="20" Padding="10" />
-                            <TextBlock Name="saldo" Text="Rp 0" FontSize="20" Padding="10"/>
+                            <TextBlock Text="Rp" FontSize="20" Padding="10"/>
+                            <TextBlock Name="saldo" Text="0" FontSize="20" Padding="10"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <Button Name="tarik" Content="Withdraw Balance" HorizontalAlignment="Left" Margin="0 10 0 0" Click="Tarik_Click" FontSize="20" Width="180" Padding="10" Background="#FFFF7777" BorderBrush="#FFF1CECE"/>

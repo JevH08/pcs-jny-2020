@@ -142,7 +142,7 @@ namespace Yinyinpedia
         {
             if (shipping.SelectedIndex == -1 || name.Text == "" || phoneNumber.Text == "" || city.SelectedIndex ==-1 || address.Text == "")
             {
-                MessageBox.Show("Data Tidak Valid");
+                MessageBox.Show("Invalid Data");
             }
             else
             {
@@ -154,7 +154,7 @@ namespace Yinyinpedia
 
                 if (saldo < Convert.ToInt32(grandtotal.Text))
                 {
-                    MessageBox.Show("SALDO TIDAK MENCUKUPI");
+                    MessageBox.Show("Not Enough Balance");
                 }
                 else
                 {
@@ -186,11 +186,11 @@ namespace Yinyinpedia
                     cmd.Parameters.Add(":fk", kode);
                     cmd.Parameters.Add(":emoney", Convert.ToInt32(grandtotal.Text));
                     cmd.Parameters.Add(":stat", 3);
-                    cmd.Parameters.Add(":ket", "PEMBAYARAN " + kodeHTrans );
+                    cmd.Parameters.Add(":ket", "Payment " + kodeHTrans );
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
-                    MessageBox.Show("TRANSAKSI BERHASIL");
+                    MessageBox.Show("Transaction Successful");
 
                     Buyer b = new Buyer(username, kode);
                     b.Show();

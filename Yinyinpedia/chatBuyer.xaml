@@ -15,11 +15,17 @@
             <Border BorderBrush="DimGray" BorderThickness="1"/>
             <StackPanel Orientation="Horizontal" Margin="10 10 10 0">
                 <StackPanel Margin="10 10 0 10">
-                    <DataGrid Name="dgvChat" Width="204" Height="300" MouseDoubleClick="DgvChat_MouseDoubleClick" Background="White" BorderBrush="AntiqueWhite" IsReadOnly="True"/>
+                    <DataGrid Name="dgvChat" Width="204" Height="260" MouseDoubleClick="DgvChat_MouseDoubleClick" Background="White" BorderBrush="AntiqueWhite" IsReadOnly="True"/>
+                    <Button Name="delete" Content="Clear Chat" Width="80" Margin="0 10 0 0" Height="30" Click="Delete_Click" Background="#FFFF7777" BorderBrush="#FFF1CECE"/>
                 </StackPanel>
                 <StackPanel Margin="10 10 10 0">
-                    <StackPanel Background="White" Width="340" Height="260">
-                    </StackPanel>
+                    <ListView Name="listChat" Background="White" BorderBrush="AntiqueWhite" Width="340" Height="260">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
                     <StackPanel Orientation="Horizontal" Margin="0 10 0 10">
                         <Label Content="Reply" Height="30"/>
                         <TextBox Name="reply" Width="180" Height="20" Margin="10 0 0 0" BorderBrush="LightGray" Background="WhiteSmoke"/>
