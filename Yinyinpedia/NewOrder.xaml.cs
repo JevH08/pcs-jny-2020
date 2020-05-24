@@ -80,6 +80,30 @@ namespace Yinyinpedia
             conn.Close();
         }
 
+        private void jalanpro()
+        {
+            OracleCommand cmd = new OracleCommand()
+            {
+                CommandType = CommandType.StoredProcedure,
+                Connection = conn,
+                CommandText = "update_ship"
+            };
+
+
+            cmd.Parameters.Add(new OracleParameter()
+            {
+                Direction = ParameterDirection.Input,
+                ParameterName = "tnamacd",
+                OracleDbType = OracleDbType.Varchar2,
+                Size = 20,
+                Value = noTransc.Text
+            });
+
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
         private void reset()
         {
             noTransc.Text = ""; name.Text = "";category.SelectedIndex = -1;numberItem.Text = "";stock.Text = "";subtotal.Text = "";price.Text = "";dgNew.SelectedIndex = -1; dkode = ""; pkode = "";
@@ -117,17 +141,19 @@ namespace Yinyinpedia
         {
             if (Convert.ToInt32(stock.Text) >= Convert.ToInt32(numberItem.Text))
             {
-                string query = "update dtrans set status = 1 where kode_dtrans = " + dkode;
+                string query = "update dtrans set status = 1 where kode_dtrans = '" + dkode + "'";
                 cmd = new OracleCommand(query, conn);
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 int stokbaru = Convert.ToInt32(stock.Text) - Convert.ToInt32(numberItem.Text);
-                query = "update mh_produk set stok = " + stokbaru + " where kode_produk = " + pkode;
+                query = "update mh_produk set stok = " + stokbaru + " where kode_produk = '" + pkode + "'";
                 cmd = new OracleCommand(query, conn);
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 conn.Close();
+                jalanpro();
+                dkode = "";
                 loadData();
                 reset();
             }
@@ -139,14 +165,15 @@ namespace Yinyinpedia
 
         private void Decline_Click(object sender, RoutedEventArgs e)
         {
-            string query = "update dtrans set status = 2 where kode_dtrans = " + dkode;
+            string query = "update dtrans set status = 2 where kode_dtrans = '" + dkode + "'";
             cmd = new OracleCommand(query, conn);
             conn.Open();
             cmd.ExecuteNonQuery();
             conn.Close();
 
-            
 
+            jalanpro();
+            dkode = "";
             loadData();
             reset();
         }
