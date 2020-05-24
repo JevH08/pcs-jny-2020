@@ -62,12 +62,12 @@ namespace Yinyinpedia
 
         private void DgvShipping_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (dgvShipping.SelectedIndex != -1)
+            /*if (dgvShipping.SelectedIndex != -1)
             {
                 shippingConfirmation sc = new shippingConfirmation(username, kode, "");
                 sc.Show();
                 this.Close();
-            }
+            }*/
         }
 
         private void Submit_Click(object sender, RoutedEventArgs e)
