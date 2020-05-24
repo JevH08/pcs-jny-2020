@@ -201,7 +201,7 @@ namespace Yinyinpedia
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Cancel?", "Konfirmasi", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Are You Sure Want to Cancel ?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 OracleCommand cmd = new OracleCommand("delete from dtrans where fk_htrans = :kode", conn);
                 cmd.Parameters.Add(":kode", kodeHTrans);

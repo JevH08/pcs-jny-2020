@@ -106,7 +106,7 @@ CREATE TABLE dtrans(
    harga  number  ,
    subtotal  number  ,
    status  number  ,
-   rating  number  
+   rating  number
 );
 
 

@@ -38,7 +38,26 @@ namespace Yinyinpedia
 
         public void loadData()
         {
-
+            try
+            {
+                conn.Open();
+                string query = "select ht.kode_htrans as INVOICE, to_char(ht.tgl_transaksi, 'DD-MM-YYYY') as DATE_TRANSACTION, u.nama_user as SELLER, p.nama_produk as PRODUCT, (case when dt.status = 0 then 'Process' when dt.status = 1 then 'Accepted' else 'Declined' end) as STATUS " +
+                    "from htrans ht, dtrans dt, mh_user u, mh_produk p " +
+                    "where ht.fk_pelanggan = '" + kode + "' and ht.status = 0 and ht.kode_htrans = dt.fk_htrans and dt.fk_produk = p.kode_produk and p.fk_penjual = u.kode_user";
+                cmd = new OracleCommand(query, conn);
+                cmd.ExecuteReader();
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                db = new DataSet();
+                adapter.Fill(db);
+                //dgvShipping.ItemsSource = null;
+                //dgvShipping.ItemsSource = db.Tables[0].DefaultView;
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                Console.WriteLine(ex.StackTrace);
+            }
         }
 
         private void DgvShipping_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -49,6 +68,11 @@ namespace Yinyinpedia
                 sc.Show();
                 this.Close();
             }
+        }
+
+        private void Submit_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
