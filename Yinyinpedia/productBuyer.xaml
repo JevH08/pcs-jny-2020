@@ -59,11 +59,11 @@
                         <Button Name="next" Content="Next" Click="Next_Click" Width="50" Height="30" Background="#FFFF7777" BorderBrush="#FFF1CECE"/>
                     </StackPanel>
                 </StackPanel>
-                <StackPanel Margin="10 100 0 0">
+                <StackPanel Margin="10 60 0 0">
                     <Label Content="Amount Purchased"/>
                     <TextBox Name="amount" BorderBrush="LightGray" Background="WhiteSmoke"/>
                     <Button Name="add" Content="Add" Click="Add_Click" HorizontalAlignment="Center" Margin="0 10 0 0" Height="30" Width="80" Background="#FFFF7777" BorderBrush="#FFF1CECE"/>
-                    <TextBox Name="tanya" BorderBrush="LightGray" Background="WhiteSmoke" Margin="0 10 0 0"/>
+                    <TextBox Name="tanya" BorderBrush="LightGray" Background="WhiteSmoke" Margin="0 10 0 0" Width="110" Height="100"/>
                     <Button Name="chat" Content="Chat" Click="Chat_Click" HorizontalAlignment="Center" Margin="0 10 0 0" Height="30" Width="80" Background="#FFFF7777" BorderBrush="#FFF1CECE"/>
                 </StackPanel>
                 <StackPanel Margin="10 0 0 0">

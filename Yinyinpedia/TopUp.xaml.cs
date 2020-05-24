@@ -84,6 +84,13 @@ namespace Yinyinpedia
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
+                    cmd = new OracleCommand("insert into history_emoney values ('', :fk, :emoney, :stat, '','TOP UP')", conn);
+                    cmd.Parameters.Add(":fk", kod);
+                    cmd.Parameters.Add(":emoney", Convert.ToInt32(nominal.Text));
+                    cmd.Parameters.Add(":stat", 2);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
                     MessageBox.Show("Top Up Success! +Rp" + nominal.Text);
 
                     if (from == 1)

@@ -142,7 +142,7 @@ namespace Yinyinpedia
         {
             if (shipping.SelectedIndex == -1 || name.Text == "" || phoneNumber.Text == "" || city.SelectedIndex ==-1 || address.Text == "")
             {
-                MessageBox.Show("Data Tidak Valid");
+                MessageBox.Show("Invalid Data");
             }
             else
             {
@@ -154,7 +154,7 @@ namespace Yinyinpedia
 
                 if (saldo < Convert.ToInt32(grandtotal.Text))
                 {
-                    MessageBox.Show("SALDO TIDAK MENCUKUPI");
+                    MessageBox.Show("Not Enough Balance");
                 }
                 else
                 {
@@ -174,6 +174,23 @@ namespace Yinyinpedia
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
+
+                    cmd = new OracleCommand("UPDATE mh_user set saldo = :uang WHERE kode_user = :code", conn);
+                    cmd.Parameters.Add(":uang",saldo);
+                    cmd.Parameters.Add(":code", kode);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+
+                    cmd = new OracleCommand("insert into history_emoney values ('', :fk, :emoney, :stat, '',:ket)", conn);
+                    cmd.Parameters.Add(":fk", kode);
+                    cmd.Parameters.Add(":emoney", Convert.ToInt32(grandtotal.Text));
+                    cmd.Parameters.Add(":stat", 3);
+                    cmd.Parameters.Add(":ket", "Payment " + kodeHTrans );
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    MessageBox.Show("Transaction Successful");
 
                     Buyer b = new Buyer(username, kode);
                     b.Show();

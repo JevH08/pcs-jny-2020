@@ -406,7 +406,7 @@ namespace Yinyinpedia
                         });
                         cmd.ExecuteNonQuery();
                         kodeHC = cmd.Parameters["kodeht"].Value.ToString();
-                        query = $"insert into th_chat values ('{kodeHC}', '{kode}', '{brg[dgvProduct.SelectedIndex].KodeP}', '0', '0')";
+                        query = $"insert into th_chat values ('{kodeHC}', '{kode}', '{brg[dgvProduct.SelectedIndex].KodeP}')";
                         cmd = new OracleCommand(query, conn);
                         cmd.ExecuteNonQuery();
                     }
@@ -428,7 +428,7 @@ namespace Yinyinpedia
                     string kodeDC = cmd.Parameters["kodedt"].Value.ToString();
                     DateTime tanggal_penuh = DateTime.Now;
                     string tanggal = tanggal_penuh.Day.ToString().PadLeft(2, '0') + "-" + tanggal_penuh.Month.ToString().PadLeft(2, '0') + "-" + tanggal_penuh.Year.ToString();
-                    query = $"insert into td_chat values ('{kodeDC}', '{kodeHC}', '2', '{tanya.Text}', to_date('{tanggal}','DD-MM-YYYY'))";
+                    query = $"insert into td_chat values ('{kodeDC}', '{kodeHC}', '2', '{tanya.Text}', to_date('{tanggal}','DD-MM-YYYY'), 0, 0)";
                     cmd = new OracleCommand(query, conn);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Message Sent");
@@ -441,6 +441,7 @@ namespace Yinyinpedia
                     trans.Rollback();
                     conn.Close();
                 }
+                tanya.Text = "";
             }
             else
             {
@@ -492,7 +493,7 @@ namespace Yinyinpedia
                 kodeH = cmd.Parameters["kodeht"].Value.ToString();
                 DateTime tanggal_penuh = DateTime.Now;
                 string tanggal = tanggal_penuh.Day.ToString().PadLeft(2, '0') + "-" + tanggal_penuh.Month.ToString().PadLeft(2, '0') + "-" + tanggal_penuh.Year.ToString();
-                cmd = new OracleCommand("INSERT INTO htrans(kode_htrans,tgl_transaksi,berat,subtotal,fk_pelanggan) values(:kode,to_date(:tgl,'DD-MM-YYYY'),:brt,:sub,:beli)", conn);
+                cmd = new OracleCommand("INSERT INTO htrans(kode_htrans,tgl_transaksi,berat,subtotal,fk_pelanggan,status) values(:kode,to_date(:tgl,'DD-MM-YYYY'),:brt,:sub,:beli,0)", conn);
                 cmd.Parameters.Add(":kode", kodeH);
                 cmd.Parameters.Add(":tgl", tanggal);
                 cmd.Parameters.Add(":brt", totalberat);

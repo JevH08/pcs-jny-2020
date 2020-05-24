@@ -95,11 +95,14 @@ declare
 ctr number;
 kode varchar2(20);
 tgl varchar2(10);
+sis date;
 begin
 	select to_char(sysdate,'YYYYMMDD') into tgl from dual;
+	select to_date(sysdate,'DD-MM-YYYY') into sis from dual;
 	select count(*) + 1 into ctr from history_emoney where KODE_HISTORY like '%' || tgl || '%';
 
 	:new.KODE_HISTORY := 'HI_' || tgl || '_' || lpad(ctr,4,'0');
+	:new.tgl_emoney := sis;
 end;
 /
 

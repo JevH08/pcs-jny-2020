@@ -46,7 +46,7 @@ namespace Yinyinpedia
                 conn.Open();
                 string query = "select saldo from mh_user where username_user = '" + username + "'";
                 cmd = new OracleCommand(query, conn);
-                saldo.Text = "Rp " + cmd.ExecuteScalar().ToString();
+                saldo.Text = cmd.ExecuteScalar().ToString();
                 conn.Close();
             }
             catch (Exception ex)
@@ -58,12 +58,16 @@ namespace Yinyinpedia
 
         private void Tarik_Click(object sender, RoutedEventArgs e)
         {
-            if (saldo.Text != "Rp 0")
+            if (saldo.Text != "0")
             {
                 try
                 {
                     conn.Open();
                     string query = "update mh_user set saldo = 0 where username_user = '" + username + "'";
+                    cmd = new OracleCommand(query, conn);
+                    cmd.ExecuteNonQuery();
+                    string keterangan = "Withdraw " + saldo.Text;
+                    query = $"insert into history_emoney(fk_user, emoney, status, ket) values('{kode}', '{saldo.Text}', 0, '{keterangan}')";
                     cmd = new OracleCommand(query, conn);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Successful Withdrawal");

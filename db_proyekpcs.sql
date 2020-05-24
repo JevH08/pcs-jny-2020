@@ -93,7 +93,8 @@ CREATE TABLE history_emoney(
    fk_user  varchar2(20) references mh_user(kode_user)  ,
    emoney  number  ,
    status  number  ,
-   tgl_emoney   date  
+   tgl_emoney   date,
+   ket varchar2 (255)  
 );
 
 
@@ -112,9 +113,7 @@ CREATE TABLE dtrans(
 CREATE TABLE th_chat(
    kode_hchat varchar2(20) CONSTRAINTS PK_th_chat PRIMARY KEY,
    fk_pembeli  varchar2(20)  references mh_user(kode_user) ,
-   fk_penjual  varchar2(20)  references mh_user(kode_user) ,
-   statusB number,
-	statusS number
+   fk_penjual  varchar2(20)  references mh_user(kode_user)
 );
 
 
@@ -123,12 +122,16 @@ CREATE TABLE td_chat(
    fk_hchat varchar2(20) references th_chat(kode_hchat),
    pengirim number,
    isi_chat varchar(256),
-   tgl_chat date
+   tgl_chat date,
+statusB number,
+	statusS number
 );
 
-insert into mh_user values ('US20200426_001','BRIGITTA','yinyin','yinyin','yinyin@gmail.com','Jl.Kenanga No 24','SURABAYA','081234567890','P',to_date('10-01-2000','DD-MM-YYYY'),0,'0',1,1,0);
-insert into mh_user values ('US20200426_002','JEVON','jevon','jevon','jevon@gmail.com','Jln. Pelajar Pejuang 45 No. 877', 'SEMARANG','(+62)93168477753','L',to_date('13-04-2000','DD-MM-YYYY'),0,'0',1,1,0);
-insert into mh_user values ('US20200426_003','GEORGIA','nikita','nikita','nikita@gmail.com','Jln. Jaksa No. 461','JAKARTA','(+62)38362418235','P',to_date('21-08-2000','DD-MM-YYYY'),0,'0',1,1,0);
+insert into mh_user values ('US20200426_001','BRIGITTA','yinyin','yinyin','yinyin@gmail.com','Jl.Kenanga No 24','Surabaya','081234567890','P',to_date('10-01-2000','DD-MM-YYYY'),0,'0',1,1,0);
+insert into mh_user values ('US20200426_002','JEVON','jevon','jevon','jevon@gmail.com','Jln. Pelajar Pejuang 45 No. 877', 'Semarang','(+62)93168477753','L',to_date('13-04-2000','DD-MM-YYYY'),0,'0',1,1,0);
+insert into mh_user values ('US20200426_003','GEORGIA','nikita','nikita','nikita@gmail.com','Jln. Jaksa No. 461','Jakarta','(+62)38362418235','P',to_date('21-08-2000','DD-MM-YYYY'),0,'0',1,1,0);
+insert into mh_user values ('US20200426_004','PENJUAL','penjual','penjual','penjual@gmail.com','Jln. Kembang Kuning 45 No. 7', 'Jakarta','(+62)93165137753','L',to_date('13-12-1995','DD-MM-YYYY'),0,'122516135',2,1,0);
+insert into mh_user values ('US20200426_005','PEMBELI','pembeli','pembeli','pembeli@gmail.com','Jln. Tugu Pahlawan No. ','Bali','(+62)38362421545','P',to_date('12-01-1990','DD-MM-YYYY'),0,'124345454',3,1,0);
 
 insert into mh_kategori values('KA_001', 'Animal', 0);
 insert into mh_kategori values('KA_002', 'Glass', 0);
@@ -137,4 +140,5 @@ insert into mh_kategori values('KA_003', 'Electronic', 0);
 insert into mh_embargo values('KE_001', 'Narkotika', 0);
 insert into mh_embargo values('KE_002', 'Nikotin', 0);
 insert into mh_embargo values('KE_003', 'Sabu', 0);
+
 purge recyclebin;
