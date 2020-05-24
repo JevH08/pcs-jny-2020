@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Yinyinpedia"
         mc:Ignorable="d"
-        Title="shippingBuyer" Height="500" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Title="shippingBuyer" Height="510   " Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Grid>
         <Border BorderThickness="1" Margin="20 30 20 10" BorderBrush="#FFDDDBDB" Background="#FFFCD1D1"/>
         <StackPanel Margin="25 50 25 25">
@@ -15,7 +15,7 @@
             <Border BorderBrush="DimGray" BorderThickness="1"/>
             <StackPanel Margin="0 10 0 0">
                 <Label Content="No. Transaction" HorizontalAlignment="Center"/>
-                <ComboBox Name="htrans" BorderBrush="LightGray" Width="200">
+                <ComboBox Name="htrans" BorderBrush="LightGray" Width="200" SelectionChanged="Htrans_SelectionChanged">
                     <ComboBox.Background>
                         <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                             <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -23,7 +23,7 @@
                         </LinearGradientBrush>
                     </ComboBox.Background>
                 </ComboBox>
-                <ListView Name="listChat" Background="White" BorderBrush="AntiqueWhite" Width="340" Height="200" Margin="0 15 0 0">
+                <ListView Name="listDTrans" Background="White" BorderBrush="AntiqueWhite" Width="340" Height="200" Margin="0 15 0 0">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
                             <Setter Property="HorizontalContentAlignment" Value="Stretch"/>

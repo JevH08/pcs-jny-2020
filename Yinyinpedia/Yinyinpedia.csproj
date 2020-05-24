@@ -174,6 +174,9 @@
     <Compile Include="ReportTransaksiPenjual.xaml.cs">
       <DependentUpon>ReportTransaksiPenjual.xaml</DependentUpon>
     </Compile>
+    <Compile Include="repotingBuyer.xaml.cs">
+      <DependentUpon>repotingBuyer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SelectReport.xaml.cs">
       <DependentUpon>SelectReport.xaml</DependentUpon>
     </Compile>
@@ -308,6 +311,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ReportTransaksiPenjual.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="repotingBuyer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

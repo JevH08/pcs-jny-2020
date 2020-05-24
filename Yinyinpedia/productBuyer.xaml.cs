@@ -510,7 +510,6 @@ namespace Yinyinpedia
                     dr["harga"] = dr1["PRICE"];
                     dr["subtotal"] = dr1["SUBTOTAL"];
                     dr["status"] = 0;
-                    dr["rating"] = 0;
                     submitbuy.Rows.Add(dr);
                 }
                 dabuilder.Update(submitbuy);

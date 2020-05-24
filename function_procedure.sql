@@ -30,6 +30,52 @@ begin
 end;
 /
 
+
+create or replace function autogenht
+return varchar2
+is
+kode varchar2(13);
+hitung number;
+tgl varchar2(10);
+begin
+	select to_char(sysdate,'YYYYMMDD') into tgl from dual;
+	select count(*) + 1 into hitung from htrans where KODE_htrans like '%' || tgl || '%';
+	kode := 'HJ' || tgl || lpad(hitung,3,'0');
+	return kode;
+end;
+/
+
+
+create or replace function autogenht_c
+return varchar2
+is
+kode varchar2(13);
+hitung number;
+tgl varchar2(10);
+begin
+	select to_char(sysdate,'YYYYMMDD') into tgl from dual;
+	select count(*) + 1 into hitung from th_chat where kode_hchat like '%' || tgl || '%';
+	kode := 'HC' || tgl || lpad(hitung,3,'0');
+	return kode;
+end;
+/
+
+
+create or replace function autogendt_c
+return varchar2
+is
+kode varchar2(13);
+hitung number;
+tgl varchar2(10);
+begin
+	select to_char(sysdate,'YYYYMMDD') into tgl from dual;
+	select count(*) + 1 into hitung from td_chat where kode_dchat like '%' || tgl || '%';
+	kode := 'DC' || tgl || lpad(hitung,3,'0');
+	return kode;
+end;
+/
+
+
 create or replace procedure tambah
 (
 	kode in varchar2
@@ -42,6 +88,7 @@ begin
 	update mh_user set status = jumlah where lower(username_user) = lower(kode);
 end;
 /
+
 
 create or replace procedure larangan
 (
@@ -67,47 +114,6 @@ begin
 end;
 /
 
-create or replace function autogenht
-return varchar2
-is
-kode varchar2(13);
-hitung number;
-tgl varchar2(10);
-begin
-	select to_char(sysdate,'YYYYMMDD') into tgl from dual;
-	select count(*) + 1 into hitung from htrans where KODE_htrans like '%' || tgl || '%';
-	kode := 'HJ' || tgl || lpad(hitung,3,'0');
-	return kode;
-end;
-/
-
-create or replace function autogenht_c
-return varchar2
-is
-kode varchar2(13);
-hitung number;
-tgl varchar2(10);
-begin
-	select to_char(sysdate,'YYYYMMDD') into tgl from dual;
-	select count(*) + 1 into hitung from th_chat where kode_hchat like '%' || tgl || '%';
-	kode := 'HC' || tgl || lpad(hitung,3,'0');
-	return kode;
-end;
-/
-
-create or replace function autogendt_c
-return varchar2
-is
-kode varchar2(13);
-hitung number;
-tgl varchar2(10);
-begin
-	select to_char(sysdate,'YYYYMMDD') into tgl from dual;
-	select count(*) + 1 into hitung from td_chat where kode_dchat like '%' || tgl || '%';
-	kode := 'DC' || tgl || lpad(hitung,3,'0');
-	return kode;
-end;
-/
 
 create or replace procedure update_ship
 (
@@ -126,5 +132,17 @@ begin
 	elsif ( ctr = ctr1 ) then
 		update htrans set status = 1 where kode_htrans = kodebaru;
 	end if;
+end;
+/
+
+
+create or replace procedure beriRating
+(
+	kodeProduk in varchar2
+)
+is
+hitung number;
+begin
+	dbms_output.put_line('Halo');
 end;
 /

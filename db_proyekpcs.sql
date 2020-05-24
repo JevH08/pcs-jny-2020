@@ -1,6 +1,7 @@
 DROP TABLE MH_KATEGORI CASCADE CONSTRAINTS;
 DROP TABLE MH_EMBARGO CASCADE CONSTRAINTS;
 DROP TABLE mh_user CASCADE CONSTRAINTS;
+DROP TABLE MH_REPORT CASCADE CONSTRAINTS;
 DROP TABLE MH_DISTRIBUTOR CASCADE CONSTRAINTS;
 DROP TABLE mh_produk CASCADE CONSTRAINTS;
 DROP TABLE htrans CASCADE CONSTRAINTS;
@@ -38,8 +39,16 @@ CREATE TABLE mh_user(
    saldo  number  ,
    norek varchar2(20),
    role  varchar2(1),
-   status number(1),
-   report number  
+   status number(1), 
+aktif number
+);
+
+
+CREATE TABLE MH_REPORT (
+  Kode_REPORT varchar2(15) CONSTRAINTS PK_MH_REPORT  PRIMARY KEY,
+fk_pelapor  varchar2(20)  references mh_user(kode_user),
+fk_dilapor  varchar2(20)  references mh_user(kode_user),
+  alasan varchar2(200)  
 );
 
 
@@ -106,7 +115,8 @@ CREATE TABLE dtrans(
    harga  number  ,
    subtotal  number  ,
    status  number  ,
-   rating  number
+reportB number,
+reportS number
 );
 
 

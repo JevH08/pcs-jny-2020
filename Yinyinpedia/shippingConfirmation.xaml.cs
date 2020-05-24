@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data;
+using Oracle.DataAccess.Client;
 
 namespace Yinyinpedia
 {
@@ -19,14 +21,98 @@ namespace Yinyinpedia
     /// </summary>
     public partial class shippingConfirmation : Window
     {
-        string username, kode, kodeDTrans;
+        OracleConnection conn;
+        OracleCommand cmd;
+        List<namaPenjual> kodeUserPenjual = new List<namaPenjual>();
+        string username, kode, kodeHTrans;
 
-        public shippingConfirmation(string user, string kod, string kodeD)
+        private class namaPenjual
+        {
+            public string KodeS { get; set; }
+            public string NamaS { get; set; }
+            public string KodeP { get; set; }
+            public string NamaP { get; set; }
+            public string KodeD { get; set; }
+            public string Tampil { get; set; }
+        }
+
+        public shippingConfirmation(string user, string kod, string kodeH)
         {
             InitializeComponent();
             username = user;
             kode = kod;
-            kodeDTrans = kodeD;
+            kodeHTrans = kodeH;
+            string datasource = "Data Source=orcl;User id=proyekpcs;Password=proyekpcs";
+            conn = new OracleConnection(datasource);
+            rating.IsEnabled = false;
+            lapor.IsEnabled = false;
+            submit.IsEnabled = false;
+            loadData();
+        }
+
+        public void loadData()
+        {
+            try
+            {
+                conn.Open();
+                string query = "select u.kode_user, u.nama_user, p.kode_produk, p.nama_produk, d.kode_dtrans " +
+                    "from mh_user u, htrans h, dtrans d, mh_produk p " +
+                    "where h.kode_htrans = '" + kodeHTrans + "' and h.kode_htrans = d.fk_htrans and d.status = 1 and d.reportS = 0 and d.fk_produk = p.kode_produk and p.fk_penjual = u.kode_user " +
+                    "order by 2";
+                cmd = new OracleCommand(query, conn);
+                namaSeller.ItemsSource = null;
+                using (OracleDataReader reader = cmd.ExecuteReader())
+                {
+                    kodeUserPenjual.Clear();
+                    while (reader.Read())
+                    {
+                        namaPenjual temp = new namaPenjual();
+                        temp.KodeS = reader.GetString(0);
+                        temp.NamaS = reader.GetString(1);
+                        temp.KodeP = reader.GetString(2);
+                        temp.NamaP = reader.GetString(3);
+                        temp.KodeD = reader.GetString(4);
+                        temp.Tampil = reader.GetString(1) + " - " + reader.GetString(3);
+                        kodeUserPenjual.Add(temp);
+                    }
+                    namaSeller.SelectedValuePath = "KodeS";
+                    namaSeller.DisplayMemberPath = "Tampil";
+                    namaSeller.ItemsSource = kodeUserPenjual;
+                }
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                Console.WriteLine(ex.StackTrace);
+            }
+            if (kodeUserPenjual.Count == 0)
+            {
+                try
+                {
+                    conn.Open();
+                    string query = $"update htrans set status = 2 where kode_htrans = '" + kodeHTrans + "'";
+                    cmd = new OracleCommand(query, conn);
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.StackTrace);
+                    conn.Close();
+                }
+                MessageBox.Show("Already Done, Thank You For Your Cooperation");
+                shippingBuyer sb = new shippingBuyer(username, kode);
+                sb.Show();
+                this.Close();
+            }
+        }
+
+        private void NamaSeller_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            rating.IsEnabled = true;
+            lapor.IsEnabled = true;
+            submit.IsEnabled = true;
         }
 
         private void Submit_Click(object sender, RoutedEventArgs e)
@@ -36,8 +122,74 @@ namespace Yinyinpedia
                 try
                 {
                     int a = Convert.ToInt32(rating.Text);
-                    //lanjut coding di sini
-
+                    if (a > 0 && a < 6)
+                    {
+                        string query = "";
+                        try
+                        {
+                            conn.Open();
+                            cmd = new OracleCommand()
+                            {
+                                CommandType = CommandType.StoredProcedure,
+                                Connection = conn,
+                                CommandText = "beriRating"
+                            };
+                            cmd.Parameters.Add(new OracleParameter()
+                            {
+                                Direction = ParameterDirection.Input,
+                                ParameterName = "kodeProduk",
+                                OracleDbType = OracleDbType.Varchar2,
+                                Size = 70,
+                                Value = kodeUserPenjual[namaSeller.SelectedIndex].KodeP
+                            });
+                            cmd.ExecuteNonQuery();
+                            conn.Close();
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.StackTrace);
+                            conn.Close();
+                        }
+                        if (lapor.Text != "")
+                        {
+                            try
+                            {
+                                conn.Open();
+                                query = $"insert into mh_report (fk_pelapor, fk_dilapor, alasan) values('{kode}', '{kodeUserPenjual[namaSeller.SelectedIndex].KodeS}', '{lapor.Text}')";
+                                cmd = new OracleCommand(query, conn);
+                                cmd.ExecuteNonQuery();
+                                conn.Close();
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(ex.StackTrace);
+                                conn.Close();
+                            }
+                        }
+                        try
+                        {
+                            conn.Open();
+                            query = $"update dtrans set reportS = 1 where kode_dtrans = '" + kodeUserPenjual[namaSeller.SelectedIndex].KodeD + "'";
+                            cmd = new OracleCommand(query, conn);
+                            cmd.ExecuteNonQuery();
+                            conn.Close();
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.StackTrace);
+                            conn.Close();
+                        }
+                        rating.Text = "";
+                        lapor.Text = "";
+                        rating.IsEnabled = false;
+                        lapor.IsEnabled = false;
+                        submit.IsEnabled = false;
+                        loadData();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Input Rating Must 1 to 5");
+                    }
                 }
                 catch (Exception)
                 {
@@ -46,11 +198,8 @@ namespace Yinyinpedia
             }
             else
             {
-                MessageBox.Show("Input Data is Required");
+                MessageBox.Show("Rating is Required");
             }
-            shippingBuyer sb = new shippingBuyer(username, kode);
-            sb.Show();
-            this.Close();
         }
     }
 }

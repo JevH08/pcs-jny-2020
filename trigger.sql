@@ -14,7 +14,7 @@ begin
 	:new.kode_user := 'US' || tgl || '_' || lpad(ctr,3,'0');
 	:new.saldo := 0;
 	:new.status := 0;
-	:new.report := 0;
+	:new.aktif := 0;
 end;
 /
 
@@ -45,8 +45,23 @@ kode varchar2(20);
 tgl varchar2(10);
 begin
 	select count(*) + 1 into ctr from mh_embargo;
-	:new.kode_embargo := 'KE_' || lpad(ctr,3,'0');
+	:new.kode_embargo := 'EM_' || lpad(ctr,3,'0');
 	:new.status := 0;
+end;
+/
+
+--report
+create or replace trigger kode_report
+before insert 
+on mh_report
+for each row
+declare
+ctr number;
+kode varchar2(20);
+tgl varchar2(10);
+begin
+	select count(*) + 1 into ctr from mh_report;
+	:new.kode_report := 'RE_' || lpad(ctr,3,'0');
 end;
 /
 
@@ -116,5 +131,7 @@ ctr number;
 begin
 	select count(*) + 1 into ctr from dtrans where kode_dtrans like '%' || :new.fk_htrans ||'%';
 	:new.kode_dtrans := :new.fk_htrans || '_' ||lpad(ctr,3,'0');
+	:new.reportB := 0;
+	:new.reportS := 0;
 end;
 /

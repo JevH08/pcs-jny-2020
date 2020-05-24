@@ -39,7 +39,7 @@ namespace Yinyinpedia
         private void LoadData(int pages)
         {
             conn.Open();
-            string query = "select kode_user as CODE,nama_user as NAME,username_user as USERNAME ,email_user as EMAIL, alamat_user as ADDRESS,telepon_user as TELEPHONE,norek as BANK ,jenis_kelamin as GENDER,(case when role = 1 then 'Admin' when role = 2 then 'Seller' else 'Buyer' end) as ROLE  from mh_user order by ROLE, CODE";
+            string query = "select kode_user as CODE,nama_user as NAME,username_user as USERNAME ,email_user as EMAIL, alamat_user as ADDRESS,telepon_user as TELEPHONE,norek as BANK ,jenis_kelamin as GENDER,(case when role = 1 then 'Admin' when role = 2 then 'Seller' else 'Buyer' end) as ROLE  from mh_user where aktif = 0 order by ROLE, CODE";
             cmd = new OracleCommand(query, conn);
             cmd.ExecuteReader();
             OracleDataAdapter da = new OracleDataAdapter(cmd);
@@ -127,7 +127,7 @@ namespace Yinyinpedia
                     {
                         conn.Open();
                         string kode = dr["code"].ToString();
-                        string query = "delete from mh_user where kode_user = '" + kode + "'";
+                        string query = "update mh_user set aktif = 1 where kode_user = '" + kode + "'";
                         cmd = new OracleCommand(query, conn);
                         cmd.ExecuteNonQuery();
                         conn.Close();
