@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -53,6 +54,10 @@ namespace Yinyinpedia
                 ReportTransaksiPenjual rptTransPen = new ReportTransaksiPenjual(user);
                 rptTransPen.Show();
                 this.Close();
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("Please Select a Report");
             }
         }
     }
