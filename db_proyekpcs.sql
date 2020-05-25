@@ -62,6 +62,7 @@ CREATE TABLE MH_DISTRIBUTOR (
 );
 
 
+
 CREATE TABLE MH_PRODUK (
    kode_produk  varchar2(20) CONSTRAINTS PK_MH_PRODUK PRIMARY KEY,
    nama_produk  varchar2(200)  ,
@@ -75,7 +76,8 @@ CREATE TABLE MH_PRODUK (
    tag  varchar2(200)  ,
    status  number,
   rating number  ,
-  jumlah_pembeli number  
+  jumlah_pembeli number,
+ totalrating varchar2(5)  
 );
 
 
@@ -116,7 +118,8 @@ CREATE TABLE dtrans(
    subtotal  number  ,
    status  number  ,
 reportB number,
-reportS number
+reportS number,
+rating number
 );
 
 
@@ -151,4 +154,7 @@ insert into mh_embargo values('KE_001', 'Narkotika', 0);
 insert into mh_embargo values('KE_002', 'Nikotin', 0);
 insert into mh_embargo values('KE_003', 'Sabu', 0);
 
+insert into mh_distributor values ('DI_001','JNE', 600, 500,30,0)
+insert into mh_distributor values ('DI_002','JNE EXPRESS', 800, 400,45,0)
+insert into mh_distributor values ('DI_003','GRAB', 300, 400,10,0)
 purge recyclebin;

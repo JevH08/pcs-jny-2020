@@ -74,7 +74,7 @@ namespace Yinyinpedia
                 {
                     male.IsChecked = true;
                 }
-                query = "select to_char(tgl_lahir, 'DD-MM-YYYY') from mh_user where kode_user = '" + kode + "'";
+                query = "select to_char(to_date(tgl_lahir),'DD-MM-YYYY') from mh_user where kode_user = '" + kode + "'";
                 cmd = new OracleCommand(query, conn);
                 birthDate.Text = cmd.ExecuteScalar().ToString();
                 query = "select username_user from mh_user where kode_user = '" + kode + "'";

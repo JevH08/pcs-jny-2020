@@ -54,7 +54,7 @@ namespace Yinyinpedia
             {
                 conn.Open();
                 string query = "select * from ( " + "select a.*, rownum rnum from ( " +
-                    "select initcap(p.nama_produk) as NAME, p.desc_barang as DESCRIPTION, k.nama_kategori as CATEGORY, p.harga as PRICE, p.stok as STOCK, p.berat as WEIGHT, (case when p.kondisi = 0 then 'New' else 'Used' end) as CONDITION, p.tag as TAG, p.rating as RATING, (case when p.status = 0 then 'Verified' when p.status = 1 then 'Rejected' else 'Process' end) as STATUS " +
+                    "select initcap(p.nama_produk) as NAME, p.desc_barang as DESCRIPTION, k.nama_kategori as CATEGORY, p.harga as PRICE, p.stok as STOCK, p.berat as WEIGHT, (case when p.kondisi = 0 then 'New' else 'Used' end) as CONDITION, p.tag as TAG, p.totalrating as RATING, (case when p.status = 0 then 'Verified' when p.status = 1 then 'Rejected' else 'Process' end) as STATUS " +
                     "from mh_produk p, mh_kategori k " +
                     "where p.fk_kategori = k.kode_kategori and p.status < 3 and fk_penjual = '" + kode + "' " +
                     "order by 1 ) a " +
@@ -303,11 +303,11 @@ namespace Yinyinpedia
                             {
                                 if ((bool)rnew.IsChecked)
                                 {
-                                    query = $"insert into mh_produk(nama_produk, desc_barang, fk_kategori, fk_penjual, stok, harga, berat, kondisi, tag, status, rating) values('{name.Text}', '{description.Text}', '{category.SelectedValue}', '{kode}', '{stock.Text}', '{price.Text}', '{weight.Text}', 0, '{tag.Text}', 2, 0)";
+                                    query = $"insert into mh_produk(nama_produk, desc_barang, fk_kategori, fk_penjual, stok, harga, berat, kondisi, tag, status) values('{name.Text}', '{description.Text}', '{category.SelectedValue}', '{kode}', '{stock.Text}', '{price.Text}', '{weight.Text}', 0, '{tag.Text}', 2)";
                                 }
                                 else if ((bool)rused.IsChecked)
                                 {
-                                    query = $"insert into mh_produk(nama_produk, desc_barang, fk_kategori, fk_penjual, stok, harga, berat, kondisi, tag, status, rating) values('{name.Text}', '{description.Text}', '{category.SelectedValue}', '{kode}', '{stock.Text}', '{price.Text}', '{weight.Text}', 1, '{tag.Text}', 2, 0)";
+                                    query = $"insert into mh_produk(nama_produk, desc_barang, fk_kategori, fk_penjual, stok, harga, berat, kondisi, tag, status) values('{name.Text}', '{description.Text}', '{category.SelectedValue}', '{kode}', '{stock.Text}', '{price.Text}', '{weight.Text}', 1, '{tag.Text}', 2)";
                                 }
                             }
                             else if (mode == 1)

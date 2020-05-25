@@ -25,6 +25,7 @@ namespace Yinyinpedia
         OracleCommand cmd;
         DataSet db = new DataSet();
         string username, kode;
+        List<History> h;
 
         public historyBalanceBuyer(string user, string kod)
         {
@@ -36,9 +37,68 @@ namespace Yinyinpedia
             loadData();
         }
 
+        private class History
+        {
+            public string emoney { get; set; }
+            public string tgl { get; set; }
+            public string status { get; set; }
+            public string keterangan { get; set; }
+        }
+
         public void loadData()
         {
+            try
+            {
+                conn.Open();
 
+                string query = "select emoney , decode (status,2,'TOP UP',3,'BAYAR','REFUND') as status, to_char(to_date(tgl_emoney),'DD-MM-YYYY') as tgl,ket from history_emoney where fk_user = '" + kode + "' order by kode_history";
+                cmd = new OracleCommand(query, conn);
+                using (OracleDataReader reader = cmd.ExecuteReader())
+                {
+                    h = new List<History>();
+                    while (reader.Read())
+                    {
+                        History temp = new History();
+                        temp.emoney = reader["emoney"].ToString();
+                        temp.tgl = reader["tgl"].ToString();
+                        temp.status = reader["status"].ToString();
+                        temp.keterangan = reader["ket"].ToString();
+                        h.Add(temp);
+                    }
+                }
+                conn.Close();
+                for (int i = 0; i < h.Count; i++)
+                {
+                    TextBlock t = new TextBlock();
+                    t.Width = 395;
+                    if (h[i].status == "TOP UP")
+                    {
+                        t.Text = h[i].status + "\n" + h[i].tgl + "\n" + "\n" +  "                                                                                          + Rp " + h[i].emoney;
+                        t.Background = Brushes.LightCyan;
+                        t.Foreground = Brushes.Green;
+                        
+                    }
+                    else if ( h[i].status == "BAYAR")
+                    {
+                        t.Text = h[i].keterangan + "\n" + h[i].tgl + "\n" + "\n" + "                                                                                          - Rp " + h[i].emoney;
+                        t.Background = Brushes.MistyRose;
+                        t.Foreground = Brushes.Red;
+                    }
+                    else
+                    {
+                        t.Text = h[i].keterangan + "\n" + h[i].tgl + "\n" + "\n" + "                                                                                          + Rp " + h[i].emoney;
+                        t.Background = Brushes.LightCyan;
+                        t.Foreground = Brushes.Green;
+                    }
+                    dgvBalance.Items.Add(t);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                conn.Close();
+                Console.WriteLine(ex.StackTrace);
+            }
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)

@@ -383,3 +383,5 @@ K:\Semester 4\Client Server Programming\Project\coba coba\pcs-jny-2020\Yinyinped
 K:\Semester 4\Client Server Programming\Project\coba coba\pcs-jny-2020\Yinyinpedia\obj\Debug\Yinyinpedia.pdb
 C:\Users\Yin Yin\Downloads\Proyek PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\repotingBuyer.g.cs
 C:\Users\Yin Yin\Downloads\Proyek PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\repotingBuyer.baml
+C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\repotingBuyer.g.cs
+C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\repotingBuyer.baml

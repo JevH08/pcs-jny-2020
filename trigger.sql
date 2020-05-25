@@ -98,6 +98,8 @@ begin
 	:new.kode_produk := 'PR_' || tgl || '_' || lpad(ctr,3,'0');
 	:new.status := 2;
 	:new.rating := 0;
+	:new.jumlah_pembeli := 0;
+	:new.totalrating := '5';
 end;
 /
 
@@ -133,5 +135,6 @@ begin
 	:new.kode_dtrans := :new.fk_htrans || '_' ||lpad(ctr,3,'0');
 	:new.reportB := 0;
 	:new.reportS := 0;
+	:new.rating := 0;
 end;
 /
