@@ -110,8 +110,11 @@ namespace Yinyinpedia
         {
             startDate = new DateTime(2000, Convert.ToInt32(month.SelectedValue.ToString()), 1);
             CrystalTransaksiPenjual rptTransPenjual = new CrystalTransaksiPenjual();
+            CrystalSubReportTransaksiPenjual rptSubTransPenjual = new CrystalSubReportTransaksiPenjual();
             rptTransPenjual.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
-            rptTransPenjual.SetParameterValue("getTanggalStart", startDate);
+            rptTransPenjual.SetParameterValue("getMonth", month.SelectedValue);
+            rptSubTransPenjual.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
+            rptSubTransPenjual.SetParameterValue("getMonth", startDate);
             viewerCR.ViewerCore.ReportSource = rptTransPenjual;
         }
     }

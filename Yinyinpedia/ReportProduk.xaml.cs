@@ -94,10 +94,13 @@ namespace Yinyinpedia
         private void Generate_Click(object sender, RoutedEventArgs e)
         {
             CrystalProduk rptProduk = new CrystalProduk();
+            CrystalProductRatingMain rptProdukMain = new CrystalProductRatingMain();
             rptProduk.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
+            rptProdukMain.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
             if ((bool) bestSelling.IsChecked)
             {
                 rptProduk.SetParameterValue("parameterKategoriProduk", category.Text);
+                rptProdukMain.SetParameterValue("namaKategori", category.Text);
             }
             else if ((bool)unverified.IsChecked)
             {
