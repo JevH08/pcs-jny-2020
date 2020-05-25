@@ -25,7 +25,7 @@ namespace Yinyinpedia
         OracleConnection conn;
         OracleCommand cmd;
         DataSet dbp;
-        DataSet kode_ht;
+        DataSet kode_ht,pengiriman;
         string dkode,pkode;
 
         public NewOrder(string username,string kod)
@@ -52,10 +52,12 @@ namespace Yinyinpedia
             da.Fill(dbp);
             dgNew.ItemsSource = null;
             dgNew.ItemsSource = dbp.Tables[0].DefaultView;
-            da = new OracleDataAdapter("select ht.kode_htrans as kode, dt.kode_dtrans as dkode , p.stok as stok, p.kode_produk as kodepro FROM htrans ht,dtrans dt, mh_produk p where dt.fk_htrans = ht.kode_htrans and p.kode_produk = dt.fk_produk and dt.status = 0 and p.fk_penjual = '" + kode + "' order by ht.kode_htrans", conn);
+            da = new OracleDataAdapter("select ht.kode_htrans as kode, dt.kode_dtrans as dkode , p.stok as stok, p.kode_produk as kodepro, ht.berat as berat, ht.subtotal as sub, ht.shipping as ship, ht.promo as promo, ht.fk_distributor as pengirim FROM htrans ht,dtrans dt, mh_produk p where dt.fk_htrans = ht.kode_htrans and p.kode_produk = dt.fk_produk and dt.status = 0 and p.fk_penjual = '" + kode + "' order by ht.kode_htrans", conn);
             kode_ht = new DataSet();
             da.Fill(kode_ht);
+
             
+
             category.ItemsSource = null;
             string query = "select * from mh_kategori where status = 0 order by Nama_kategori";
             cmd = new OracleCommand(query, conn);
@@ -109,6 +111,7 @@ namespace Yinyinpedia
             noTransc.Text = ""; name.Text = "";category.SelectedIndex = -1;numberItem.Text = "";stock.Text = "";subtotal.Text = "";price.Text = "";dgNew.SelectedIndex = -1; dkode = ""; pkode = "";
             accpet.IsEnabled = false;
             decline.IsEnabled = false;
+            dgNew.SelectedIndex = -1;
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
@@ -128,6 +131,11 @@ namespace Yinyinpedia
                 category.Text = dr["kategori"].ToString();
                 numberItem.Text = dr["jumlah"].ToString();
                 stock.Text = kode_ht.Tables[0].Rows[dgNew.SelectedIndex]["stok"].ToString();
+                conn.Open();
+                OracleDataAdapter da = new OracleDataAdapter("select * from mh_distributor where kode_distributor = '" + kode_ht.Tables[0].Rows[dgNew.SelectedIndex]["pengirim"].ToString() + "'", conn);
+                pengiriman = new DataSet();
+                da.Fill(pengiriman);
+                conn.Close();
                 price.Text = dr["harga_barang"].ToString();
                 subtotal.Text = dr["subtotal"].ToString();
                 dkode = kode_ht.Tables[0].Rows[dgNew.SelectedIndex]["dkode"].ToString();
@@ -171,6 +179,7 @@ namespace Yinyinpedia
             cmd.ExecuteNonQuery();
             conn.Close();
 
+            int refund = Convert.ToInt32(dbp.Tables[0].Rows[dgNew.SelectedIndex]["subtotal"].ToString());
 
             jalanpro();
             dkode = "";

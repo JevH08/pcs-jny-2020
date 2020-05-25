@@ -128,7 +128,7 @@ begin
 	select count (*) into ctr1 from dtrans where fk_htrans = kodebaru and status <> 0;
 	select count (*) into ctr2 from dtrans where fk_htrans = kodebaru and status = 2;
 	if (ctr = ctr2) then
-		update htrans set status = 2 where kode_htrans = kodebaru;
+		update htrans set status = 3 where kode_htrans = kodebaru;
 	elsif ( ctr = ctr1 ) then
 		update htrans set status = 1 where kode_htrans = kodebaru;
 	end if;
