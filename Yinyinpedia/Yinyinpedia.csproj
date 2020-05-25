@@ -213,6 +213,9 @@
     <Compile Include="TopUp.xaml.cs">
       <DependentUpon>TopUp.xaml</DependentUpon>
     </Compile>
+    <Compile Include="userBanned.xaml.cs">
+      <DependentUpon>userBanned.xaml</DependentUpon>
+    </Compile>
     <Page Include="AddCategory.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -357,6 +360,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TopUp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="userBanned.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -154,7 +154,7 @@ insert into mh_embargo values('KE_001', 'Narkotika', 0);
 insert into mh_embargo values('KE_002', 'Nikotin', 0);
 insert into mh_embargo values('KE_003', 'Sabu', 0);
 
-insert into mh_distributor values ('DI_001','JNE', 600, 500,30,0)
-insert into mh_distributor values ('DI_002','JNE EXPRESS', 800, 400,45,0)
-insert into mh_distributor values ('DI_003','GRAB', 300, 400,10,0)
+insert into mh_distributor values ('DI_001','JNE', 600, 500,30,0);
+insert into mh_distributor values ('DI_002','JNE EXPRESS', 800, 400,45,0);
+insert into mh_distributor values ('DI_003','GRAB', 300, 400,10,0);
 purge recyclebin;

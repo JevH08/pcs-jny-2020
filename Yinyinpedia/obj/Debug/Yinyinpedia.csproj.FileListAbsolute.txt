@@ -387,3 +387,5 @@ C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\repotin
 C:\Users\Microsoft\Desktop\PROYEK PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\repotingBuyer.baml
 K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\repotingBuyer.g.cs
 K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\repotingBuyer.baml
+C:\Users\Yin Yin\Downloads\Proyek PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\userBanned.g.cs
+C:\Users\Yin Yin\Downloads\Proyek PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\userBanned.baml

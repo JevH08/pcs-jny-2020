@@ -50,6 +50,7 @@ begin
 end;
 /
 
+
 --report
 create or replace trigger kode_report
 before insert 

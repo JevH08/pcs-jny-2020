@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data;
 using Oracle.DataAccess.Client;
 
 namespace Yinyinpedia
@@ -45,6 +46,23 @@ namespace Yinyinpedia
                     string query = $"insert into mh_report (fk_pelapor, fk_dilapor, alasan) values('{kode}', '{kodeBuyer}', '{lapor.Text}')";
                     cmd = new OracleCommand(query, conn);
                     cmd.ExecuteNonQuery();
+
+                    cmd = new OracleCommand()
+                    {
+                        CommandType = CommandType.StoredProcedure,
+                        Connection = conn,
+                        CommandText = "cekReport"
+                    };
+                    cmd.Parameters.Add(new OracleParameter()
+                    {
+                        Direction = ParameterDirection.Input,
+                        ParameterName = "temp",
+                        OracleDbType = OracleDbType.Varchar2,
+                        Size = 70,
+                        Value = "a"
+                    });
+                    cmd.ExecuteNonQuery();
+
                     query = $"update dtrans set reportB = 1 where kode_dtrans in (" +
                         $"select d.kode_dtrans from htrans h, dtrans d, mh_produk p, mh_user u " +
                         $"where  h.kode_htrans = '{kodeH}' and h.kode_htrans = d.fk_htrans and d.fk_produk = p.kode_produk and p.fk_penjual = u.kode_user and u.kode_user = '{kode}')";

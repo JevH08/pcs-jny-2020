@@ -66,7 +66,7 @@ namespace Yinyinpedia
                     {
                         cmd = new OracleCommand("select role from mh_user where username_user = '" + username + "' and password_user = '" + password + "' ", conn);
                         role = Convert.ToInt32(cmd.ExecuteScalar().ToString());
-                        
+
                         if (role == 1)
                         {
                             Admin a = new Admin(username);
@@ -81,7 +81,7 @@ namespace Yinyinpedia
                             string kode = cmd.ExecuteScalar().ToString();
                             if (status == 0)
                             {
-                                ChangePassword cp = new ChangePassword(username, kode,1);
+                                ChangePassword cp = new ChangePassword(username, kode, 1);
                                 cp.Show();
                                 this.Close();
                             }
