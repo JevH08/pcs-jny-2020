@@ -91,6 +91,11 @@ namespace Yinyinpedia
             category.IsEnabled = false;
         }
 
+        private void Blocked_Checked(object sender, RoutedEventArgs e)
+        {
+            category.IsEnabled = false;
+        }
+
         private void Generate_Click(object sender, RoutedEventArgs e)
         {
             CrystalProduk rptProduk = new CrystalProduk();

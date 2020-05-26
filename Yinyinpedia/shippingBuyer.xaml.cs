@@ -140,6 +140,7 @@ namespace Yinyinpedia
                         {
                             l.Content = namaPenjual[i] + " - Status : Shipping";
                         }
+                        l.Background = Brushes.LightCyan;
                         l.HorizontalAlignment = HorizontalAlignment.Center;
                         listDTrans.Items.Add(l);
                     }

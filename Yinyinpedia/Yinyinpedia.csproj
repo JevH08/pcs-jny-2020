@@ -129,6 +129,12 @@
       <DependentUpon>CrystalProduk.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CrystalSubReportPengiriman.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -164,6 +170,9 @@
     </Compile>
     <Compile Include="InsertUsername.xaml.cs">
       <DependentUpon>InsertUsername.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice.xaml.cs">
+      <DependentUpon>Invoice.xaml</DependentUpon>
     </Compile>
     <Compile Include="NewOrder.xaml.cs">
       <DependentUpon>NewOrder.xaml</DependentUpon>
@@ -222,8 +231,17 @@
     <Compile Include="shippingSeller.xaml.cs">
       <DependentUpon>shippingSeller.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SubreportInvoice.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubreportInvoice.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="TopUp.xaml.cs">
       <DependentUpon>TopUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="userBanned.xaml.cs">
+      <DependentUpon>userBanned.xaml</DependentUpon>
     </Compile>
     <Page Include="AddCategory.xaml">
       <SubType>Designer</SubType>
@@ -274,6 +292,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="InsertUsername.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Invoice.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -372,6 +394,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="userBanned.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -411,6 +437,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalProduk.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalSubReportPengiriman.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalSubReportPengiriman.cs</LastGenOutput>
@@ -430,6 +460,10 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubreportInvoice.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SubreportInvoice.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

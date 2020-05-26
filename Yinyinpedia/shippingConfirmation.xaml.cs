@@ -33,6 +33,7 @@ namespace Yinyinpedia
             public string KodeP { get; set; }
             public string NamaP { get; set; }
             public string KodeD { get; set; }
+            public decimal Harga { get; set; }
             public string Tampil { get; set; }
         }
 
@@ -55,7 +56,7 @@ namespace Yinyinpedia
             try
             {
                 conn.Open();
-                string query = "select u.kode_user, u.nama_user, p.kode_produk, p.nama_produk, d.kode_dtrans " +
+                string query = "select u.kode_user, u.nama_user, p.kode_produk, p.nama_produk, d.kode_dtrans, d.harga " +
                     "from mh_user u, htrans h, dtrans d, mh_produk p " +
                     "where h.kode_htrans = '" + kodeHTrans + "' and h.kode_htrans = d.fk_htrans and d.status = 1 and d.reportS = 0 and d.fk_produk = p.kode_produk and p.fk_penjual = u.kode_user " +
                     "order by 2";
@@ -72,6 +73,7 @@ namespace Yinyinpedia
                         temp.KodeP = reader.GetString(2);
                         temp.NamaP = reader.GetString(3);
                         temp.KodeD = reader.GetString(4);
+                        temp.Harga = reader.GetDecimal(5);
                         temp.Tampil = reader.GetString(1) + " - " + reader.GetString(3);
                         kodeUserPenjual.Add(temp);
                     }
@@ -142,6 +144,14 @@ namespace Yinyinpedia
                                 Size = 70,
                                 Value = kodeUserPenjual[namaSeller.SelectedIndex].KodeP
                             });
+                            cmd.Parameters.Add(new OracleParameter()
+                            {
+                                Direction = ParameterDirection.Input,
+                                ParameterName = "rating",
+                                OracleDbType = OracleDbType.Varchar2,
+                                Size = 70,
+                                Value = rating.Text
+                            });
                             cmd.ExecuteNonQuery();
                             conn.Close();
                         }
@@ -158,6 +168,22 @@ namespace Yinyinpedia
                                 query = $"insert into mh_report (fk_pelapor, fk_dilapor, alasan) values('{kode}', '{kodeUserPenjual[namaSeller.SelectedIndex].KodeS}', '{lapor.Text}')";
                                 cmd = new OracleCommand(query, conn);
                                 cmd.ExecuteNonQuery();
+
+                                cmd = new OracleCommand()
+                                {
+                                    CommandType = CommandType.StoredProcedure,
+                                    Connection = conn,
+                                    CommandText = "cekReport"
+                                };
+                                cmd.Parameters.Add(new OracleParameter()
+                                {
+                                    Direction = ParameterDirection.Input,
+                                    ParameterName = "temp",
+                                    OracleDbType = OracleDbType.Varchar2,
+                                    Size = 70,
+                                    Value = "a"
+                                });
+                                cmd.ExecuteNonQuery();
                                 conn.Close();
                             }
                             catch (Exception ex)
@@ -169,7 +195,35 @@ namespace Yinyinpedia
                         try
                         {
                             conn.Open();
-                            query = $"update dtrans set reportS = 1 where kode_dtrans = '" + kodeUserPenjual[namaSeller.SelectedIndex].KodeD + "'";
+                            query = $"update dtrans set reportS = 1, rating = '{rating.Text}' where kode_dtrans = '" + kodeUserPenjual[namaSeller.SelectedIndex].KodeD + "'";
+                            cmd = new OracleCommand(query, conn);
+                            cmd.ExecuteNonQuery();
+                            cmd = new OracleCommand()
+                            {
+                                CommandType = CommandType.StoredProcedure,
+                                Connection = conn,
+                                CommandText = "transfer"
+                            };
+                            cmd.Parameters.Add(new OracleParameter()
+                            {
+                                Direction = ParameterDirection.Input,
+                                ParameterName = "kodeUser",
+                                OracleDbType = OracleDbType.Varchar2,
+                                Size = 70,
+                                Value = kodeUserPenjual[namaSeller.SelectedIndex].KodeS
+                            });
+                            cmd.Parameters.Add(new OracleParameter()
+                            {
+                                Direction = ParameterDirection.Input,
+                                ParameterName = "uang",
+                                OracleDbType = OracleDbType.Varchar2,
+                                Size = 70,
+                                Value = kodeUserPenjual[namaSeller.SelectedIndex].Harga.ToString()
+                            });
+                            cmd.ExecuteNonQuery();
+
+                            string keterangan = "Payment " + kodeUserPenjual[namaSeller.SelectedIndex].NamaP;
+                            query = $"insert into history_emoney(fk_user, emoney, status, ket) values('{kodeUserPenjual[namaSeller.SelectedIndex].KodeS}', '{kodeUserPenjual[namaSeller.SelectedIndex].Harga}', 1, '{keterangan}')";
                             cmd = new OracleCommand(query, conn);
                             cmd.ExecuteNonQuery();
                             conn.Close();

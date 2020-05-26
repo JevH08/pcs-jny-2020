@@ -245,6 +245,9 @@ namespace Yinyinpedia
                     }
                     submit.Content = "Update";
                     mode = 1;
+                    name.IsEnabled = false;
+                    weight.IsEnabled = false;
+                    category.IsEnabled = false;
                 }
                 else
                 {

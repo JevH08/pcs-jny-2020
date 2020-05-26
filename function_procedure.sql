@@ -128,7 +128,7 @@ begin
 	select count (*) into ctr1 from dtrans where fk_htrans = kodebaru and status <> 0;
 	select count (*) into ctr2 from dtrans where fk_htrans = kodebaru and status = 2;
 	if (ctr = ctr2) then
-		update htrans set status = 2 where kode_htrans = kodebaru;
+		update htrans set status = 3 where kode_htrans = kodebaru;
 	elsif ( ctr = ctr1 ) then
 		update htrans set status = 1 where kode_htrans = kodebaru;
 	end if;
@@ -136,13 +136,52 @@ end;
 /
 
 
+create or replace procedure transfer
+(
+	kodeUser in varchar2, uang in varchar2
+)
+is
+history number;
+begin
+	select saldo into history from mh_user where kode_user = kodeUser;
+	history := history + to_number(uang);
+	update mh_user set saldo = history where kode_user = kodeUser;
+end;
+/
+
+
 create or replace procedure beriRating
 (
-	kodeProduk in varchar2
+	kodeProduk in varchar2, rating in varchar2
 )
+is
+totalRatingBaru number;
+jumlahPembeliTemp number;
+ratingBaru number;
+ratingTemp number;
+begin
+	select rating, jumlah_pembeli into ratingTemp, jumlahPembeliTemp from mh_produk where kode_produk = kodeProduk;
+	ratingBaru := to_number(ratingTemp) + to_number(rating);
+	jumlahPembeliTemp := jumlahPembeliTemp + 1;
+	totalRatingBaru := ratingBaru / jumlahPembeliTemp;
+	update mh_produk set rating = ratingBaru, jumlah_pembeli = jumlahPembeliTemp, totalrating = to_char(totalRatingBaru);
+end;
+/
+
+
+create or replace procedure cek_report( temp varchar2)
 is
 hitung number;
 begin
-	dbms_output.put_line('Halo');
+	hitung := 0;
+	for i in (
+		select kode_user from mh_user
+	) loop
+		select count(fk_dilapor) into hitung from mh_report where fk_dilapor = i.kode_user;
+		if (hitung > 15) then
+			dbms_output.put_line('Masuk');
+			update mh_user set aktif = 1 where kode_user = i.kode_user;
+		end if;
+	end loop;
 end;
 /

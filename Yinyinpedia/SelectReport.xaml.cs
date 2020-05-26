@@ -55,6 +55,12 @@ namespace Yinyinpedia
                 rptTransPen.Show();
                 this.Close();
             }
+            else if (cbReport.SelectedIndex == 3)
+            {
+                userBanned ub = new userBanned(user);
+                ub.Show();
+                this.Close();
+            }
             else
             {
                 System.Windows.MessageBox.Show("Please Select a Report");

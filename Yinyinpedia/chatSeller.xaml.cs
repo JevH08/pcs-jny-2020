@@ -99,10 +99,12 @@ namespace Yinyinpedia
                     t.Content = isi[i];
                     if (pengirim[i] == 2)
                     {
+                        t.Background = Brushes.White;
                         t.HorizontalAlignment = HorizontalAlignment.Left;
                     }
                     else if (pengirim[i] == 1)
                     {
+                        t.Background = Brushes.LightCyan;
                         t.HorizontalAlignment = HorizontalAlignment.Right;
                     }
                     listChat.Items.Add(t);
