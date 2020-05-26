@@ -25,7 +25,7 @@ namespace Yinyinpedia
         OracleConnection conn;
         OracleCommand cmd;
         DataSet dbp;
-        DataSet kode_ht,pengiriman;
+        DataSet kode_ht,pengiriman,produk;
         string dkode,pkode;
 
         public NewOrder(string username,string kod)
@@ -52,7 +52,7 @@ namespace Yinyinpedia
             da.Fill(dbp);
             dgNew.ItemsSource = null;
             dgNew.ItemsSource = dbp.Tables[0].DefaultView;
-            da = new OracleDataAdapter("select ht.kode_htrans as kode, dt.kode_dtrans as dkode , p.stok as stok, p.kode_produk as kodepro, ht.berat as berat, ht.subtotal as sub, ht.shipping as ship, ht.promo as promo, ht.fk_distributor as pengirim FROM htrans ht,dtrans dt, mh_produk p where dt.fk_htrans = ht.kode_htrans and p.kode_produk = dt.fk_produk and dt.status = 0 and p.fk_penjual = '" + kode + "' order by ht.kode_htrans", conn);
+            da = new OracleDataAdapter("select ht.kode_htrans as kode, dt.kode_dtrans as dkode , p.stok as stok, p.kode_produk as kodepro, ht.berat as berat, ht.subtotal as sub, ht.shipping as ship, ht.promo as promo, ht.fk_distributor as pengirim, ht.grandtotal as grand,ht.fk_pelanggan as pelanggan FROM htrans ht,dtrans dt, mh_produk p where dt.fk_htrans = ht.kode_htrans and p.kode_produk = dt.fk_produk and dt.status = 0 and p.fk_penjual = '" + kode + "' order by ht.kode_htrans", conn);
             kode_ht = new DataSet();
             da.Fill(kode_ht);
 
@@ -180,6 +180,62 @@ namespace Yinyinpedia
             conn.Close();
 
             int refund = Convert.ToInt32(dbp.Tables[0].Rows[dgNew.SelectedIndex]["subtotal"].ToString());
+            int berat = Convert.ToInt32(kode_ht.Tables[0].Rows[dgNew.SelectedIndex]["berat"].ToString());
+
+            conn.Open();
+            OracleDataAdapter da = new OracleDataAdapter("select * from mh_produk where kode_produk = '" + kode_ht.Tables[0].Rows[dgNew.SelectedIndex]["kodepro"].ToString() + "'", conn);
+            produk = new DataSet();
+            da.Fill(produk);
+            conn.Close();
+
+            int beratpro = Convert.ToInt32(produk.Tables[0].Rows[0]["berat"]);
+            int jum = Convert.ToInt32(dbp.Tables[0].Rows[dgNew.SelectedIndex]["jumlah"]);
+
+            berat -= (beratpro * jum);
+            int hargaship = berat * Convert.ToInt32(pengiriman.Tables[0].Rows[0]["harga_per_kilo"].ToString());
+            int promoship = 0;
+            if (berat >= Convert.ToInt32(pengiriman.Tables[0].Rows[0]["batas_harga"].ToString()))
+            {
+                promoship = hargaship * Convert.ToInt32(pengiriman.Tables[0].Rows[0]["batas_harga"].ToString()) / 100;
+            }
+            
+            int grandtotal = Convert.ToInt32(kode_ht.Tables[0].Rows[dgNew.SelectedIndex]["grand"].ToString());
+
+            int sublama = Convert.ToInt32(kode_ht.Tables[0].Rows[dgNew.SelectedIndex]["sub"].ToString());
+            int shiplama = Convert.ToInt32(kode_ht.Tables[0].Rows[dgNew.SelectedIndex]["ship"].ToString());
+            int promlama = Convert.ToInt32(kode_ht.Tables[0].Rows[dgNew.SelectedIndex]["promo"].ToString());
+
+            sublama -= refund;
+            int grandtotalbaru = sublama + hargaship - promoship;
+            refund = grandtotal - grandtotalbaru;
+            conn.Open();
+            cmd = new OracleCommand("select saldo from mh_user where kode_user = '" + kode_ht.Tables[0].Rows[dgNew.SelectedIndex]["pelanggan"].ToString() + "'", conn);
+            int S = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+            
+            conn.Close();
+            S += refund;
+
+            conn.Open();
+            query = "update mh_user set saldo = "+S+" where kode_user = '" + kode_ht.Tables[0].Rows[dgNew.SelectedIndex]["pelanggan"].ToString() + "'";
+            cmd = new OracleCommand(query, conn);
+            
+            cmd.ExecuteNonQuery();
+            conn.Close();
+
+            query = "update htrans set subtotal = " + sublama + ", shipping = "+ hargaship+ ", promo = "+promoship+ ",grandtotal = "+ grandtotalbaru+", berat = "+berat+" where kode_htrans = '" + kode_ht.Tables[0].Rows[dgNew.SelectedIndex]["kode"].ToString() + "'";
+            cmd = new OracleCommand(query, conn);
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+
+            cmd = new OracleCommand("insert into history_emoney values ('', :fk, :emoney, :stat, '',:ket)", conn);
+            cmd.Parameters.Add(":fk", kode_ht.Tables[0].Rows[dgNew.SelectedIndex]["pelanggan"].ToString());
+            cmd.Parameters.Add(":emoney",refund);
+            cmd.Parameters.Add(":stat", 4);
+            cmd.Parameters.Add(":ket", "REFUND BARANG PADA NOTA :  " + kode_ht.Tables[0].Rows[dgNew.SelectedIndex]["kode"].ToString());
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
 
             jalanpro();
             dkode = "";

@@ -145,16 +145,26 @@ insert into mh_user values ('US20200426_002','JEVON','jevon','jevon','jevon@gmai
 insert into mh_user values ('US20200426_003','GEORGIA','nikita','nikita','nikita@gmail.com','Jln. Jaksa No. 461','Jakarta','(+62)38362418235','P',to_date('21-08-2000','DD-MM-YYYY'),0,'0',1,1,0);
 insert into mh_user values ('US20200426_004','PENJUAL','penjual','penjual','penjual@gmail.com','Jln. Kembang Kuning 45 No. 7', 'Jakarta','(+62)93165137753','L',to_date('13-12-1995','DD-MM-YYYY'),0,'122516135',2,1,0);
 insert into mh_user values ('US20200426_005','PEMBELI','pembeli','pembeli','pembeli@gmail.com','Jln. Tugu Pahlawan No. ','Bali','(+62)38362421545','P',to_date('12-01-1990','DD-MM-YYYY'),0,'124345454',3,1,0);
+insert into mh_user values ('US20200426_006','NIKKI','nikki','nikki','nikki@gmail.com','Jln. Melati No.1 ','Semarang','(+62)3836222545','P',to_date('10-10-1997','DD-MM-YYYY'),0,'128365454',3,1,0);
 
-insert into mh_kategori values('KA_001', 'Animal', 0);
+
+insert into mh_kategori values('KA_001', 'Art', 0);
 insert into mh_kategori values('KA_002', 'Glass', 0);
 insert into mh_kategori values('KA_003', 'Electronic', 0);
+insert into mh_kategori values('KA_004', 'Games', 0);
+insert into mh_kategori values('KA_005', 'Fahion', 0);
+insert into mh_kategori values('KA_006', 'Food', 0);
+insert into mh_kategori values('KA_007', 'Health', 0);
+insert into mh_kategori values('KA_008', 'Fashion Accessories', 0);
 
 insert into mh_embargo values('KE_001', 'Narkotika', 0);
 insert into mh_embargo values('KE_002', 'Nikotin', 0);
 insert into mh_embargo values('KE_003', 'Sabu', 0);
+insert into mh_embargo values('KE_004', 'Ganja', 0);
 
 insert into mh_distributor values ('DI_001','JNE', 600, 500,30,0);
 insert into mh_distributor values ('DI_002','JNE EXPRESS', 800, 400,45,0);
 insert into mh_distributor values ('DI_003','GRAB', 300, 400,10,0);
+insert into mh_distributor values ('DI_004','GOJEK', 450, 450,20,0);
+insert into mh_distributor values ('DI_005','Si Cepat', 600, 300,25,0);
 purge recyclebin;

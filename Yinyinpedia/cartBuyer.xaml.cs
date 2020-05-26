@@ -192,7 +192,7 @@ namespace Yinyinpedia
                     conn.Close();
                     MessageBox.Show("Transaction Successful");
 
-                    Buyer b = new Buyer(username, kode);
+                    Invoice b = new Invoice(username, kode, kodeHTrans);
                     b.Show();
                     this.Close();
                 }

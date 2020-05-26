@@ -83,12 +83,12 @@ namespace Yinyinpedia
                 conn.Open();
                 if (rate == 0)
                 {
-                    OracleDataAdapter da = new OracleDataAdapter("select p.nama_produk as nama, k.nama_kategori as kategori,  u.nama_user as seller, p.stok as stok, p.harga as harga,p.totalrating as rating, p.desc_barang as deskripsi, p.tag as tag from mh_produk p, mh_user u, mh_kategori k where p.fk_kategori = k.kode_kategori and p.fk_penjual = u.kode_user and p.kondisi = " + kota + " order by p.fk_kategori, to_number(p.totalrating),p.kode_produk", conn);
+                    OracleDataAdapter da = new OracleDataAdapter("select p.nama_produk as nama, k.nama_kategori as kategori,  u.nama_user as seller, p.stok as stok, p.harga as harga,p.totalrating as rating, p.desc_barang as deskripsi, p.tag as tag from mh_produk p, mh_user u, mh_kategori k where p.fk_kategori = k.kode_kategori and p.fk_penjual = u.kode_user and p.kondisi = " + kota + " and u.aktif = 0 order by p.fk_kategori, to_number(p.totalrating),p.kode_produk", conn);
                     dbp = new DataSet();
                     da.Fill(dbp);
                     dgvProduct.ItemsSource = null;
                     dgvProduct.ItemsSource = dbp.Tables[0].DefaultView;
-                    OracleCommand cmdCD = new OracleCommand("select p.kode_produk,p.fk_penjual,p. berat as berat from mh_produk p, mh_user u where p.fk_penjual = u.kode_user and p.kondisi = " + kota + " order by p.fk_kategori,to_number(p.totalrating),p.kode_produk", conn);
+                    OracleCommand cmdCD = new OracleCommand("select p.kode_produk,p.fk_penjual,p. berat as berat from mh_produk p, mh_user u where p.fk_penjual = u.kode_user and p.kondisi = " + kota + " and u.aktif = 0 order by p.fk_kategori,to_number(p.totalrating),p.kode_produk", conn);
                     OracleDataReader reader = cmdCD.ExecuteReader();
                     brg = new List<Barang>();
                     while (reader.Read())
@@ -102,12 +102,12 @@ namespace Yinyinpedia
                 }
                 else
                 {
-                    OracleDataAdapter da = new OracleDataAdapter("select p.nama_produk as nama, k.nama_kategori as kategori,  u.nama_user as seller, p.stok as stok, p.harga as harga,p.totalrating as rating, p.desc_barang as deskripsi, p.tag as tag from mh_produk p, mh_user u, mh_kategori k where p.fk_kategori = k.kode_kategori and p.fk_penjual = u.kode_user and p.kondisi = " + kota + " order by p.fk_kategori,to_number(p.totalrating),p.kode_produk desc", conn);
+                    OracleDataAdapter da = new OracleDataAdapter("select p.nama_produk as nama, k.nama_kategori as kategori,  u.nama_user as seller, p.stok as stok, p.harga as harga,p.totalrating as rating, p.desc_barang as deskripsi, p.tag as tag from mh_produk p, mh_user u, mh_kategori k where p.fk_kategori = k.kode_kategori and p.fk_penjual = u.kode_user and p.kondisi = " + kota + " and u.aktif = 0 order by p.fk_kategori,to_number(p.totalrating),p.kode_produk desc", conn);
                     dbp = new DataSet();
                     da.Fill(dbp);
                     dgvProduct.ItemsSource = null;
                     dgvProduct.ItemsSource = dbp.Tables[0].DefaultView;
-                    OracleCommand cmdCD = new OracleCommand("select p.kode_produk,p.fk_penjual,p. berat as berat from mh_produk p, mh_user u where p.fk_penjual = u.kode_user and p.kondisi = " + kota + "  order by p.fk_kategori,to_number(p.totalrating),p.kode_produk desc", conn);
+                    OracleCommand cmdCD = new OracleCommand("select p.kode_produk,p.fk_penjual,p. berat as berat from mh_produk p, mh_user u where p.fk_penjual = u.kode_user and p.kondisi = " + kota + " and u.aktif = 0 order by p.fk_kategori,to_number(p.totalrating),p.kode_produk desc", conn);
                     OracleDataReader reader = cmdCD.ExecuteReader();
                     brg = new List<Barang>();
                     while (reader.Read())

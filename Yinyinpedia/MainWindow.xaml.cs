@@ -47,12 +47,13 @@ namespace Yinyinpedia
                 conn.Open();
                 username = tusername.Text;
                 password = tpassword.Text;
-                cmd = new OracleCommand("select count(kode_user) from mh_user where username_user = '" + username + "' ", conn);
+                cmd = new OracleCommand("select count(kode_user) from mh_user where username_user = '" + username + "' and aktif = 0", conn);
                 int user1 = Convert.ToInt32(cmd.ExecuteScalar().ToString());
-                
                 if (user1 == 0)
                 {
-                    MessageBox.Show("Not Registered");
+                    MessageBox.Show("Not Registered / Akun sudah di ban");
+                    tusername.Text = "";
+                    tpassword.Text = "";
                 }
                 else
                 {

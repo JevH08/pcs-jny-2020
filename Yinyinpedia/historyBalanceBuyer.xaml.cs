@@ -51,7 +51,7 @@ namespace Yinyinpedia
             {
                 conn.Open();
 
-                string query = "select emoney , decode (status,2,'TOP UP',3,'BAYAR','REFUND') as status, to_char(to_date(tgl_emoney),'DD-MM-YYYY') as tgl,ket from history_emoney where fk_user = '" + kode + "' order by kode_history";
+                string query = "select emoney , decode (status,2,'TOP UP',3,'BAYAR','REFUND') as status, to_char(to_date(tgl_emoney),'DD-MM-YYYY') as tgl,ket from history_emoney where fk_user = '" + kode + "' order by kode_history desc";
                 cmd = new OracleCommand(query, conn);
                 using (OracleDataReader reader = cmd.ExecuteReader())
                 {
