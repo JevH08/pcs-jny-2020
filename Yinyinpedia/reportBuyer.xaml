@@ -23,9 +23,9 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Example :" FontSize="10" Foreground="SlateGray" Margin="190 0 0 0"/>
-                    <Label Content="2018" FontSize="10" Foreground="SlateGray" Margin="10 0 0 0"/>
+                    <Label Content="01-01-2018" FontSize="10" Foreground="SlateGray" Margin="10 0 0 0"/>
                     <Label Content="-" FontSize="10" Foreground="SlateGray" Margin="70 0 0 0"/>
-                    <Label Content="2020" FontSize="10" Foreground="SlateGray" Margin="20 0 0 0"/>
+                    <Label Content="01-01-2020" FontSize="10" Foreground="SlateGray" Margin="20 0 0 0"/>
                 </StackPanel>
                 <Viewer:CrystalReportsViewer Name="viewerCR" Height="500" Margin="0 10 0 0"/>
             </StackPanel>
