@@ -37,7 +37,7 @@
                     <TextBox Name="birthDate" Width="200" Margin="0 10 0 0" BorderBrush="LightGray" Background="WhiteSmoke"/>
                     <Label Content="Example : 27-10-2000" HorizontalAlignment="Right" FontSize="10" Foreground="SlateGray"/>
                     <TextBox Name="tusername" Width="200" Margin="0 7 0 0" BorderBrush="LightGray" Background="WhiteSmoke" IsReadOnly="True"/>
-                    <TextBox Name="email" Width="200" Margin="0 7 0 0" BorderBrush="LightGray" Background="WhiteSmoke"/>
+                    <TextBox Name="email" Width="200" Margin="0 7 0 0" BorderBrush="LightGray" Background="WhiteSmoke" IsReadOnly="True"/>
                     <TextBox Name="phoneNumber" Width="200" Margin="0 7 0 0" BorderBrush="LightGray" Background="WhiteSmoke"/>
                     <TextBox Name="norek" Width="200" Margin="0 7 0 0" BorderBrush="LightGray" Background="WhiteSmoke"/>
                     <TextBox Name="address" Width="200" Margin="0 7 0 0" BorderBrush="LightGray" Background="WhiteSmoke"/>

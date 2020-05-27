@@ -51,7 +51,7 @@ namespace Yinyinpedia
                     {
                         CommandType = CommandType.StoredProcedure,
                         Connection = conn,
-                        CommandText = "cekReport"
+                        CommandText = "cek_report"
                     };
                     cmd.Parameters.Add(new OracleParameter()
                     {

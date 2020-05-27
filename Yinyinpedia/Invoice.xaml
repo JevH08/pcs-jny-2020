@@ -8,7 +8,6 @@
         mc:Ignorable="d"
         Title="Invoice" Height="830" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" Loaded="Window_Loaded">
     <Grid>
-
         <Border BorderThickness="1" Margin="20,30,20,30" BorderBrush="#FFDDDBDB" Background="#FFFCD1D1"/>
         <StackPanel Margin="30,50,30,50">
             <Label Content="Purchase Report" HorizontalAlignment="Center" FontSize="20" Margin="0 0 0 10"/>
@@ -16,15 +15,6 @@
             <Button x:Name="Done" Content="Back" Click="Back_Click" HorizontalAlignment="Right" Height="30" Width="80" Margin="0 10 20 10" Background="#FFFF7777" BorderBrush="#FFF1CECE"/>
             <Border BorderBrush="DimGray" BorderThickness="1"/>
             <StackPanel Margin="10 10 10 0">
-                <StackPanel Margin="0 10 0 10" Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Label Content="-" Margin="10 0 10 0"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="Example :" FontSize="10" Foreground="SlateGray" Margin="190 0 0 0"/>
-                    <Label Content="2018" FontSize="10" Foreground="SlateGray" Margin="10 0 0 0"/>
-                    <Label Content="-" FontSize="10" Foreground="SlateGray" Margin="70 0 0 0"/>
-                    <Label Content="2020" FontSize="10" Foreground="SlateGray" Margin="20 0 0 0"/>
-                </StackPanel>
                 <Viewer:CrystalReportsViewer x:Name="invoice" Height="500" Margin="0 0 0 0"/>
             </StackPanel>
         </StackPanel>

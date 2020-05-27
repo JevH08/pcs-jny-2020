@@ -169,7 +169,7 @@ end;
 /
 
 
-create or replace procedure cek_report( temp varchar2)
+create or replace procedure cek_report( temp in varchar2)
 is
 hitung number;
 begin

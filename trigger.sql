@@ -100,7 +100,7 @@ begin
 	:new.status := 2;
 	:new.rating := 0;
 	:new.jumlah_pembeli := 0;
-	:new.totalrating := '5';
+	:new.totalrating := '0';
 end;
 /
 

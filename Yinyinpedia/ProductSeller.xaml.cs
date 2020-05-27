@@ -88,16 +88,21 @@ namespace Yinyinpedia
                 }
 
                 kodeProduk.Clear();
-                query = "select * from mh_produk order by nama_produk";
+                query = "select * from ( " + "select a.*, rownum rnum from ( " +
+                    "select p.kode_produk as kodeproduk, p.nama_produk " +
+                    "from mh_produk p, mh_kategori k " +
+                    "where p.fk_kategori = k.kode_kategori and p.status < 3 and fk_penjual = '" + kode + "' " +
+                    "order by p.nama_produk ) a " +
+                    "where rownum <= " + max.ToString() + ") " +
+                    "where rnum > " + min.ToString();
                 cmd = new OracleCommand(query, conn);
                 using (OracleDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        kodeProduk.Add(reader.GetString(0));
+                        kodeProduk.Add(reader["kodeproduk"].ToString());
                     }
                 }
-
                 query = "select count(kode_produk) from mh_produk where fk_penjual = '" + kode + "' and status < 3";
                 cmd = new OracleCommand(query, conn);
                 produk.Text = cmd.ExecuteScalar().ToString();

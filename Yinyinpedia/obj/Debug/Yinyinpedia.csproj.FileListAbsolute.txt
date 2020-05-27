@@ -499,3 +499,5 @@ K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia
 K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\userBanned.g.cs
 K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\Invoice.baml
 K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\userBanned.baml
+C:\Users\Yin Yin\Downloads\Proyek PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\Invoice.g.cs
+C:\Users\Yin Yin\Downloads\Proyek PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\Invoice.baml
