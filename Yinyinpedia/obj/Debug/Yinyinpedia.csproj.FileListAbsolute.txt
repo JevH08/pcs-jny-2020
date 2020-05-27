@@ -495,3 +495,7 @@ C:\Users\Microsoft\Desktop\PROYEK PCS\New folder\pcs-jny-2020\Yinyinpedia\obj\De
 C:\Users\Microsoft\Desktop\PROYEK PCS\New folder\pcs-jny-2020\Yinyinpedia\obj\Debug\Yinyinpedia.pdb
 C:\Users\Microsoft\Desktop\PROYEK PCS\New folder\pcs-jny-2020\Yinyinpedia\obj\Debug\Invoice.g.cs
 C:\Users\Microsoft\Desktop\PROYEK PCS\New folder\pcs-jny-2020\Yinyinpedia\obj\Debug\Invoice.baml
+K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\Invoice.g.cs
+K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\userBanned.g.cs
+K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\Invoice.baml
+K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\userBanned.baml
