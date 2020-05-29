@@ -122,7 +122,7 @@ namespace Yinyinpedia {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_CrystalSubReportPenjualanSellerrpt_getTanggalStart {
+        public CrystalDecisions.Shared.IParameterField Parameter_userName {
             get {
                 return this.DataDefinition.ParameterFields[2];
             }
@@ -130,9 +130,17 @@ namespace Yinyinpedia {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_CrystalSubReportPenjualanSellerrpt_getTanggalEnd {
+        public CrystalDecisions.Shared.IParameterField Parameter_CrystalSubReportPenjualanSellerrpt_getTanggalStart {
             get {
                 return this.DataDefinition.ParameterFields[3];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_CrystalSubReportPenjualanSellerrpt_getTanggalEnd {
+            get {
+                return this.DataDefinition.ParameterFields[4];
             }
         }
     }

@@ -16,14 +16,14 @@ namespace Yinyinpedia {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class CrystalBuyerSubReport : ReportClass {
+    public class CrystalUnverifiedProduct : ReportClass {
         
-        public CrystalBuyerSubReport() {
+        public CrystalUnverifiedProduct() {
         }
         
         public override string ResourceName {
             get {
-                return "CrystalBuyerSubReport.rpt";
+                return "CrystalUnverifiedProduct.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Yinyinpedia {
         
         public override string FullResourceName {
             get {
-                return "Yinyinpedia.CrystalBuyerSubReport.rpt";
+                return "Yinyinpedia.CrystalUnverifiedProduct.rpt";
             }
             set {
                 // Do nothing
@@ -106,25 +106,17 @@ namespace Yinyinpedia {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_startTime {
+        public CrystalDecisions.Shared.IParameterField Parameter_getKategori {
             get {
                 return this.DataDefinition.ParameterFields[0];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_endTime {
-            get {
-                return this.DataDefinition.ParameterFields[1];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCrystalBuyerSubReport : Component, ICachedReport {
+    public class CachedCrystalUnverifiedProduct : Component, ICachedReport {
         
-        public CachedCrystalBuyerSubReport() {
+        public CachedCrystalUnverifiedProduct() {
         }
         
         [Browsable(false)]
@@ -161,7 +153,7 @@ namespace Yinyinpedia {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            CrystalBuyerSubReport rpt = new CrystalBuyerSubReport();
+            CrystalUnverifiedProduct rpt = new CrystalUnverifiedProduct();
             rpt.Site = this.Site;
             return rpt;
         }

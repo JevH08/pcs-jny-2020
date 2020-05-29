@@ -49,6 +49,7 @@ namespace Yinyinpedia
                 rptSubBuyer.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
                 rptMainBuyer.SetParameterValue("startTime", startingTime);
                 rptMainBuyer.SetParameterValue("endTime", endTime);
+                rptMainBuyer.SetParameterValue("userName", username);
                 rptSubBuyer.SetParameterValue("startTime", startingTime);
                 rptSubBuyer.SetParameterValue("endTime", endTime);
                 viewerCR.ViewerCore.ReportSource = rptMainBuyer;

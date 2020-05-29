@@ -55,9 +55,9 @@ fk_dilapor  varchar2(20)  references mh_user(kode_user),
 CREATE TABLE MH_DISTRIBUTOR (
 	 kode_distributor  varchar2(20) CONSTRAINTS PK_MH_DISTRIBUTOR  PRIMARY KEY,
    nama_distributor  varchar2(200)  ,
-   harga_per_kilo  number  ,
+   harga_per_kilo  number,
    batas_harga number,
-   diskon  number  ,
+   diskon  number,
    status  number  
 );
 

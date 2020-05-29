@@ -159,6 +159,12 @@
       <DependentUpon>CrystalTransaksiPenjual.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CrystalUnverifiedProduct.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalUnverifiedProduct.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DeliveryServices.xaml.cs">
       <DependentUpon>DeliveryServices.xaml</DependentUpon>
     </Compile>
@@ -456,6 +462,10 @@
     <EmbeddedResource Include="CrystalTransaksiPenjual.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalTransaksiPenjual.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalUnverifiedProduct.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalUnverifiedProduct.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

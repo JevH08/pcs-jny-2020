@@ -50,6 +50,7 @@ namespace Yinyinpedia
                     rptPenjSeller.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
                     rptPenjSeller.SetParameterValue("getTanggalStart", paramStartYear);
                     rptPenjSeller.SetParameterValue("getTanggalEnd", paramEndYear);
+                    rptPenjSeller.SetParameterValue("userName", username);
                     rptSubPenjSeller.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
                     rptSubPenjSeller.SetParameterValue("getTanggalStart", paramStartYear);
                     rptSubPenjSeller.SetParameterValue("getTanggalEnd", paramEndYear);

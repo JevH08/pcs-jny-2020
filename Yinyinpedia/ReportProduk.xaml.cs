@@ -93,20 +93,23 @@ namespace Yinyinpedia
 
         private void Generate_Click(object sender, RoutedEventArgs e)
         {
-            CrystalProduk rptProduk = new CrystalProduk();
-            CrystalProductRatingMain rptProdukMain = new CrystalProductRatingMain();
-            rptProduk.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
-            rptProdukMain.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
             if ((bool) bestSelling.IsChecked)
             {
+                CrystalProduk rptProduk = new CrystalProduk();
+                CrystalProductRatingMain rptProdukMain = new CrystalProductRatingMain();
+                rptProduk.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
+                rptProdukMain.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
                 rptProduk.SetParameterValue("parameterKategoriProduk", category.Text);
                 rptProdukMain.SetParameterValue("namaKategori", category.Text);
+                viewerCR.ViewerCore.ReportSource = rptProdukMain;
             }
             else if ((bool)unverified.IsChecked)
             {
-
+                CrystalUnverifiedProduct rptUnverif = new CrystalUnverifiedProduct();
+                rptUnverif.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
+                rptUnverif.SetParameterValue("getKategori", category.Text);
+                viewerCR.ViewerCore.ReportSource = rptUnverif;
             }
-            viewerCR.ViewerCore.ReportSource = rptProduk;
         }
     }
 }
