@@ -44,14 +44,10 @@ namespace Yinyinpedia
                 DateTime startingTime = new DateTime(Convert.ToInt32(startDate[2]), Convert.ToInt32(startDate[1]), Convert.ToInt32(startDate[0]));
                 DateTime endTime = new DateTime(Convert.ToInt32(endDate[2]), Convert.ToInt32(endDate[1]), Convert.ToInt32(endDate[0]));
                 CrystalBuyerMainReport rptMainBuyer = new CrystalBuyerMainReport();
-                CrystalBuyerSubReport rptSubBuyer = new CrystalBuyerSubReport();
                 rptMainBuyer.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
-                rptSubBuyer.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
                 rptMainBuyer.SetParameterValue("startTime", startingTime);
                 rptMainBuyer.SetParameterValue("endTime", endTime);
                 rptMainBuyer.SetParameterValue("userName", username);
-                rptSubBuyer.SetParameterValue("startTime", startingTime);
-                rptSubBuyer.SetParameterValue("endTime", endTime);
                 viewerCR.ViewerCore.ReportSource = rptMainBuyer;
             }
             else
