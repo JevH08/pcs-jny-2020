@@ -46,14 +46,10 @@ namespace Yinyinpedia
                     DateTime paramStartYear = new DateTime(startYear, 1, 1);
                     DateTime paramEndYear = new DateTime(endYear, 12, 31);
                     CrystalPenjualanSeller rptPenjSeller = new CrystalPenjualanSeller();
-                    CrystalSubReportPenjualanSeller rptSubPenjSeller = new CrystalSubReportPenjualanSeller();
                     rptPenjSeller.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
                     rptPenjSeller.SetParameterValue("getTanggalStart", paramStartYear);
                     rptPenjSeller.SetParameterValue("getTanggalEnd", paramEndYear);
                     rptPenjSeller.SetParameterValue("userName", username);
-                    rptSubPenjSeller.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
-                    rptSubPenjSeller.SetParameterValue("getTanggalStart", paramStartYear);
-                    rptSubPenjSeller.SetParameterValue("getTanggalEnd", paramEndYear);
                     viewerCR.ViewerCore.ReportSource = rptPenjSeller;
                 }
                 catch (Exception)
