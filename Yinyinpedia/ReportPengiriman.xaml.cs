@@ -115,7 +115,6 @@ namespace Yinyinpedia
                 rptPengiriman.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
                 rptSubPengiriman.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
                 rptPengiriman.SetParameterValue("monthName", month.SelectedValue);
-                rptSubPengiriman.SetParameterValue("getMonth", bulanRaw);
                 viewerCR.ViewerCore.ReportSource = rptPengiriman;
             }
             else
