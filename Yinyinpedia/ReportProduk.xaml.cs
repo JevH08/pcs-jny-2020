@@ -95,11 +95,8 @@ namespace Yinyinpedia
         {
             if ((bool) bestSelling.IsChecked)
             {
-                CrystalProduk rptProduk = new CrystalProduk();
                 CrystalProductRatingMain rptProdukMain = new CrystalProductRatingMain();
-                rptProduk.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
                 rptProdukMain.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
-                rptProduk.SetParameterValue("parameterKategoriProduk", category.Text);
                 rptProdukMain.SetParameterValue("namaKategori", category.Text);
                 viewerCR.ViewerCore.ReportSource = rptProdukMain;
             }
