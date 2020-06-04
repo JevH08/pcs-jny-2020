@@ -154,5 +154,10 @@ namespace Yinyinpedia
             loadData();
             reset();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

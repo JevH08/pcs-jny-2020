@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Yinyinpedia"
         mc:Ignorable="d"
-        Title="AddCategory" Height="530" Width="550" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Title="AddCategory" Height="530" Width="550" WindowStartupLocation="CenterScreen" WindowStyle="None" Loaded="Window_Loaded">
     <Grid>
         <Border BorderThickness="1" Margin="20 30 20 30" BorderBrush="#FFDDDBDB" Background="#FFFCD1D1"/>
         <StackPanel Margin="30 50 30 25">
