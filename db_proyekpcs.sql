@@ -177,12 +177,12 @@ insert into mh_distributor values ('DI_008','SEND', 450, 400,5,0);
 
 insert into mh_produk values ('PR_20200604_001', 'Iphone X', 'Iphone X merk Apple hitam', 'KA_003','US20200426_004',3,5000000,650,0,'#iphone #electronic #apple',0,10,2,'5');
 insert into mh_produk values ('PR_20200604_002', 'Iphone5', 'Iphone5 merk Apple putih / hitam', 'KA_003','US20200426_004',4,2500000,550,0,'#iphone #electronic #apple',0,9,2,'4.5');
-insert into mh_produk values ('PR_20200604_003', 'piring cantik', 'piring cantik dari Italia', 'KA_002','US20200426_007',2,500000,350,0,'#cantik #Italia #piring',1,8,2,'4');
-insert into mh_produk values ('PR_20200604_004', 'jam tangan anak', 'jam tangan anak - anak lucu banyak model', 'KA_008','US20200426_007',3,250000,150,0,'#jam #kid #lucu',1,15,3,'5');
+insert into mh_produk values ('PR_20200604_003', 'piring cantik', 'piring cantik dari Italia', 'KA_002','US20200426_007',2,500000,350,0,'#cantik #Italia #piring',0,8,2,'4');
+insert into mh_produk values ('PR_20200604_004', 'jam tangan anak', 'jam tangan anak - anak lucu banyak model', 'KA_008','US20200426_007',3,250000,150,0,'#jam #kid #lucu',0,15,3,'5');
 insert into mh_produk values ('PR_20200604_005', 'Tas Billabong', 'Tas untuk jalan ke mal kece', 'KA_008','US20200426_007',5,3000000,250,0,'#tas #kece #billabong',0,7,2,'3.5');
 insert into mh_produk values ('PR_20200604_006', 'Topi', 'Topi merk billabong warna putih', 'KA_008','US20200426_004',3,350000,350,0,'#cap #billabong #putih',0,20,5,'4');
-insert into mh_produk values ('PR_20200604_007', 'UNO STACK', 'UNO STACKO', 'KA_004','US20200426_008',2,50000,70,0,'#games #uno #stacko',1,32,8,'4');
-insert into mh_produk values ('PR_20200604_008', 'Baju sabrina', 'baju wanita model sabrina tersedia 3 warna', 'KA_005','US20200426_008',25,175000,50,0,'#girl #sabrina #baju',1,24,6,'4');
+insert into mh_produk values ('PR_20200604_007', 'UNO STACK', 'UNO STACKO', 'KA_004','US20200426_008',2,50000,70,0,'#games #uno #stacko',0,32,8,'4');
+insert into mh_produk values ('PR_20200604_008', 'Baju sabrina', 'baju wanita model sabrina tersedia 3 warna', 'KA_005','US20200426_008',25,175000,50,0,'#girl #sabrina #baju',0,24,6,'4');
 
 insert into history_emoney values ('HI_20200607_0001', 'US20200426_004',2000000,0, to_date('05-06-2020','DD-MM-YYYY'),'');
 insert into history_emoney values ('HI_20200607_0002', 'US20200426_005',2500000,2, to_date('05-06-2020','DD-MM-YYYY'),'');
