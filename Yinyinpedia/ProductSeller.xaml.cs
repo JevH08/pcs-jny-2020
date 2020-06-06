@@ -89,10 +89,10 @@ namespace Yinyinpedia
 
                 kodeProduk.Clear();
                 query = "select * from ( " + "select a.*, rownum rnum from ( " +
-                    "select p.kode_produk as kodeproduk, p.nama_produk " +
+                    "select initcap(p.nama_produk) as NAME, p.desc_barang as DESCRIPTION, k.nama_kategori as CATEGORY, p.harga as PRICE, p.stok as STOCK, p.berat as WEIGHT, (case when p.kondisi = 0 then 'New' else 'Used' end) as CONDITION, p.tag as TAG, p.totalrating as RATING, (case when p.status = 0 then 'Verified' when p.status = 1 then 'Rejected' else 'Process' end) as STATUS, p.kode_produk as kodeproduk " +
                     "from mh_produk p, mh_kategori k " +
                     "where p.fk_kategori = k.kode_kategori and p.status < 3 and fk_penjual = '" + kode + "' " +
-                    "order by p.nama_produk ) a " +
+                    "order by 1 ) a " +
                     "where rownum <= " + max.ToString() + ") " +
                     "where rnum > " + min.ToString();
                 cmd = new OracleCommand(query, conn);
@@ -129,6 +129,8 @@ namespace Yinyinpedia
             tag.Text = "";
             mode = 0;
             submit.Content = "Create";
+            category.IsEnabled = true;
+            weight.IsEnabled = true;
         }
 
         private void processData()

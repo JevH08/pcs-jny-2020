@@ -146,6 +146,7 @@ insert into mh_user values ('US20200426_006','NIKKI','nikki','nikki','nikki@gmai
 insert into mh_user values ('US20200426_007','PENJUAL1','penjual1','penjual1','penjual1@gmail.com','Jln. Perak No. 2', 'Surabaya','(+62)9316521753','P',to_date('3-2-1995','DD-MM-YYYY'),0,'122315135',2,1,0);
 insert into mh_user values ('US20200426_008','PENJUAL2','penjual2','penjual2','penjual2@gmail.com','Jln. Jendral Sudirman No. 5', 'Semarang','(+62)4806521753','P',to_date('23-5-1998','DD-MM-YYYY'),0,'152518135',2,1,0);
 insert into mh_user values ('US20200426_009','PEMBELI1','pembeli1','pembeli1','pembeli1@gmail.com','Jln. Tugu Pahlawan No. 12','Yogyakarta','(+62)7836232155','L',to_date('12-11-1990','DD-MM-YYYY'),400000,'124515434',3,1,0);
+insert into mh_user values ('US20200426_010','PEMBELI2','pembeli2','pembeli2','pembeli2@gmail.com','Jln. Bandung No. 24','Solo','(+62)4336672136','P',to_date('10-10-1990','DD-MM-YYYY'),500000,'235117254',3,1,0);
 
 insert into mh_kategori values('KA_001', 'Art', 0);
 insert into mh_kategori values('KA_002', 'Glass', 0);
@@ -236,20 +237,36 @@ insert into dtrans values ('HJ20200605010_002','HJ20200605010','PR_20200604_007'
 insert into dtrans values ('HJ20200605010_003','HJ20200605010','PR_20200604_005',1,3000000,3000000,2,0,0,0);
 insert into dtrans values ('HJ20200605010_004','HJ20200605010','PR_20200604_001',1,5000000,5000000,2,0,0,0);
 
-insert into th_chat values ('HC_001','US20200426_005','US20200426_004');
-insert into th_chat values ('HC_002','US20200426_005','US20200426_009');
-insert into th_chat values ('HC_003','US20200426_008','US20200426_004');
-insert into th_chat values ('HC_004','US20200426_008','US20200426_009');
-insert into th_chat values ('HC_005','US20200426_005','US20200426_006');
+insert into th_chat values ('HC20200606001','US20200426_005','US20200426_004');
+insert into th_chat values ('HC20200606002','US20200426_005','US20200426_007');
+insert into th_chat values ('HC20200606003','US20200426_005','US20200426_008');
+insert into th_chat values ('HC20200606004','US20200426_006','US20200426_004');
+insert into th_chat values ('HC20200606005','US20200426_006','US20200426_007');
+insert into th_chat values ('HC20200606006','US20200426_006','US20200426_008');
+insert into th_chat values ('HC20200606007','US20200426_009','US20200426_004');
+insert into th_chat values ('HC20200606008','US20200426_009','US20200426_007');
+insert into th_chat values ('HC20200606009','US20200426_009','US20200426_008');
+insert into th_chat values ('HC20200606010','US20200426_010','US20200426_008');
 
-insert into td_chat values ('DC_001', 'HC_001','2','Hai Barang ready ?', to_date('05-06-2020','DD-MM-YYYY'), 0, 0);
-insert into td_chat values ('DC_002', 'HC_001','1','Hai, Barang apa ya ?', to_date('05-06-2020','DD-MM-YYYY'), 0, 0);
-insert into td_chat values ('DC_003', 'HC_002','2','Halo gan ?', to_date('05-06-2020','DD-MM-YYYY'), 0, 0);
-insert into td_chat values ('DC_004', 'HC_002','1','Hai, bisa saya bantu ?', to_date('05-06-2020','DD-MM-YYYY'), 0, 0);
-insert into td_chat values ('DC_005', 'HC_003','2','Hai, boleh discount ?', to_date('05-06-2020','DD-MM-YYYY'), 0, 0);
-insert into td_chat values ('DC_006', 'HC_003','1','Hai, harga sudah net kak ?', to_date('05-06-2020','DD-MM-YYYY'), 0, 0);
-insert into td_chat values ('DC_007', 'HC_004','2','Hai !', to_date('05-06-2020','DD-MM-YYYY'), 0, 0);
-insert into td_chat values ('DC_008', 'HC_004','1','Hai kak ! Apa yang bisa dibantu ?', to_date('05-06-2020','DD-MM-YYYY'), 0, 0);
-insert into td_chat values ('DC_009', 'HC_005','2','Halo gan, barang ready kah ?', to_date('05-06-2020','DD-MM-YYYY'), 0, 0);
+insert into td_chat values ('DC20200606001', 'HC20200606001','2','Hai Barang ready ?', to_date('05-06-2020','DD-MM-YYYY'), 0, 0);
+insert into td_chat values ('DC20200606002', 'HC20200606001','1','Hai, Barang apa ya ?', to_date('05-06-2020','DD-MM-YYYY'), 0, 0);
+insert into td_chat values ('DC20200606003', 'HC20200606002','2','Halo gan ?', to_date('05-06-2020','DD-MM-YYYY'), 0, 0);
+insert into td_chat values ('DC20200606004', 'HC20200606002','1','Hai, bisa saya bantu ?', to_date('05-06-2020','DD-MM-YYYY'), 0, 0);
+insert into td_chat values ('DC20200606005', 'HC20200606003','2','Hai, boleh discount ?', to_date('05-06-2020','DD-MM-YYYY'), 0, 0);
+insert into td_chat values ('DC20200606006', 'HC20200606003','1','Hai, harga sudah net kak ?', to_date('05-06-2020','DD-MM-YYYY'), 0, 0);
+insert into td_chat values ('DC20200606007', 'HC20200606004','2','Hai !', to_date('05-06-2020','DD-MM-YYYY'), 0, 0);
+insert into td_chat values ('DC20200606008', 'HC20200606004','1','Hai kak ! Apa yang bisa dibantu ?', to_date('05-06-2020','DD-MM-YYYY'), 0, 0);
+insert into td_chat values ('DC20200606009', 'HC20200606005','2','Halo gan, barang ready kah ?', to_date('05-06-2020','DD-MM-YYYY'), 0, 0);
+insert into td_chat values ('DC20200606010', 'HC20200606005','1','Halo kak, barangnya apa ya ?', to_date('05-06-2020','DD-MM-YYYY'), 0, 0);
+insert into td_chat values ('DC20200606011', 'HC20200606006','2','Hai Barang ready ?', to_date('05-06-2020','DD-MM-YYYY'), 0, 0);
+insert into td_chat values ('DC20200606012', 'HC20200606006','1','Hai, Barang apa ya ?', to_date('05-06-2020','DD-MM-YYYY'), 0, 0);
+insert into td_chat values ('DC20200606013', 'HC20200606007','2','Halo gan ?', to_date('05-06-2020','DD-MM-YYYY'), 0, 0);
+insert into td_chat values ('DC20200606014', 'HC20200606007','1','Hai, bisa saya bantu ?', to_date('05-06-2020','DD-MM-YYYY'), 0, 0);
+insert into td_chat values ('DC20200606015', 'HC20200606008','2','Hai, boleh discount ?', to_date('05-06-2020','DD-MM-YYYY'), 0, 0);
+insert into td_chat values ('DC20200606016', 'HC20200606008','1','Hai, harga sudah net kak ?', to_date('05-06-2020','DD-MM-YYYY'), 0, 0);
+insert into td_chat values ('DC20200606017', 'HC20200606009','2','Hai !', to_date('05-06-2020','DD-MM-YYYY'), 0, 0);
+insert into td_chat values ('DC20200606018', 'HC20200606009','1','Hai kak ! Apa yang bisa dibantu ?', to_date('05-06-2020','DD-MM-YYYY'), 0, 0);
+insert into td_chat values ('DC20200606019', 'HC20200606010','2','Halo gan, barang ready kah ?', to_date('05-06-2020','DD-MM-YYYY'), 0, 0);
+insert into td_chat values ('DC20200606020', 'HC20200606010','1','Halo kak, barangnya apa ya ?', to_date('05-06-2020','DD-MM-YYYY'), 0, 0);
 
 purge recyclebin;
