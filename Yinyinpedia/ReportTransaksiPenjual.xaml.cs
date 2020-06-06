@@ -21,7 +21,6 @@ namespace Yinyinpedia
     public partial class ReportTransaksiPenjual : Window
     {
         string username;
-        DateTime startDate;
 
         private class Kategori
         {
@@ -108,11 +107,18 @@ namespace Yinyinpedia
 
         private void Generate_Click(object sender, RoutedEventArgs e)
         {
-            startDate = new DateTime(2000, Convert.ToInt32(month.SelectedValue.ToString()), 1);
-            CrystalTransaksiPenjual rptTransPenjual = new CrystalTransaksiPenjual();
-            rptTransPenjual.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
-            rptTransPenjual.SetParameterValue("getMonth", startDate);
-            viewerCR.ViewerCore.ReportSource = rptTransPenjual;
+            if (month.SelectedIndex != -1)
+            {
+                DateTime bulanRaw = new DateTime(2000, Convert.ToInt32(month.SelectedValue.ToString()), 1);
+                CrystalTransaksiPenjual rptTransPenjual = new CrystalTransaksiPenjual();
+                rptTransPenjual.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
+                rptTransPenjual.SetParameterValue("getMonth", bulanRaw);
+                viewerCR.ViewerCore.ReportSource = rptTransPenjual;
+            }
+            else
+            {
+                MessageBox.Show("Please Specify Which Month to Show");
+            }
         }
     }
 }
