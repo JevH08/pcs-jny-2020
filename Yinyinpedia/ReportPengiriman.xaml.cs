@@ -107,19 +107,23 @@ namespace Yinyinpedia
 
         private void Generate_Click(object sender, RoutedEventArgs e)
         {
-            if (month.SelectedIndex != -1)
+            try
             {
-                DateTime bulanRaw = new DateTime(2000, Convert.ToInt32(month.SelectedValue.ToString()), 1);
-                CrystalPengiriman rptPengiriman = new CrystalPengiriman();
-                CrystalSubReportPengiriman rptSubPengiriman = new CrystalSubReportPengiriman();
-                rptPengiriman.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
-                rptSubPengiriman.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
-                rptPengiriman.SetParameterValue("monthName", month.SelectedValue);
-                viewerCR.ViewerCore.ReportSource = rptPengiriman;
+                if (month.SelectedIndex != -1)
+                {
+                    DateTime bulanRaw = new DateTime(2000, month.SelectedIndex + 1, 1);
+                    CrystalPengiriman rptPengiriman = new CrystalPengiriman();
+                    rptPengiriman.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
+                    rptPengiriman.SetParameterValue("monthName", bulanRaw);
+                    viewerCR.ViewerCore.ReportSource = rptPengiriman;
+                }
+                else
+                {
+                    MessageBox.Show("Please Specify Which Month to Show");
+                }
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show("Please Specify Which Month to Show");
             }
         }
     }
