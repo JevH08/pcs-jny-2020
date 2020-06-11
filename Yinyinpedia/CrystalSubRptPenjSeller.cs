@@ -16,14 +16,14 @@ namespace Yinyinpedia {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class CrystalSubReportPenjualanSeller : ReportClass {
+    public class CrystalSubRptPenjSeller : ReportClass {
         
-        public CrystalSubReportPenjualanSeller() {
+        public CrystalSubRptPenjSeller() {
         }
         
         public override string ResourceName {
             get {
-                return "CrystalSubReportPenjualanSeller.rpt";
+                return "CrystalSubRptPenjSeller.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Yinyinpedia {
         
         public override string FullResourceName {
             get {
-                return "Yinyinpedia.CrystalSubReportPenjualanSeller.rpt";
+                return "Yinyinpedia.CrystalSubRptPenjSeller.rpt";
             }
             set {
                 // Do nothing
@@ -106,9 +106,9 @@ namespace Yinyinpedia {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCrystalSubReportPenjualanSeller : Component, ICachedReport {
+    public class CachedCrystalSubRptPenjSeller : Component, ICachedReport {
         
-        public CachedCrystalSubReportPenjualanSeller() {
+        public CachedCrystalSubRptPenjSeller() {
         }
         
         [Browsable(false)]
@@ -145,7 +145,7 @@ namespace Yinyinpedia {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            CrystalSubReportPenjualanSeller rpt = new CrystalSubReportPenjualanSeller();
+            CrystalSubRptPenjSeller rpt = new CrystalSubRptPenjSeller();
             rpt.Site = this.Site;
             return rpt;
         }

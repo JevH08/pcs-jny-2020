@@ -141,16 +141,16 @@
       <DependentUpon>CrystalSubReportPengiriman.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CrystalSubReportPenjualanSeller.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalSubReportPenjualanSeller.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="CrystalSubReportTransaksiPenjual.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CrystalSubReportTransaksiPenjual.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalSubRptPenjSeller.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalSubRptPenjSeller.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CrystalTransaksiPenjual.cs">
@@ -451,13 +451,13 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalSubReportPengiriman.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="CrystalSubReportPenjualanSeller.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalSubReportPenjualanSeller.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="CrystalSubReportTransaksiPenjual.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalSubReportTransaksiPenjual.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalSubRptPenjSeller.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalSubRptPenjSeller.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalTransaksiPenjual.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

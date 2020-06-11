@@ -122,7 +122,7 @@ namespace Yinyinpedia {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_userName {
+        public CrystalDecisions.Shared.IParameterField Parameter_kode {
             get {
                 return this.DataDefinition.ParameterFields[2];
             }
