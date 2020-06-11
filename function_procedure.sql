@@ -178,7 +178,7 @@ begin
 		select kode_user from mh_user
 	) loop
 		select count(fk_dilapor) into hitung from mh_report where fk_dilapor = i.kode_user;
-		if (hitung > 15) then
+		if (hitung > 5) then
 			dbms_output.put_line('Masuk');
 			update mh_user set aktif = 1 where kode_user = i.kode_user;
 		end if;

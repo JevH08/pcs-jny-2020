@@ -145,7 +145,7 @@ insert into mh_user values ('US20200426_005','PEMBELI','pembeli','pembeli','pemb
 insert into mh_user values ('US20200426_006','NIKKI','nikki','nikki','nikki@gmail.com','Jln. Melati No.1 ','Semarang','(+62)3836222545','P',to_date('10-10-1997','DD-MM-YYYY'),2800000,'128365454',3,1,0);
 insert into mh_user values ('US20200426_007','PENJUAL1','penjual1','penjual1','penjual1@gmail.com','Jln. Perak No. 2', 'Surabaya','(+62)9316521753','P',to_date('3-2-1995','DD-MM-YYYY'),0,'122315135',2,1,0);
 insert into mh_user values ('US20200426_008','PENJUAL2','penjual2','penjual2','penjual2@gmail.com','Jln. Jendral Sudirman No. 5', 'Semarang','(+62)4806521753','P',to_date('23-5-1998','DD-MM-YYYY'),0,'152518135',2,1,0);
-insert into mh_user values ('US20200426_009','PEMBELI1','pembeli1','pembeli1','pembeli1@gmail.com','Jln. Tugu Pahlawan No. 12','Yogyakarta','(+62)7836232155','L',to_date('12-11-1990','DD-MM-YYYY'),400000,'124515434',3,1,0);
+insert into mh_user values ('US20200426_009','PEMBELI1','pembeli1','pembeli1','pembeli1@gmail.com','Jln. Tugu Pahlawan No. 12','Yogyakarta','(+62)7836232155','L',to_date('12-11-1990','DD-MM-YYYY'),400000,'124515434',3,1,1);
 insert into mh_user values ('US20200426_010','PEMBELI2','pembeli2','pembeli2','pembeli2@gmail.com','Jln. Bandung No. 24','Solo','(+62)4336672136','P',to_date('10-10-1990','DD-MM-YYYY'),500000,'235117254',3,1,0);
 
 insert into mh_kategori values('KA_001', 'Art', 0);
@@ -183,6 +183,9 @@ insert into mh_produk values ('PR_20200604_005', 'Tas Billabong', 'Tas untuk jal
 insert into mh_produk values ('PR_20200604_006', 'Topi', 'Topi merk billabong warna putih', 'KA_008','US20200426_004',3,350000,350,0,'#cap #billabong #putih',0,20,5,'4');
 insert into mh_produk values ('PR_20200604_007', 'UNO STACK', 'UNO STACKO', 'KA_004','US20200426_008',2,50000,70,0,'#games #uno #stacko',0,32,8,'4');
 insert into mh_produk values ('PR_20200604_008', 'Baju sabrina', 'baju wanita model sabrina tersedia 3 warna', 'KA_005','US20200426_008',25,175000,50,0,'#girl #sabrina #baju',0,24,6,'4');
+insert into mh_produk values ('PR_20200604_009', 'Iphone X Sabu X', 'Iphone X merk Apple hitam', 'KA_003','US20200426_004',3,5000000,650,0,'#iphone #electronic #apple',1,10,2,'5');
+insert into mh_produk values ('PR_20200604_010', 'Iphone Ganja 5', 'Iphone5 merk Apple putih / hitam', 'KA_003','US20200426_004',4,2500000,550,0,'#iphone #electronic #apple',1,9,2,'4.5');
+insert into mh_produk values ('PR_20200604_011', 'piring Morfin Heroin cantik', 'piring cantik dari Italia', 'KA_002','US20200426_007',2,500000,350,0,'#cantik #Italia #piring',1,8,2,'4');
 
 insert into history_emoney values ('HI_20200607_0001', 'US20200426_004',2000000,0, to_date('05-06-2020','DD-MM-YYYY'),'');
 insert into history_emoney values ('HI_20200607_0002', 'US20200426_005',2500000,2, to_date('05-06-2020','DD-MM-YYYY'),'');
@@ -201,6 +204,9 @@ insert into mh_report values ('RE_005','US20200426_006','US20200426_007','barang
 insert into mh_report values ('RE_006','US20200426_005','US20200426_007','penipuan tidak sesuai deskripsi');
 insert into mh_report values ('RE_007','US20200426_004','US20200426_005','melakukan pemesanan tapi tidak di acc');
 insert into mh_report values ('RE_008','US20200426_006','US20200426_004','respon lambat');
+insert into mh_report values ('RE_009','US20200426_004','US20200426_009','berbicara kotor');
+insert into mh_report values ('RE_010','US20200426_008','US20200426_009','merendahkan orang');
+insert into mh_report values ('RE_011','US20200426_007','US20200426_009','berbicara kasar');
 
 insert into htrans values ('HJ20200605001',to_date('05-06-2020','DD-MM-YYYY'),0,0,0,0,0,'US20200426_009','DI_001','HALO','BALI','081245126384','Jl. Kedinding no 12',3 );
 insert into htrans values ('HJ20200605002',to_date('05-06-2020','DD-MM-YYYY'),120,300000,72000,0,372000,'US20200426_009','DI_001','HALO','BALI','081245126384','Jl. Kedinding no 12',0 );
@@ -211,7 +217,7 @@ insert into htrans values ('HJ20200605006',to_date('05-06-2020','DD-MM-YYYY'),12
 insert into htrans values ('HJ20200605007',to_date('05-06-2020','DD-MM-YYYY'),120,300000,72000,0,372000,'US20200426_006','DI_001','HALO','BALI','081245126384','Jl. Kedinding no 12',2 );
 insert into htrans values ('HJ20200605008',to_date('05-06-2020','DD-MM-YYYY'),120,300000,72000,0,372000,'US20200426_005','DI_001','HALO','BALI','081245126384','Jl. Kedinding no 12',2 );
 insert into htrans values ('HJ20200605009',to_date('05-06-2020','DD-MM-YYYY'),120,300000,72000,0,372000,'US20200426_005','DI_001','HALO','BALI','081245126384','Jl. Kedinding no 12',2 );
-insert into htrans values ('HJ20200605010',to_date('05-06-2020','DD-MM-YYYY'),0,0,0,0,0,'US20200426_005','DI_001','HALO','BALI','081245126384','Jl. Kedinding no 12',3 );
+insert into htrans values ('HJ20200605010',to_date('05-06-2020','DD-MM-YYYY'),0,0,0,0,0,'US20200426_005','DI_001','HALO','BALI','081245126384','Jl. Kedinding no 12',2 );
 
 insert into dtrans values ('HJ20200605001_001','HJ20200605001','PR_20200604_008',1,175000,175000,2,0,0,0);
 insert into dtrans values ('HJ20200605001_002','HJ20200605001','PR_20200604_007',1,50000,50000,2,0,0,0);
@@ -232,10 +238,10 @@ insert into dtrans values ('HJ20200605008_001','HJ20200605008','PR_20200604_008'
 insert into dtrans values ('HJ20200605008_002','HJ20200605008','PR_20200604_007',1,50000,50000,1,0,0,5);
 insert into dtrans values ('HJ20200605009_001','HJ20200605009','PR_20200604_008',1,175000,175000,1,0,0,3);
 insert into dtrans values ('HJ20200605009_002','HJ20200605009','PR_20200604_007',1,50000,50000,1,0,0,5);
-insert into dtrans values ('HJ20200605010_001','HJ20200605010','PR_20200604_008',1,175000,175000,2,0,0,0);
-insert into dtrans values ('HJ20200605010_002','HJ20200605010','PR_20200604_007',1,50000,50000,2,0,0,0);
-insert into dtrans values ('HJ20200605010_003','HJ20200605010','PR_20200604_005',1,3000000,3000000,2,0,0,0);
-insert into dtrans values ('HJ20200605010_004','HJ20200605010','PR_20200604_001',1,5000000,5000000,2,0,0,0);
+insert into dtrans values ('HJ20200605010_001','HJ20200605010','PR_20200604_008',1,175000,175000,1,0,0,0);
+insert into dtrans values ('HJ20200605010_002','HJ20200605010','PR_20200604_007',1,50000,50000,1,0,0,0);
+insert into dtrans values ('HJ20200605010_003','HJ20200605010','PR_20200604_005',1,3000000,3000000,1,0,0,0);
+insert into dtrans values ('HJ20200605010_004','HJ20200605010','PR_20200604_001',1,5000000,5000000,1,0,0,0);
 
 insert into th_chat values ('HC20200606001','US20200426_005','US20200426_004');
 insert into th_chat values ('HC20200606002','US20200426_005','US20200426_007');

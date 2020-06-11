@@ -104,7 +104,6 @@ namespace Yinyinpedia
             {
                 CrystalUnverifiedProduct rptUnverif = new CrystalUnverifiedProduct();
                 rptUnverif.SetDatabaseLogon("proyekpcs", "proyekpcs", "orcl", "");
-                rptUnverif.SetParameterValue("getKategori", category.Text);
                 viewerCR.ViewerCore.ReportSource = rptUnverif;
             }
         }
