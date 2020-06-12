@@ -101,7 +101,7 @@ begin
 	cek := 0;
 	select status into cek2 from mh_produk where kode_produk = kode;
 	for i in (
-		select nama_embargo from mh_embargo where lower(nama_embargo) like '%' || lower(nama) || '%'
+		select nama_embargo from mh_embargo where lower(nama_embargo) = lower(nama)
 	) loop
 		cek := 1;
 		dbms_output.put_line(i.nama_embargo);
