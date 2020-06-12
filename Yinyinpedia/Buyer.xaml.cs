@@ -73,7 +73,7 @@ namespace Yinyinpedia
 
         private void Profile_Click(object sender, RoutedEventArgs e)
         {
-            ProfileSeller prof = new ProfileSeller(username, kode);
+            profileBuyer prof = new profileBuyer(username, kode);
             prof.Show();
             this.Close();
         }

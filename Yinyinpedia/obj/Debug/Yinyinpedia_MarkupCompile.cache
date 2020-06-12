@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\obj\Debug\
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\obj\Debug\
 Yinyinpedia
 none
 false
 DEBUG;TRACE
-K:\Semester 4\Client Server Programming\Project\Program\pcs-jny-2020\Yinyinpedia\App.xaml
+C:\Users\Yin Yin\Downloads\Project PCS\pcs-jny-2020\Yinyinpedia\App.xaml
 362143506925
 
 53363827581
-241786644206
+24-843325612
 AddCategory.xaml;addEmbargo.xaml;AddSeller.xaml;Admin.xaml;Buyer.xaml;cartBuyer.xaml;ChangePassword.xaml;chatBuyer.xaml;chatSeller.xaml;DeliveryServices.xaml;historyBalanceBuyer.xaml;historyBalanceSeller.xaml;InsertUsername.xaml;Invoice.xaml;MainWindow.xaml;NewOrder.xaml;NewPassword.xaml;productBuyer.xaml;ProductSeller.xaml;ProductVerification.xaml;profileBuyer.xaml;ProfileSeller.xaml;RegisterUser.xaml;reportBuyer.xaml;ReportPengiriman.xaml;ReportProduk.xaml;reportSeller.xaml;ReportTransaksiPenjual.xaml;repotingBuyer.xaml;SelectReport.xaml;Seller.xaml;shippingBuyer.xaml;shippingConfirmation.xaml;shippingSeller.xaml;TopUp.xaml;userBanned.xaml;
 
 False
