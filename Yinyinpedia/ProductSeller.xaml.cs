@@ -129,6 +129,7 @@ namespace Yinyinpedia
             tag.Text = "";
             mode = 0;
             submit.Content = "Create";
+            name.IsEnabled = true;
             category.IsEnabled = true;
             weight.IsEnabled = true;
         }
